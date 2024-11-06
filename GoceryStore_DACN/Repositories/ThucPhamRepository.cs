@@ -1,6 +1,8 @@
-﻿namespace GoceryStore_DACN.Repositories
+﻿using GoceryStore_DACN.Repositories.Interface;
+
+namespace GoceryStore_DACN.Repositories
 {
-    public class ThucPhamRepository
+    public class ThucPhamRepository : IThucPhamRepository
     {
     }
 }
