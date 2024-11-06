@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoceryStore_DACN.Controllers
@@ -7,5 +7,10 @@ namespace GoceryStore_DACN.Controllers
     [ApiController]
     public class LoaiThucPhamController : ControllerBase
     {
+        [HttpGet]
+       public async Task<IActionResult> GetLoaiSanPham()
+        {
+            return Ok("ok");
+        }
     }
 }
