@@ -1,4 +1,4 @@
-﻿using GoceryStore_DACN.Repositories.Interface;
+﻿using GroceryStore_DACN.Repositories.Interface;
 
 namespace GoceryStore_DACN.Repositories
 {

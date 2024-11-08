@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace GroceryStore_DACN.Repositories.Interface
 {
-    public interface IThucPhamRepository
+    public interface ILoaiThucPhamRepository
     {
         // Định nghĩa các phương thức của interface tại đây
     }

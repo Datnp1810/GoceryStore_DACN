@@ -1,8 +1,9 @@
-﻿using GoceryStore_DACN.Services.Interface;
+﻿
+using GroceryStore_DACN.Repositories.Interface;
 
 namespace GoceryStore_DACN.Services
 {
-    public class LoaiThucPhamService : ILoaiThucPhamService
+    public class LoaiThucPhamService : ILoaiThucPhamServices
     {
         //CRUD
     }
