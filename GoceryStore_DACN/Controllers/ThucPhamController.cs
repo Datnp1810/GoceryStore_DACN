@@ -1,31 +1,31 @@
-﻿
-using GoceryStore_DACN.DTOs;
+﻿using GoceryStore_DACN.DTOs;
 using GroceryStore_DACN.Repositories.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GoceryStore_DACN.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoaiThucPhamController : ControllerBase
+    public class ThucPhamController : ControllerBase
     {
-        private readonly ILoaiThucPhamServices _loaiThucPhamService;
+        private readonly IThucPhamServices _thucPhamService;
 
-        public LoaiThucPhamController(ILoaiThucPhamServices services)
+        public ThucPhamController(IThucPhamServices services)
         {
-            _loaiThucPhamService = services;
+            _thucPhamService = services;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCDA()
+        public async Task<IActionResult> GetAllThucPham()
         {
             try
             {
-                var getAll = await _loaiThucPhamService.GetAllLoaiThucPham();
+                var getAll = await _thucPhamService.GetAllThucPham();
                 return Ok(new
                 {
                     status = true,
-                    message = "Lấy Loại Thực Phẩm thành công",
+                    message = "Lấy Thực Phẩm thành công",
                     results = getAll
                 });
             }
@@ -40,24 +40,24 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetLoaiThucPhamById(int id)
+        public async Task<IActionResult> GetThucPhamById(int id)
         {
             try
             {
-                var ltp = await _loaiThucPhamService.GetAllLoaiThucPhamById(id);
-                if (ltp == null)
+                var cda = await _thucPhamService.GetAllThucPhamById(id);
+                if (cda == null)
                 {
                     return NotFound(new
                     {
                         status = true,
-                        message = "Không tìm thấy Loại Thực Phẩm"
+                        message = "Không tìm thấy Thực Phẩm"
                     });
                 }
                 return Ok(new
                 {
                     status = true,
-                    message = "Lấy Loại Thực Phẩm thành công",
-                    result = ltp
+                    message = "Lấy Thực Phẩm thành công",
+                    result = cda
                 });
             }
             catch (Exception ex)
@@ -71,11 +71,11 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<LoaiThucPhamDTO>> CreateLTP([FromForm] LoaiThucPhamDTO loaiThucPhamDTO)
+        public async Task<ActionResult<ThucPhamDTO>> CreateThucPham([FromForm] ThucPhamDTO thucPhamDTO)
         {
             try
             {
-                if (string.IsNullOrEmpty(loaiThucPhamDTO.TenLoaiThucPham))
+                if (string.IsNullOrEmpty(thucPhamDTO.TenThucPham))
                 {
                     return BadRequest(new
                     {
@@ -84,20 +84,20 @@ namespace GoceryStore_DACN.Controllers
                     });
                 }
 
-                var addltp = await _loaiThucPhamService.CreateLoaiThucPham(loaiThucPhamDTO);
-                if (addltp == null)
+                var addThucPham = await _thucPhamService.CreateThucPham(thucPhamDTO);
+                if (addThucPham == null)
                 {
                     return BadRequest(new
                     {
                         status = true,
-                        message = "Do not create Loại Thực Phẩm"
+                        message = "Do not create Thực Phẩm"
                     });
                 }
                 return Ok(new
                 {
                     status = true,
-                    message = "Created manufacture successfully",
-                    result = addltp
+                    message = "Created Thực Phẩm successfully",
+                    result = addThucPham
                 });
             }
             catch (Exception ex)
@@ -112,42 +112,42 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateLTP(int id, [FromBody] LoaiThucPhamDTO loaiThucPhamDTO)
+        public async Task<IActionResult> UpdateThucPham(int id, [FromBody] ThucPhamDTO thucPhamDTO)
         {
-            var ltp = await _loaiThucPhamService.UpdateLoaiThucPham(id, loaiThucPhamDTO);
-            if (ltp == null)
+            var thucPham = await _thucPhamService.UpdateThucPham(id, thucPhamDTO);
+            if (thucPham == null)
             {
                 return NotFound(new
                 {
                     status = 200,
-                    message = "Không Có chế độ ăn",
+                    message = "Không Có Thực Phẩm",
                 });
             }
             return Ok(new
             {
                 status = 200,
                 message = "Cập nhật sản phẩm thành công",
-                result = ltp
+                result = thucPham
             });
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteLTP(int id)
+        public async Task<IActionResult> DeleteThucPham(int id)
         {
-            var delete = await _loaiThucPhamService.DeleteLoaiThucPham(id);
+            var delete = await _thucPhamService.DeleteThucPham(id);
             if (delete == false)
             {
                 return NotFound(new
                 {
                     status = 404,
-                    message = "Loại Thực Phẩm không tồn tại"
+                    message = "Thực Phẩm không tồn tại"
                 });
             }
 
             return Ok(new
             {
                 status = 200,
-                message = "Xóa Loại Thực Phẩm thành công"
+                message = "Xóa Thực Phẩm Ăn thành công"
             });
         }
     }

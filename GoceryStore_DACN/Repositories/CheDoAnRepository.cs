@@ -4,42 +4,54 @@ using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
 using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using System.Net.WebSockets;
 
 namespace GoceryStore_DACN.Repositories
 {
     public class CheDoAnRepository : ICheDoAnRepository
     {
         private readonly ApplicationDbContext _context;
-        private readonly IMapper _mapper;
 
-        public CheDoAnRepository(ApplicationDbContext context, IMapper mapper)
+        public CheDoAnRepository(ApplicationDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
-        public Task<CheDoAn> CreateCheDoAn(CheDoAnDTO cheDoAn)
+        public async Task<CheDoAn> CreateCheDoAn(CheDoAn cheDoAn)
         {
-            throw new NotImplementedException();
+            //Map chế độ ăn về Entity
+            await _context.CheDoAns.AddAsync(cheDoAn);
+            await _context.SaveChangesAsync();
+            return cheDoAn;
+            
         }
 
-        public Task<bool> DeleteCheDoAn(int id)
+        public async Task<bool> DeleteCheDoAn(int id)
         {
-            throw new NotImplementedException();
+            var cheDoAn = await _context.CheDoAns!.FindAsync(id);
+            if (cheDoAn != null)
+            {
+                _context.CheDoAns.Remove(cheDoAn);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
         }
 
-        public Task<IEnumerable<CheDoAn>> GetAllCheDoAn()
+        public async Task<IEnumerable<CheDoAn>> GetAllCheDoAn()
         {
-            throw new NotImplementedException();
+            return await _context.CheDoAns!.ToListAsync();
         }
 
-        public Task<CheDoAn> GetAllCheDoAnById(int id)
+        public async Task<CheDoAn> GetAllCheDoAnById(int id)
         {
-            throw new NotImplementedException();
+            return await _context.CheDoAns!.FindAsync(id);
         }
 
-        public Task<CheDoAn> UpdateCheDoAn(int id, CheDoAnDTO cheDoAn)
+        public async Task<CheDoAn> UpdateCheDoAn(CheDoAn cheDoAn)
         {
-            throw new NotImplementedException();
-        }
+            _context.CheDoAns.Update(cheDoAn);
+            await _context.SaveChangesAsync();
+            return cheDoAn;
+        }   
     }
 }

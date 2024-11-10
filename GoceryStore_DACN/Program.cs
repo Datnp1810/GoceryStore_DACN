@@ -1,4 +1,8 @@
-using GoceryStore_DACN.Data;
+﻿using GoceryStore_DACN.Data;
+using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Repositories;
+using GoceryStore_DACN.Services.Interface;
+using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -59,7 +63,16 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+builder.Services.AddAutoMapper(typeof(Program));
 
+// Đăng ký các lớp Repository
+builder.Services.AddScoped<ICheDoAnRepository, CheDoAnRepository>();
+// Thêm các lớp Repository khác tương tự
+
+// Đăng ký các lớp Service
+builder.Services.AddScoped<ICheDoAnServices, CheDoAnService>();
+
+//Không ???c v??t gi?i h?n qua hàm này
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
