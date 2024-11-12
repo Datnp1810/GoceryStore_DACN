@@ -84,6 +84,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));   
 //Register EmailSettings 
 builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+//Register CloudinarySettings
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 // Register Repository
 builder.Services.AddScoped<ICheDoAnRepository, CheDoAnRepository>();
 //Register Service
@@ -97,7 +99,13 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>(); 
 builder.Services.AddScoped<IEmailTemplateService, EmailTemplateService>();
-
+builder.Services.AddScoped<IUploadService, UploadService>(); 
+var cloudinaryAccount = new CloudinaryDotNet.Account(
+    builder.Configuration["CloudinarySettings:CloudName"],
+    builder.Configuration["CloudinarySettings:ApiKey"],
+    builder.Configuration["CloudinarySettings:ApiSecret"]);
+var cloudinary = new CloudinaryDotNet.Cloudinary(cloudinaryAccount);
+builder.Services.AddSingleton(cloudinary);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
