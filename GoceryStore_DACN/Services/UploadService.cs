@@ -67,9 +67,34 @@ namespace GoceryStore_DACN.Services
             }
         }
 
-        public Task<DeletionResult> DeleteAsync(string publicId)
+        public async Task<DeletionResult> DeleteAsync(string publicId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var deletionParams = new DeletionParams(publicId);
+                var result = await _cloudinary.DestroyAsync(deletionParams);
+                if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return new DeletionResult
+                    {
+                        Success = true
+                    };
+                }
+                return new DeletionResult
+                {
+                    Success = false,
+                    Error = result.Error.Message
+                };
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return new DeletionResult
+                {
+                    Success = false,
+                    Error = e.Message
+                };
+            }
         }
     }
 }

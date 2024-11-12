@@ -42,5 +42,34 @@ namespace GoceryStore_DACN.Controllers
                 }); 
             }
         }
+        [HttpDelete("delete-image")]
+        public async Task<IActionResult> DeleteAsync([FromQuery] string publicId)
+        {
+            try
+            {
+                var result = await _uploadService.DeleteAsync(publicId);
+                if (result.Success)
+                {
+                    return Ok(new
+                    {
+                        status = true,
+                        message = "Delete successfully"
+                    });
+                }
+                return BadRequest(new
+                {
+                    status = false,
+                    error = result.Error
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    error = e.Message
+                });
+            }
+        }
     }
 }
