@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GoceryStore_DACN.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDB : Migration
+    public partial class DbInit : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,7 +33,6 @@ namespace GoceryStore_DACN.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -281,12 +280,19 @@ namespace GoceryStore_DACN.Migrations
                     TongTien = table.Column<double>(type: "float", nullable: false),
                     NoiNhan = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GhiChu = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ID_TT = table.Column<int>(type: "int", nullable: false),
                     ID_HinhThuc = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HoaDons", x => x.MAHD);
+                    table.ForeignKey(
+                        name: "FK_HoaDons_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_HoaDons_HinhThucThanhToans_ID_HinhThuc",
                         column: x => x.ID_HinhThuc,
@@ -470,6 +476,11 @@ namespace GoceryStore_DACN.Migrations
                 column: "ID_TT");
 
             migrationBuilder.CreateIndex(
+                name: "IX_HoaDons_UserId",
+                table: "HoaDons",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MonAns_ID_LoaiMonAn",
                 table: "MonAns",
                 column: "ID_LoaiMonAn");
@@ -511,9 +522,6 @@ namespace GoceryStore_DACN.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "CheDoAns");
 
             migrationBuilder.DropTable(
@@ -527,6 +535,9 @@ namespace GoceryStore_DACN.Migrations
 
             migrationBuilder.DropTable(
                 name: "LoaiMonAns");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "HinhThucThanhToans");

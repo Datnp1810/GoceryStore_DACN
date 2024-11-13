@@ -5,6 +5,7 @@ namespace GoceryStore_DACN.Entities
 {
     public class ThucPham
     {
+
         [Key]
         public int ID_ThucPham { get; set; }
 
@@ -16,7 +17,7 @@ namespace GoceryStore_DACN.Entities
         public int? SoLuong { get; set; }
         public double GiaBan { get; set; }
         public string Image { get; set; }
-        public string TrangThai { get; set; }
+        public string TrangThai { get; set; } = "Còn Hàng";
 
         // Quan hệ một-một với ThanhPhanDinhDuong
         public virtual ThanhPhanDinhDuong ThanhPhanDinhDuong { get; set; }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoceryStore_DACN.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241110195319_RemoveDoB")]
-    partial class RemoveDoB
+    [Migration("20241113152550_DbInit")]
+    partial class DbInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -206,11 +206,17 @@ namespace GoceryStore_DACN.Migrations
                     b.Property<double>("TongTien")
                         .HasColumnType("float");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("MAHD");
 
                     b.HasIndex("ID_HinhThuc");
 
                     b.HasIndex("ID_TT");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("HoaDons");
                 });
@@ -606,6 +612,14 @@ namespace GoceryStore_DACN.Migrations
                         .HasForeignKey("ID_TT")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("GoceryStore_DACN.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("HinhThucThanhToan");
 
