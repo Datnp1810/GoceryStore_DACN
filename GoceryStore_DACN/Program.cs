@@ -1,8 +1,11 @@
 ﻿using GoceryStore_DACN.Data;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Models;
 using GoceryStore_DACN.Repositories;
+using GoceryStore_DACN.Services;
 using GoceryStore_DACN.Services.Interface;
 using GroceryStore_DACN.Repositories.Interface;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -64,15 +67,45 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 builder.Services.AddAutoMapper(typeof(Program));
+// Register Identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+    {
+        options.Password.RequireDigit = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequiredLength = 6;
+        options.SignIn.RequireConfirmedAccount = true;
+    })
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
-// Đăng ký các lớp Repository
+//Register JWT 
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));   
+//Register EmailSettings 
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+//Register CloudinarySettings
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+// Register Repository
 builder.Services.AddScoped<ICheDoAnRepository, CheDoAnRepository>();
+//Register Service
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPasswordHasher, PasswordHasher>(); 
 // Thêm các lớp Repository khác tương tự
 
 // Đăng ký các lớp Service
 builder.Services.AddScoped<ICheDoAnServices, CheDoAnService>();
-
-//Không ???c v??t gi?i h?n qua hàm này
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IEmailService, EmailService>(); 
+builder.Services.AddScoped<IEmailTemplateService, EmailTemplateService>();
+builder.Services.AddScoped<IUploadService, UploadService>(); 
+var cloudinaryAccount = new CloudinaryDotNet.Account(
+    builder.Configuration["CloudinarySettings:CloudName"],
+    builder.Configuration["CloudinarySettings:ApiKey"],
+    builder.Configuration["CloudinarySettings:ApiSecret"]);
+var cloudinary = new CloudinaryDotNet.Cloudinary(cloudinaryAccount);
+builder.Services.AddSingleton(cloudinary);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
