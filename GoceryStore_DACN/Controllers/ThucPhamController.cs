@@ -114,41 +114,65 @@ namespace GoceryStore_DACN.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateThucPham(int id, [FromBody] ThucPhamDTO thucPhamDTO)
         {
-            var thucPham = await _thucPhamService.UpdateThucPham(id, thucPhamDTO);
-            if (thucPham == null)
+            try
             {
-                return NotFound(new
+                var thucPham = await _thucPhamService.UpdateThucPham(id, thucPhamDTO);
+                if (thucPham == null)
+                {
+                    return NotFound(new
+                    {
+                        status = 200,
+                        message = "Không Có Thực Phẩm",
+                    });
+                }
+                return Ok(new
                 {
                     status = 200,
-                    message = "Không Có Thực Phẩm",
+                    message = "Cập nhật sản phẩm thành công",
+                    result = thucPham
                 });
             }
-            return Ok(new
+            catch(Exception ex)
             {
-                status = 200,
-                message = "Cập nhật sản phẩm thành công",
-                result = thucPham
-            });
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+            
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteThucPham(int id)
         {
-            var delete = await _thucPhamService.DeleteThucPham(id);
-            if (delete == false)
+            try
             {
-                return NotFound(new
+                var delete = await _thucPhamService.DeleteThucPham(id);
+                if (delete == false)
                 {
-                    status = 404,
-                    message = "Thực Phẩm không tồn tại"
+                    return NotFound(new
+                    {
+                        status = 404,
+                        message = "Thực Phẩm không tồn tại"
+                    });
+                }
+
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Xóa Thực Phẩm Ăn thành công"
                 });
             }
-
-            return Ok(new
+            catch (Exception ex)
             {
-                status = 200,
-                message = "Xóa Thực Phẩm Ăn thành công"
-            });
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+            
         }
     }
 }

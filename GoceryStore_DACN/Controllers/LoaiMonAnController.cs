@@ -7,13 +7,13 @@ namespace GoceryStore_DACN.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HinhThucThanhToanController : ControllerBase
+    public class LoaiMonAnController : ControllerBase
     {
-        private readonly IHinhThucThanhToanServices _hinhThucTTService;
+        private readonly ILoaiMonAnServices _loaiMonAnService;
 
-        public HinhThucThanhToanController(IHinhThucThanhToanServices services)
+        public LoaiMonAnController(ILoaiMonAnServices services)
         {
-            _hinhThucTTService = services;
+            _loaiMonAnService = services;
         }
 
         [HttpGet]
@@ -21,11 +21,11 @@ namespace GoceryStore_DACN.Controllers
         {
             try
             {
-                var getAll = await _hinhThucTTService.GetAllHinhThucThanhToan();
+                var getAll = await _loaiMonAnService.GetAllLoaiMonAn();
                 return Ok(new
                 {
                     status = true,
-                    message = "Lấy Hình Thức Thanh Toán thành công",
+                    message = "Lấy Loại Món Ăn thành công",
                     results = getAll
                 });
             }
@@ -40,23 +40,23 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetHinhThucThanhToanById(int id)
+        public async Task<IActionResult> GetLoaiMonAnById(int id)
         {
             try
             {
-                var cda = await _hinhThucTTService.GetAllHinhThucThanhToanById(id);
+                var cda = await _loaiMonAnService.GetAllLoaiMonAnById(id);
                 if (cda == null)
                 {
                     return NotFound(new
                     {
                         status = true,
-                        message = "Không tìm thấy Hình Thức Thanh Toán"
+                        message = "Không tìm thấy Loại Món Ăn"
                     });
                 }
                 return Ok(new
                 {
                     status = true,
-                    message = "Lấy Hình Thức Thanh Toán thành công",
+                    message = "Lấy Loại Món Ăn thành công",
                     result = cda
                 });
             }
@@ -71,11 +71,11 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpPost()]
-        public async Task<ActionResult<HinhThucThanhToanDTO>> CreateCDA([FromForm] HinhThucThanhToanDTO hinhThucTTDTO)
+        public async Task<ActionResult<LoaiMonAnDTO>> CreateCDA([FromForm] LoaiMonAnDTO loaiMonAnDTO)
         {
             try
             {
-                if (string.IsNullOrEmpty(hinhThucTTDTO.HTThanhToan))
+                if (string.IsNullOrEmpty(loaiMonAnDTO.TenLoaiMonAn))
                 {
                     return BadRequest(new
                     {
@@ -84,13 +84,13 @@ namespace GoceryStore_DACN.Controllers
                     });
                 }
 
-                var addCDA = await _hinhThucTTService.CreateHinhThucThanhToan(hinhThucTTDTO);
+                var addCDA = await _loaiMonAnService.CreateLoaiMonAn(loaiMonAnDTO);
                 if (addCDA == null)
                 {
                     return BadRequest(new
                     {
                         status = true,
-                        message = "Do not create Hình Thức Thanh Toán"
+                        message = "Do not create Loại Món Ăn"
                     });
                 }
                 return Ok(new
@@ -112,11 +112,11 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCDA(int id, [FromBody] HinhThucThanhToanDTO hinhThucTTDTO)
+        public async Task<IActionResult> UpdateCDA(int id, [FromBody] LoaiMonAnDTO loaiMonAnDTO)
         {
             try
             {
-                var cda = await _hinhThucTTService.UpdateHinhThucThanhToan(id, hinhThucTTDTO);
+                var cda = await _loaiMonAnService.UpdateLoaiMonAn(id, loaiMonAnDTO);
                 if (cda == null)
                 {
                     return NotFound(new
@@ -132,7 +132,7 @@ namespace GoceryStore_DACN.Controllers
                     result = cda
                 });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(new
                 {
@@ -140,7 +140,7 @@ namespace GoceryStore_DACN.Controllers
                     message = ex.Message
                 });
             }
-            
+
         }
 
         [HttpDelete("{id}")]
@@ -148,23 +148,23 @@ namespace GoceryStore_DACN.Controllers
         {
             try
             {
-                var delete = await _hinhThucTTService.DeleteHinhThucThanhToan(id);
+                var delete = await _loaiMonAnService.DeleteLoaiMonAn(id);
                 if (delete == false)
                 {
                     return NotFound(new
                     {
                         status = 404,
-                        message = "Hình Thức Thanh Toán không tồn tại"
+                        message = "Loại Món Ăn không tồn tại"
                     });
                 }
 
                 return Ok(new
                 {
                     status = 200,
-                    message = "Xóa Hình Thức Thanh Toán thành công"
+                    message = "Xóa Loại Món Ăn thành công"
                 });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(new
                 {
@@ -172,7 +172,6 @@ namespace GoceryStore_DACN.Controllers
                     message = ex.Message
                 });
             }
-           
         }
     }
 }

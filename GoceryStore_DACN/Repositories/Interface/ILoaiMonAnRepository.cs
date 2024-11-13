@@ -1,3 +1,4 @@
+using GoceryStore_DACN.Entities;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -6,6 +7,10 @@ namespace GroceryStore_DACN.Repositories.Interface
 {
     public interface ILoaiMonAnRepository
     {
-        // Định nghĩa các phương thức của interface tại đây
+        public Task<IEnumerable<LoaiMonAn>> GetAllLoaiMonAn();
+        public Task<LoaiMonAn> GetAllLoaiMonAnById(int id);
+        public Task<LoaiMonAn> CreateLoaiMonAn(LoaiMonAn loaiMonAn);
+        public Task<LoaiMonAn> UpdateLoaiMonAn(LoaiMonAn loaiMonAn);
+        public Task<bool> DeleteLoaiMonAn(int id);
     }
 }
