@@ -114,41 +114,64 @@ namespace GoceryStore_DACN.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCDA(int id, [FromBody] CheDoAnDTO cheDoAnDTO)
         {
-            var cda = await _cheDoAnService.UpdateCheDoAn(id, cheDoAnDTO);
-            if (cda == null)
+            try
             {
-                return NotFound(new
+                var cda = await _cheDoAnService.UpdateCheDoAn(id, cheDoAnDTO);
+                if (cda == null)
+                {
+                    return NotFound(new
+                    {
+                        status = 200,
+                        message = "Không Có chế độ ăn",
+                    });
+                }
+                return Ok(new
                 {
                     status = 200,
-                    message = "Không Có chế độ ăn",
+                    message = "Cập nhật sản phẩm thành công",
+                    result = cda
                 });
             }
-            return Ok(new
+            catch(Exception ex)
             {
-                status = 200,
-                message = "Cập nhật sản phẩm thành công",
-                result = cda
-            });
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+            
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSanPham(int id)
         {
-            var delete = await _cheDoAnService.DeleteCheDoAn(id);
-            if (delete == false)
+            try
             {
-                return NotFound(new
+                var delete = await _cheDoAnService.DeleteCheDoAn(id);
+                if (delete == false)
                 {
-                    status = 404,
-                    message = "Chế Độ Ăn không tồn tại"
+                    return NotFound(new
+                    {
+                        status = 404,
+                        message = "Chế Độ Ăn không tồn tại"
+                    });
+                }
+
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Xóa Chế Độ Ăn thành công"
                 });
             }
-
-            return Ok(new
+            catch (Exception ex)
             {
-                status = 200,
-                message = "Xóa Chế Độ Ăn thành công"
-            });
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
         }
 
     }

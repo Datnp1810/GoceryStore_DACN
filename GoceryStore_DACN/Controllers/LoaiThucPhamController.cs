@@ -114,41 +114,65 @@ namespace GoceryStore_DACN.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateLTP(int id, [FromBody] LoaiThucPhamDTO loaiThucPhamDTO)
         {
-            var ltp = await _loaiThucPhamService.UpdateLoaiThucPham(id, loaiThucPhamDTO);
-            if (ltp == null)
+            try
             {
-                return NotFound(new
+                var ltp = await _loaiThucPhamService.UpdateLoaiThucPham(id, loaiThucPhamDTO);
+                if (ltp == null)
+                {
+                    return NotFound(new
+                    {
+                        status = 200,
+                        message = "Không Có chế độ ăn",
+                    });
+                }
+                return Ok(new
                 {
                     status = 200,
-                    message = "Không Có chế độ ăn",
+                    message = "Cập nhật sản phẩm thành công",
+                    result = ltp
                 });
             }
-            return Ok(new
+            catch(Exception ex)
             {
-                status = 200,
-                message = "Cập nhật sản phẩm thành công",
-                result = ltp
-            });
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+            
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLTP(int id)
         {
-            var delete = await _loaiThucPhamService.DeleteLoaiThucPham(id);
-            if (delete == false)
+            try
             {
-                return NotFound(new
+                var delete = await _loaiThucPhamService.DeleteLoaiThucPham(id);
+                if (delete == false)
                 {
-                    status = 404,
-                    message = "Loại Thực Phẩm không tồn tại"
+                    return NotFound(new
+                    {
+                        status = 404,
+                        message = "Loại Thực Phẩm không tồn tại"
+                    });
+                }
+
+                return Ok(new
+                {
+                    status = 200,
+                    message = "Xóa Loại Thực Phẩm thành công"
                 });
             }
-
-            return Ok(new
+            catch (Exception ex)
             {
-                status = 200,
-                message = "Xóa Loại Thực Phẩm thành công"
-            });
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+            
         }
     }
 }
