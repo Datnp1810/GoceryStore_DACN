@@ -5,12 +5,14 @@ namespace GoceryStore_DACN.DTOs
     public class ThucPhamDTO
     {
         [Required]
-        public string TenThucPham { get; set; }
+        public string TenThucPham { get; set; } = string.Empty;
+        [Required]
         public int ID_LoaiThucPham { get; set; }
-        public string DVT { get; set; }
-        public int? SoLuong { get; set; }
-        public double GiaBan { get; set; }
-        public string Image { get; set; }
-        public string TrangThai { get; set; }
+        [Required]
+        public string DVT { get; set; } = string.Empty;
+        public int SoLuong { get; set; } = 0;
+        public double GiaBan { get; set; } = 0;
+        public IFormFile ImageFile { get; set; } = null;
+        public string TrangThai { get; set; } = string.Empty; 
     }
 }

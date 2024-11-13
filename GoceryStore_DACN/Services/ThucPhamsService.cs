@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Services.Interface;
 using GroceryStore_DACN.Repositories.Interface;
 
 namespace GoceryStore_DACN.Services
@@ -9,16 +10,19 @@ namespace GoceryStore_DACN.Services
     {
         private readonly IThucPhamRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IUploadService _uploadService;
 
-        public ThucPhamsService(IThucPhamRepository repository, IMapper mapper)
+        public ThucPhamsService(IThucPhamRepository repository, IMapper mapper, IUploadService uploadService)
         {
             _repository = repository;
             _mapper = mapper;
+            _uploadService = uploadService;
         }
         public async Task<ThucPham> CreateThucPham(ThucPhamDTO thucPhamDTO)
         {
             var mapThucPham = _mapper.Map<ThucPham>(thucPhamDTO);
-
+            var linkAnh =  _uploadService.UploadAsync(thucPhamDTO.ImageFile).Result.SecureUrl;
+            mapThucPham.Image = linkAnh ?? ""; 
             var addThucPham = await _repository.CreateThucPham(mapThucPham);
             return addThucPham;
         }
