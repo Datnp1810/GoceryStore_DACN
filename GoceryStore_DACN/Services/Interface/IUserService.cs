@@ -6,8 +6,8 @@ namespace GoceryStore_DACN.Services.Interface
 {
     public interface IUserService
     {
-        public Task<LoginResult> Login(LoginRequest loginRequest);
-        public Task<RegistrationResult> Register(RegisterRequest registerRequest);
+        public Task<LoginResult> LoginAsync(LoginRequest loginRequest);
+        public Task<RegistrationResult> RegisterAsync(RegisterRequest registerRequest);
         public Task<EmailConfirmationResult> ConfirmEmailAsync(string userId, string token);
         public Task<ServiceResult> ForgotPasswordAsync(string email);
         public Task<ServiceResult> ResetPasswordAsync(ResetPasswordRequest request);

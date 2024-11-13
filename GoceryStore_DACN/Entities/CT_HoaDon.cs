@@ -13,5 +13,8 @@ namespace GoceryStore_DACN.Entities
 
         public ThucPham ThucPham { get; set; }
         public HoaDon HoaDon { get; set; }
+  
+        
+
     }
 }

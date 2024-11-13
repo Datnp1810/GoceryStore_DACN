@@ -35,19 +35,18 @@ namespace GoceryStore_DACN.Services
 
         public async Task<IEnumerable<ThucPham>> GetAllThucPham()
         {
-            var thucPhams = await _repository.GetAllThucPham();
-            return thucPhams.ToList();
+           var listThucPham = await _repository.GetAllThucPham();
+            return listThucPham;
         }
 
         public async Task<ThucPham> GetAllThucPhamById(int id)
         {
-            var thucPham = await _repository.GetAllThucPhamById(id);
-            return thucPham;
+            return await _repository.GetThucPhamById(id);
         }
 
         public async Task<ThucPham> UpdateThucPham(int id, ThucPhamDTO thucPhamDTO)
         {
-            var timThucPham = await _repository.GetAllThucPhamById(id);
+            var timThucPham = await _repository.GetThucPhamById(id);
             if (timThucPham != null)
             {
                 _mapper.Map(thucPhamDTO, timThucPham);

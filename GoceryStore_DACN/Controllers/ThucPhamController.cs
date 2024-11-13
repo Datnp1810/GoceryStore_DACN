@@ -25,7 +25,7 @@ namespace GoceryStore_DACN.Controllers
                 return Ok(new
                 {
                     status = true,
-                    message = "Lấy Thực Phẩm thành công",
+                    message = "Lấy tất cả thực phẩm thành công",
                     results = getAll
                 });
             }
@@ -34,7 +34,7 @@ namespace GoceryStore_DACN.Controllers
                 return BadRequest(new
                 {
                     status = false,
-                    message = ex.Message
+                    error = ex.Message
                 });
             }
         }

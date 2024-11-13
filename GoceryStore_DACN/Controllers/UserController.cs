@@ -33,7 +33,7 @@ namespace GoceryStore_DACN.Controllers
                         message = "Invalid request"
                     });
                 }
-                var result = await _userService.Login(loginRequest);
+                var result = await _userService.LoginAsync(loginRequest);
                 if (result == null)
                 {
                     return BadRequest(result); 
@@ -62,7 +62,7 @@ namespace GoceryStore_DACN.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                var result = await _userService.Register(registerRequest);
+                var result = await _userService.RegisterAsync(registerRequest);
                 if (!result.Succeeded)
                 {
                     return BadRequest(new { error = result.Error });

@@ -40,12 +40,12 @@ namespace GoceryStore_DACN.Repositories
 
         public async Task<IEnumerable<ThucPham>> GetAllThucPham()
         {
-            return await _context.ThucPhams!.Include(l=>l.ID_LoaiThucPham).ToListAsync();
+            return await _context.ThucPhams.Include(tp => tp.LoaiThucPham).ToListAsync();
         }
 
-        public async Task<ThucPham> GetAllThucPhamById(int id)
+        public async Task<ThucPham> GetThucPhamById(int id)
         {
-            return await _context.ThucPhams!.Include(l=>l.ID_LoaiThucPham).FirstOrDefaultAsync(tp => tp.ID_ThucPham == id);
+            return await _context.ThucPhams.Include(x => x.LoaiThucPham).FirstOrDefaultAsync(x => x.ID_ThucPham == id);
         }
 
         public async Task<ThucPham> UpdateThucPham(ThucPham thucPham)

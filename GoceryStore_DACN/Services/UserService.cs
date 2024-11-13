@@ -3,13 +3,16 @@ using System.Security.Claims;
 using System.Text;
 using Azure.Core;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Helpers;
 using GoceryStore_DACN.Models;
 using GoceryStore_DACN.Models.Requests;
 using GoceryStore_DACN.Models.Respones;
 using GoceryStore_DACN.Services.Interface;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace GoceryStore_DACN.Services
 {
@@ -20,27 +23,30 @@ namespace GoceryStore_DACN.Services
         private readonly ITokenService _tokenService;
         private readonly IEmailTemplateService _emailTemplateService; 
         private readonly IConfiguration _configuration;
+        private readonly RoleManager<IdentityRole> _roleManager;
         public UserService(UserManager<ApplicationUser> userManager, 
             IPasswordHasher passwordHasher, 
             ITokenService tokenService, 
-            IEmailTemplateService emailTemplateService, IConfiguration configuration)
+            IEmailTemplateService emailTemplateService, IConfiguration configuration, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _passwordHasher = passwordHasher;
             _tokenService = tokenService;
             _emailTemplateService = emailTemplateService;
             _configuration = configuration;
+            _roleManager = roleManager;
         }
-        public async Task<LoginResult> Login(LoginRequest loginRequest)
+        public async Task<LoginResult> LoginAsync(LoginRequest loginRequest)
         {
             var user = await _userManager.FindByEmailAsync(loginRequest.Email);
             if (user == null)
             {
                 return new LoginResult
                 {
-                   Status = "Error",
-                   Token = null,
-                   RefreshToken = null
+                    Status = "Error",
+                    Message = "User not found",
+                    Token = "",
+                    RefreshToken = ""
                 };
             }
 
@@ -50,17 +56,34 @@ namespace GoceryStore_DACN.Services
                 return new LoginResult
                 {
                     Status = "Error",
-                    Token = null,
-                    RefreshToken = null
+                    Message = "Invalid password",
+                    Token = "",
+                    RefreshToken = ""
                 };
             }
+            //get user roles 
+            var userRoles = await _userManager.GetRolesAsync(user);
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email ?? string.Empty),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName ?? string.Empty),
+                new Claim(JwtRegisteredClaimNames.PhoneNumber, user.PhoneNumber ?? string.Empty),
                 // Add other claims as needed
             };
+            //add role claims
+            foreach (var role in userRoles)
+            {
+                claims.Add(new Claim("role", role));
+                // Get role claims
+                var roleClaims = await _roleManager.GetClaimsAsync(new IdentityRole(role));
+                foreach (var roleClaim in roleClaims)
+                {
+                    claims.Add(roleClaim);
+                }
+            }
 
             var token = _tokenService.GenerateAccessToken(claims);
             var refreshToken = _tokenService.GenerateRefreshToken();
@@ -72,7 +95,7 @@ namespace GoceryStore_DACN.Services
             };
         }
 
-        public async Task<RegistrationResult> Register(RegisterRequest registerRequest)
+        public async Task<RegistrationResult> RegisterAsync(RegisterRequest registerRequest)
         {
             try
             {
@@ -120,6 +143,8 @@ namespace GoceryStore_DACN.Services
                
                 if (result.Succeeded)
                 {
+                    //Add user to default role 
+                    await _userManager.AddToRoleAsync(user, ApplicationRoles.User ?? "User");
                     var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var confirmationLink = BuildConfirmationLink(user.Id, token);
                     Console.WriteLine(confirmationLink);
@@ -135,8 +160,11 @@ namespace GoceryStore_DACN.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                return new RegistrationResult
+                {
+                    Succeeded = false,
+                    Error = e.Message
+                };
             }
     
         }

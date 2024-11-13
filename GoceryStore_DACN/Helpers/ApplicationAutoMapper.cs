@@ -11,7 +11,7 @@ namespace GoceryStore_DACN.Helpers
             CreateMap<CheDoAn, CheDoAnDTO>().ReverseMap();
             CreateMap<CT_HoaDon, CT_HoaDonDTO>().ReverseMap();
             CreateMap<HinhThucThanhToan, HinhThucThanhToanDTO>().ReverseMap();
-            CreateMap<HoaDon, HoaDonDTO>().ReverseMap();
+            CreateMap<HoaDon, CreateInvoiceDto>().ReverseMap();
             CreateMap<LoaiMonAn, LoaiMonAnDTO>().ReverseMap();
             CreateMap<LoaiThucPham, LoaiThucPhamDTO>().ReverseMap();
             CreateMap<MonAn, MonAnDTO>().ReverseMap();

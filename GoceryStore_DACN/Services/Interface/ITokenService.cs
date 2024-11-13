@@ -6,5 +6,6 @@ namespace GoceryStore_DACN.Services.Interface
     {
         public string GenerateAccessToken(IEnumerable<Claim> claims);
         public string GenerateRefreshToken();
+        ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
     }
 }

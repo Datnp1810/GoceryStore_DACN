@@ -13,6 +13,10 @@ namespace GoceryStore_DACN.Entities
         public string NoiNhan { get; set; }
         public string GhiChu { get; set; }
 
+
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+
         //Quan hệ 1-n với tình trạng, là cha
         [ForeignKey("TinhTrang")] public int ID_TT { get; set; }
         public virtual TinhTrang? TinhTrang { get; set; }
@@ -23,6 +27,7 @@ namespace GoceryStore_DACN.Entities
 
         // Quan hệ một-nhiều với CT_HoaDon
         public ICollection<CT_HoaDon>? CTHoaDons { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public HoaDon()
         {
