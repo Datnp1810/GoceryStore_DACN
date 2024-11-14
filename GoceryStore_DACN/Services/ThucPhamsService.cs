@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Models.Respones;
 using GoceryStore_DACN.Services.Interface;
 using GroceryStore_DACN.Repositories.Interface;
 
@@ -37,10 +38,11 @@ namespace GoceryStore_DACN.Services
             return true;
         }
 
-        public async Task<IEnumerable<ThucPham>> GetAllThucPham()
+        public async Task<List<ThucPhamResponse>> GetAllThucPham()
         {
-           var listThucPham = await _repository.GetAllThucPham();
-            return listThucPham;
+            var thucPhams =  await _repository.GetAllThucPham();
+            return thucPhams;
+
         }
 
         public async Task<ThucPham> GetAllThucPhamById(int id)

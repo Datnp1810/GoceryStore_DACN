@@ -1,4 +1,5 @@
-﻿using GoceryStore_DACN.DTOs;
+﻿using AutoMapper;
+using GoceryStore_DACN.DTOs;
 using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,10 +11,12 @@ namespace GoceryStore_DACN.Controllers
     public class ThucPhamController : ControllerBase
     {
         private readonly IThucPhamServices _thucPhamService;
+        private readonly IMapper _mapper; 
 
-        public ThucPhamController(IThucPhamServices services)
+        public ThucPhamController(IThucPhamServices services, IMapper mapper)
         {
             _thucPhamService = services;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -22,11 +25,13 @@ namespace GoceryStore_DACN.Controllers
             try
             {
                 var getAll = await _thucPhamService.GetAllThucPham();
+                getAll.ForEach(e =>
+                {
+                    Console.WriteLine(e);
+                });
                 return Ok(new
                 {
-                    status = true,
-                    message = "Lấy tất cả thực phẩm thành công",
-                    results = getAll
+                    results = getAll,
                 });
             }
             catch (Exception ex)

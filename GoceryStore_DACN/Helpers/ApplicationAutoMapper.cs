@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Models.Respones;
 
 namespace GoceryStore_DACN.Helpers
 {
@@ -18,6 +19,7 @@ namespace GoceryStore_DACN.Helpers
             CreateMap<ThanhPhanDinhDuong, ThanhPhanDinhDuongDTO>().ReverseMap();
             CreateMap<ThucPham, ThucPhamDTO>().ReverseMap();
             CreateMap<TinhTrang, TinhTrangDTO>().ReverseMap();
+            CreateMap<ThucPham, ThucPhamResponse>().ReverseMap();
         }
     }
 }
