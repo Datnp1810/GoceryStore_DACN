@@ -93,15 +93,15 @@ builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("Emai
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 // RegisterAsync Repository
 builder.Services.AddScoped<ICheDoAnRepository, CheDoAnRepository>();
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IThucPhamRepository, ThucPhamRepository>();
+builder.Services.AddScoped<ILoaiThucPhamRepository, LoaiThucPhamRepository>();
 //RegisterAsync Service
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IThucPhamServices, ThucPhamsService>(); 
-// Thêm các lớp Repository khác tương tự
-builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
-builder.Services.AddScoped<IThucPhamRepository, ThucPhamRepository>(); 
-// Đăng ký các lớp Service
 builder.Services.AddScoped<ICheDoAnServices, CheDoAnService>();
+builder.Services.AddScoped<IThucPhamServices, ThucPhamsService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>(); 
