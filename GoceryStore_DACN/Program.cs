@@ -67,6 +67,16 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+
+});
 builder.Services.AddAutoMapper(typeof(Program));
 // RegisterAsync Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -126,7 +136,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowAll");
 app.UseAuthorization();
 
 app.MapControllers();
