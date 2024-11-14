@@ -1,0 +1,14 @@
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (1, N'NGŨ CỐC');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (2, N'KHOAI CỦ');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (3, N'HẠT, QUẢ GIÀU ĐẠM, BÉO');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (4, N'RAU, QUẢ, CỦ DÙNG LÀM RAU');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (5, N'QUẢ CHÍN');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (6, N'DẦU, MỠ, BƠ');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (7, N'THỊT');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (8, N'THỦY SẢN');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (9, N'TRỨNG');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (10, N'SỮA');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (11, N'ĐỒ HỘP');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (12, N'ĐỒ NGỌT');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (13, N'GIA VỊ, NƯỚC CHẤM');
+INSERT INTO DoAnChuyenNganh.dbo.LoaiThucPhams (ID_LoaiThucPham, TenLoaiThucPham) VALUES (14, N'NƯỚC GIẢI KHÁT, BIA, RƯỢU');
