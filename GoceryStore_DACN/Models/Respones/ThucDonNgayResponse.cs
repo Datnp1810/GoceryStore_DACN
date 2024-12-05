@@ -1,16 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace GoceryStore_DACN.Entities
+﻿namespace GoceryStore_DACN.Models.Respones
 {
-    public class CheDoAn
+    public class ThucDonNgayResponse
     {
-        [Key]
-        public int ID_CDA { get; set; }
-
-        [Required]
-        public string TenCheDoAn { get; set; }
-
-        // Tổng thành phần dinh dưỡng
+        public int Ngay {  get; set; }
+        public List<BuaAnReponse> Buas { get; set; }
         public double TongNangLuong { get; set; } // Tổng Năng lượng (Kcal)
         public double TongProtein { get; set; } // Tổng Protein (g)
         public double TongChatBeo { get; set; } // Tổng Chất béo (g)
@@ -28,6 +21,5 @@ namespace GoceryStore_DACN.Entities
         public double TongVitaminD { get; set; } // Tổng Vitamin D (μg)
         public double TongVitaminE { get; set; } // Tổng Vitamin E (mg)
         public double TongVitaminK { get; set; } // Tổng Vitamin K (μg)
-
     }
 }

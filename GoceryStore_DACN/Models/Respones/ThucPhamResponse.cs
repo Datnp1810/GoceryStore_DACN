@@ -13,9 +13,6 @@ namespace GoceryStore_DACN.Models.Respones
         public string TrangThai { get; set; }
         public int ID_LoaiThucPham { get; set; }
         public string TenLoaiThucPham { get; set; }
-
-
-        
     }
 
 }

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
 using CloudinaryDotNet;
+using GoceryStore_DACN.Repositories.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -105,15 +106,25 @@ builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection(
 
 // Register Repositories
 builder.Services.AddScoped<ICheDoAnRepository, CheDoAnRepository>();
+builder.Services.AddScoped<IChiTietBuoiAnRepository, ChiTietBuoiAnRepository>();
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 builder.Services.AddScoped<IThucPhamRepository, ThucPhamRepository>();
+builder.Services.AddScoped<IMonAnRepository, MonAnRepository>();
 builder.Services.AddScoped<ILoaiThucPhamRepository, LoaiThucPhamRepository>();
+builder.Services.AddScoped<ILoaiMonAnRepository, LoaiMonAnRepository>();
+builder.Services.AddScoped<IThanhPhanDinhDuongRepository, ThanhPhanDinhDuongRepository>();
 
 // Register Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IThucPhamServices, ThucPhamsService>();
+builder.Services.AddScoped<ICT_BuoiAnServices,CT_BuoiAnService>();
+builder.Services.AddScoped<IMonAnServices, MonAnService>();
+builder.Services.AddScoped<ILoaiThucPhamServices, LoaiThucPhamService>();
+builder.Services.AddScoped<ILoaiMonAnServices, LoaiMonAnService>();
+builder.Services.AddScoped<IThucDonTuanService, ThucDonTuanService>();
 builder.Services.AddScoped<ICheDoAnServices, CheDoAnService>();
+builder.Services.AddScoped<IThanhPhanDinhDuongServices, ThanhPhanDinhDuongService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IEmailTemplateService, EmailTemplateService>();

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Models.Respones;
 using GroceryStore_DACN.Repositories.Interface;
 
 namespace GoceryStore_DACN.Services
@@ -33,7 +34,7 @@ namespace GoceryStore_DACN.Services
             return true;
         }
 
-        public async Task<IEnumerable<MonAn>> GetAllMonAn()
+        public async Task<List<MonAnResponse>> GetAllMonAn()
         {
             var monAns = await _repository.GetAllMonAn();
             return monAns.ToList();
@@ -42,6 +43,12 @@ namespace GoceryStore_DACN.Services
         public async Task<MonAn> GetAllMonAnById(int id)
         {
             var monAn = await _repository.GetAllMonAnById(id);
+            return monAn;
+        }
+
+        public async Task<IEnumerable<MonAnResponse>> GetAllMonAnByLoaiMonAn(string nameLoai)
+        {
+            var monAn = await _repository.GetAllMonAnByLoaiMonAn(nameLoai);
             return monAn;
         }
 

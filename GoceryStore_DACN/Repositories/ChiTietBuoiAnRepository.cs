@@ -1,5 +1,7 @@
 ﻿using GoceryStore_DACN.Data;
+using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Models.Respones;
 using GoceryStore_DACN.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,7 +9,7 @@ namespace GoceryStore_DACN.Repositories
 {
     public class ChiTietBuoiAnRepository : IChiTietBuoiAnRepository
     {
-        private readonly ApplicationDbContext _context;
+        private readonly  ApplicationDbContext _context;
 
         public ChiTietBuoiAnRepository(ApplicationDbContext context)
         {
@@ -34,17 +36,44 @@ namespace GoceryStore_DACN.Repositories
                   
         }
 
-        public async Task<IEnumerable<CT_BuoiAn>> GetAllCT_BuoiAn()
+        public async Task<IEnumerable<CT_BuoiAnDTO>> GetAllCT_BuoiAn()
         {
-            return await _context.CTBuoiAns!.Include(p=>p.ID_MonAn)
-                .Include(l => l.ID_CDA)
-                .Include(q=>q.ID_MonAn).ToListAsync();
+            var ct_buoian = await _context.CTBuoiAns!.Include(p => p.MonAn)
+                .Include(q => q.ThucPham).Select(s => new CT_BuoiAnDTO
+                {
+                    ID_MonAn = s.ID_MonAn,
+                    ID_ThucPham = s.ID_ThucPham,
+                    Gram = s.Gram
+                }).ToListAsync();
+            return ct_buoian;
         }
 
-        public Task<List<CT_BuoiAn>> GetAllCT_BuoiAnById(int id)
+        public async Task<List<CT_BuoiAnResponse>> GetAllCT_BuoiAnByIdMonAn(int id)
         {
-            throw new NotImplementedException();
+            var buoiAn = await _context.CTBuoiAns.Include(tp => tp.MonAn).Include(t=>t.ThucPham).Where(s => s.MonAn.ID_MonAn== id).
+                Select(s => new CT_BuoiAnResponse
+                {
+                    ID_MonAn = s.ID_MonAn,
+                    ID_ThucPham = s.ID_ThucPham,
+                    Gram= s.Gram,
+                }).ToListAsync();
+
+            return buoiAn;
         }
+
+        public async Task<List<CT_BuoiAnResponse>> GetAllCT_BuoiAnByIdSongSong(int id, ApplicationDbContext db)
+        {
+            var buoiAn = await db.CTBuoiAns.Include(tp => tp.MonAn).Include(t => t.ThucPham).Where(s => s.MonAn.ID_MonAn == id).
+                Select(s => new CT_BuoiAnResponse
+                {
+                    ID_MonAn = s.ID_MonAn,
+                    ID_ThucPham = s.ID_ThucPham,
+                    Gram = s.Gram,
+                }).ToListAsync();
+
+            return buoiAn;
+        }
+
 
         public Task<CT_BuoiAn> UpdateCT_BuoiAn(CT_BuoiAn ct_BuoiAn)
         {

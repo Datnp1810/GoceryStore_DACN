@@ -35,12 +35,17 @@ namespace GoceryStore_DACN.Repositories
 
         public async Task<IEnumerable<ThanhPhanDinhDuong>> GetAllThanhPhanDinhDuong()
         {
-            return await _context.ThanhPhanDinhDuongs!.Include(l => l.ID_ThucPham).ToListAsync();
+            return await _context.ThanhPhanDinhDuongs!.Include(l => l.ThucPham).ToListAsync();
         }
 
         public async Task<ThanhPhanDinhDuong> GetAllThanhPhanDinhDuongById(int id)
         {
-            return await _context.ThanhPhanDinhDuongs!.Include(l => l.ID_ThucPham).FirstOrDefaultAsync(tp => tp.ID_ThucPham == id);
+            return await _context.ThanhPhanDinhDuongs!.Include(l => l.ThucPham).FirstOrDefaultAsync(tp => tp.ID_ThucPham == id);
+        }
+
+        public async Task<ThanhPhanDinhDuong> GetAllThanhPhanDinhDuongByIdSongSong(int id, ApplicationDbContext db)
+        {
+            return await db.ThanhPhanDinhDuongs!.Include(l => l.ThucPham).FirstOrDefaultAsync(tp => tp.ID_ThucPham == id);
         }
 
         public async Task<ThanhPhanDinhDuong> UpdateThanhPhanDinhDuong(ThanhPhanDinhDuong thanhPhanDD)
