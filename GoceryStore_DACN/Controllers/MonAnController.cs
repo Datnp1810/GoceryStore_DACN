@@ -16,6 +16,29 @@ namespace GoceryStore_DACN.Controllers
             _monAnService = services;
         }
 
+        [HttpGet("/byLoaiMonAn/{tenLoai}")]
+        public async Task<IActionResult> GetAllMonAnByTenLoai(string tenLoai)
+        {
+            try
+            {
+                var getAll = await _monAnService.GetAllMonAnByLoaiMonAn(tenLoai);
+                return Ok(new
+                {
+                    status = true,
+                    message = "Lấy Món Ăn thành công",
+                    results = getAll
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllMonAn()
         {

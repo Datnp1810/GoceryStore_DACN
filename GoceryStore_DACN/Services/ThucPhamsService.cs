@@ -10,14 +10,16 @@ namespace GoceryStore_DACN.Services
     public class ThucPhamsService : IThucPhamServices
     {
         private readonly IThucPhamRepository _repository;
+        private readonly ILoaiThucPhamRepository _repoLoai;
         private readonly IMapper _mapper;
         private readonly IUploadService _uploadService;
 
-        public ThucPhamsService(IThucPhamRepository repository, IMapper mapper, IUploadService uploadService)
+        public ThucPhamsService(IThucPhamRepository repository, ILoaiThucPhamRepository repoLoai, IMapper mapper, IUploadService uploadService)
         {
             _repository = repository;
             _mapper = mapper;
             _uploadService = uploadService;
+            _repoLoai = repoLoai;
         }
         public async Task<ThucPham> CreateThucPham(ThucPhamDTO thucPhamDTO)
         {
@@ -47,7 +49,24 @@ namespace GoceryStore_DACN.Services
 
         public async Task<ThucPham> GetAllThucPhamById(int id)
         {
+              
             return await _repository.GetThucPhamById(id);
+        }
+
+        public async Task<List<ThucPhamResponse>> GetAllThucPhamByLoaiThucPham(int id)
+        {
+            var check = await _repoLoai.GetAllLoaiThucPhamById(id);
+            if (check == null)
+            {
+                return null;
+            }
+            return await _repository.GetThucPhamByLoaiThucPham(id);
+        }
+
+        public async Task<(IEnumerable<ThucPhamResponse> thucPham, int totalItems)> GetAllThucPhamPhanTrang(string search, int pageNumber, int pageSize, string sortColumn, string sortOrder)
+        {
+            var thucPhamRespo = await _repository.GetAllThucPhamPhanTrang(search, pageNumber, pageSize, sortColumn, sortOrder);
+            return thucPhamRespo;
         }
 
         public async Task<ThucPham> UpdateThucPham(int id, ThucPhamDTO thucPhamDTO)

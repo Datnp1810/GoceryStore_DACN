@@ -19,6 +19,39 @@ namespace GoceryStore_DACN.Controllers
             _mapper = mapper;
         }
 
+
+
+        [HttpGet("phantrang")]
+        public async Task<IActionResult> GetAllThucPhamPhanTrang([FromQuery] string search = "", [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 5, [FromQuery] string sortColumn = "Id", [FromQuery] string sortOrder = "asc")
+        {
+            try
+            {
+                var (products, totalItems) = await _thucPhamService.GetAllThucPhamPhanTrang(search, pageNumber, pageSize, sortColumn, sortOrder);
+                var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
+                return Ok(new
+                {
+                    status = true,
+                    message = "Lấy Thực Phẩm thành công",
+                    result = products,
+                    pagination = new
+                    {
+                        currentPage = pageNumber,
+                        pageSize,
+                        totalItems,
+                        totalPages
+                    }
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllThucPham()
         {
@@ -56,6 +89,37 @@ namespace GoceryStore_DACN.Controllers
                     {
                         status = true,
                         message = "Không tìm thấy Thực Phẩm"
+                    });
+                }
+                return Ok(new
+                {
+                    status = true,
+                    message = "Lấy Thực Phẩm thành công",
+                    result = cda
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpGet("findltp/{id}")]
+        public async Task<IActionResult> GetThucPhamByLoaiThucPham(int id)
+        {
+            try
+            {
+                var cda = await _thucPhamService.GetAllThucPhamByLoaiThucPham(id);
+                if (cda == null)
+                {
+                    return NotFound(new
+                    {
+                        status = true,
+                        message = "Không tìm thấy Loại Sản Phẩm"
                     });
                 }
                 return Ok(new

@@ -105,6 +105,9 @@ namespace GoceryStore_DACN.Migrations
                     b.Property<int>("ID_ThucPham")
                         .HasColumnType("int");
 
+                    b.Property<float>("Gram")
+                        .HasColumnType("real");
+
                     b.Property<int>("ID_CDA")
                         .HasColumnType("int");
 

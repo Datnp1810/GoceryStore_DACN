@@ -6,8 +6,7 @@ namespace GoceryStore_DACN.DTOs
     {
         public int ID_ThucPham { get; set; }
         public int ID_MonAn { get; set; }
-
-        // Quan hệ một-nhiều với Chế Độ Ăn
-         public int ID_CDA { get; set; }
+        public double Gram { get; set; }
+        
     }
 }
