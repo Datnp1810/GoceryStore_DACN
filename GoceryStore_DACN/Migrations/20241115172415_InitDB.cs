@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace GoceryStore_DACN.Migrations
 {
     /// <inheritdoc />
-    public partial class DbInit : Migration
+    public partial class InitDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -377,6 +377,8 @@ namespace GoceryStore_DACN.Migrations
                 name: "CT_HoaDon",
                 columns: table => new
                 {
+                    IDCT_HoaDon = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ID_HoaDon = table.Column<int>(type: "int", nullable: false),
                     ID_ThucPham = table.Column<int>(type: "int", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
@@ -385,7 +387,7 @@ namespace GoceryStore_DACN.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CT_HoaDon", x => new { x.ID_HoaDon, x.ID_ThucPham });
+                    table.PrimaryKey("PK_CT_HoaDon", x => x.IDCT_HoaDon);
                     table.ForeignKey(
                         name: "FK_CT_HoaDon_HoaDons_ID_HoaDon",
                         column: x => x.ID_HoaDon,
@@ -398,6 +400,15 @@ namespace GoceryStore_DACN.Migrations
                         principalTable: "ThucPhams",
                         principalColumn: "ID_ThucPham",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "1", null, "Admin", "ADMIN" },
+                    { "2", null, "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -459,6 +470,11 @@ namespace GoceryStore_DACN.Migrations
                 name: "IX_CT_BuoiAn_ID_ThucPham",
                 table: "CT_BuoiAn",
                 column: "ID_ThucPham");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CT_HoaDon_ID_HoaDon",
+                table: "CT_HoaDon",
+                column: "ID_HoaDon");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CT_HoaDon_ID_ThucPham",
