@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GoceryStore_DACN.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241113152550_DbInit")]
-    partial class DbInit
+    [Migration("20241115172415_InitDB")]
+    partial class InitDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,14 +122,20 @@ namespace GoceryStore_DACN.Migrations
 
             modelBuilder.Entity("GoceryStore_DACN.Entities.CT_HoaDon", b =>
                 {
+                    b.Property<int>("IDCT_HoaDon")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IDCT_HoaDon"));
+
+                    b.Property<double>("DonGia")
+                        .HasColumnType("float");
+
                     b.Property<int>("ID_HoaDon")
                         .HasColumnType("int");
 
                     b.Property<int>("ID_ThucPham")
                         .HasColumnType("int");
-
-                    b.Property<double>("DonGia")
-                        .HasColumnType("float");
 
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
@@ -137,7 +143,9 @@ namespace GoceryStore_DACN.Migrations
                     b.Property<double>("ThanhTien")
                         .HasColumnType("float");
 
-                    b.HasKey("ID_HoaDon", "ID_ThucPham");
+                    b.HasKey("IDCT_HoaDon");
+
+                    b.HasIndex("ID_HoaDon");
 
                     b.HasIndex("ID_ThucPham");
 
@@ -445,6 +453,20 @@ namespace GoceryStore_DACN.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

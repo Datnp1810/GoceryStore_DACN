@@ -1,6 +1,9 @@
 ﻿using GoceryStore_DACN.DTOs;
+using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Helpers;
 using GoceryStore_DACN.Services;
 using GoceryStore_DACN.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,14 +13,14 @@ namespace GoceryStore_DACN.Controllers
     [ApiController]
     public class HoaDonController : ControllerBase
     {
-        private readonly IInvoiceService _invoiceService;
-        public HoaDonController(IInvoiceService invoiceService)
+        private readonly IHoaDonService _hoaDonService;
+        public HoaDonController(IHoaDonService hoaDonService)
         {
-            _invoiceService = invoiceService;
+            _hoaDonService = hoaDonService;
         }
-       
+        //Get all hóa đơn
         [HttpGet]
-        public async Task<IActionResult> CreateInvoice()
+        public async Task<IActionResult> GetAllHoaDons()
         {
             try
             {
@@ -50,12 +53,13 @@ namespace GoceryStore_DACN.Controllers
             }
         }
 
+        [Authorize(Roles = ApplicationRoles.User)]
         [HttpPost("create")]
-        public async Task<IActionResult> CreateInvoice([FromBody] CreateInvoiceDto createInvoiceDto)
+        public async Task<IActionResult> CreateInvoiceTask([FromBody] CreateHoaDonDto createHoaDonDto)
         {
             try
             {
-                var result = await _invoiceService.CreateAsync(createInvoiceDto);
+                var result = await _hoaDonService.CreateInvoiceAsync(createHoaDonDto);
                 if(result == null)
                 {
                     return BadRequest(result);
@@ -76,5 +80,65 @@ namespace GoceryStore_DACN.Controllers
                 });
             }
         }
+        [Authorize(Roles = ApplicationRoles.Admin)]
+        [HttpDelete("/delete/{id}")]
+        public async Task<IActionResult> DeleteInvoice(int id)
+        {
+            try
+            {
+                bool isDelete = await _hoaDonService.DeleteInvoiceAsync(id);
+                if (!isDelete)
+                {
+                    return BadRequest(new
+                    {
+                        status = false,
+                        message = "Remove invoice failed"
+                    });
+                }
+                return Ok(new
+                {
+                    status = true,
+                    message = "Remove invoice successfully"
+                });
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error deleting invoice: {e.Message}");
+                return BadRequest(new
+                {
+                    status = false,
+                    message = e.Message
+                });
+            }
+        }
+
+        [HttpPut("/update/{id}")]
+        public async Task<IActionResult> UpdateInvoiceAsync(int id)
+        {
+            try
+            {
+                var result = await _hoaDonService.UpdateInvoiceAsync(id);
+                if (result == null)
+                {
+                    return BadRequest(new
+                    {
+                        status = false,
+                        message = "Update invoice failed"
+                    });
+                }
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = e.Message
+                });
+            }
+        }
+
+     
+
     }
 }

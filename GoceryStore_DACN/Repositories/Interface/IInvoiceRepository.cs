@@ -10,8 +10,8 @@ namespace GroceryStore_DACN.Repositories.Interface
         Task<HoaDon> GetByIdAsync(int id);
         Task<HoaDon> GetByNumberAsync(string number);
         Task<List<HoaDon>> GetAllAsync();
-        Task<HoaDon> CreateAsync(HoaDon hoaDon);
-        Task<HoaDon> UploadAsync(HoaDon hoaDon);
+        Task<HoaDon> TaoHoaDonAsync(HoaDon hoaDon);
+        Task<HoaDon> UpdateAsync(HoaDon hoaDon);
         Task DeleteAsync(int id); 
         Task<bool> ExistAsync(int id);
         

@@ -26,12 +26,9 @@ namespace GoceryStore_DACN.Entities
         public virtual HinhThucThanhToan? HinhThucThanhToan { get; set; }
 
         // Quan hệ một-nhiều với CT_HoaDon
-        public ICollection<CT_HoaDon>? CTHoaDons { get; set; }
+        public ICollection<CT_HoaDon>? CTHoaDons { get; set; } = new List<CT_HoaDon>(); 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        public HoaDon()
-        {
-            CTHoaDons = new List<CT_HoaDon>();
-        }
+       
     }
 }

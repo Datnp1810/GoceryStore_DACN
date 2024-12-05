@@ -24,10 +24,23 @@ namespace GoceryStore_DACN.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
 
+            //modelBuilder.Entity<CT_HoaDon>(e =>
+            //{
+            //    e.ToTable("CT_HoaDon");
+            //    e.HasKey(e => new { e.ID_HoaDon, e.ID_ThucPham});
+
+            //    e.HasOne(s => s.HoaDon)
+            //        .WithMany(s => s.CTHoaDons)
+            //        .HasForeignKey(s => s.ID_HoaDon);
+
+            //    e.HasOne(s => s.ThucPham)
+            //        .WithMany(s => s.CT_HoaDons)
+            //        .HasForeignKey(s => s.ID_ThucPham);
+            //});
             modelBuilder.Entity<CT_HoaDon>(e =>
             {
                 e.ToTable("CT_HoaDon");
-                e.HasKey(e => new { e.ID_HoaDon, e.ID_ThucPham});
+                e.HasKey(ct => ct.IDCT_HoaDon);
 
                 e.HasOne(s => s.HoaDon)
                     .WithMany(s => s.CTHoaDons)
@@ -76,8 +89,22 @@ namespace GoceryStore_DACN.Data
                 }
             };
             modelBuilder.Entity<TinhTrang>().HasData(tinhTrangDons);
-
-
+            var roles = new List<IdentityRole>
+                            {
+                new()
+                {
+                    Id = "1",
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new()
+                {
+                    Id = "2",
+                    Name = "User",
+                    NormalizedName = "USER"
+                }
+            };
+            modelBuilder.Entity<IdentityRole>().HasData(roles);
         }
         //DB Set
         #region DbSet
