@@ -6,7 +6,8 @@ namespace GoceryStore_DACN.Services.Interface
     {
         public Task<double> Fitness(ThucDonTuanResponse thucDonTuan, int maCheDoAn);
         public  Task<ThucDonTuanResponse> ThuatToanGA(int maCheDoAn);
-        public Task<ThucDonTuanResponse> GenerateThucDonTuan();
-        public Task<ThucDonNgayResponse> GenerateThucDonNgay(int ngay, Dictionary<string, Queue<int>> history);
+        public ThucDonTuanResponse GenerateThucDonTuan();
+        public List<ThucDonTuanResponse> KhoiTaoQuanThe();
+        public ThucDonNgayResponse GenerateThucDonNgay(int ngay, Dictionary<int, Queue<int>> history);
     }
 }

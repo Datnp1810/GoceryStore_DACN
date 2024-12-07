@@ -10,8 +10,9 @@ namespace GroceryStore_DACN.Repositories.Interface
     public interface IMonAnRepository
     {
         public Task<List<MonAnResponse>> GetAllMonAn();
+        public IEnumerable<MonAnResponse> GetAllMonAnCache();
+        public IEnumerable<MonAnResponse> GetAllMonAnByLoaiMonAnThreadCache(int idLoaiMon);
         public Task<IEnumerable<MonAnResponse>> GetAllMonAnByLoaiMonAn(string nameLoai);
-        public Task<IEnumerable<MonAnResponse>> GetAllMonAnByLoaiMonAnSongSong(string nameLoai, ApplicationDbContext db);
         public Task<MonAn> GetAllMonAnById(int id);
         public Task<MonAn> CreateMonAn(MonAn monAn);
         public Task<MonAn> UpdateMonAn(MonAn monAn);

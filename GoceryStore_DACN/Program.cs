@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using GoceryStore_DACN.Middlewares.Authentication;
 using GoceryStore_DACN.Middlewares.Authorization;
+using GoceryStore_DACN.Repositories.Interface;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -66,6 +67,7 @@ builder.Services.AddAuthentication(options =>
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddMemoryCache();
 //Config Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -181,7 +183,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 //Seeder Data
-HinhThucThanhToanSeeder.SeedData(app);
+//HinhThucThanhToanSeeder.SeedData(app);
 
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();

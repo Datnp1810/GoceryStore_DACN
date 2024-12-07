@@ -3,6 +3,6 @@
     public class BuaAnReponse
     {
         public string Buoi { get; set; }
-        public Dictionary<string, MonAnResponse> MonAn { get; set; }
+        public Dictionary<int, MonAnResponse> MonAn { get; set; }
     }
 }

@@ -4,7 +4,10 @@ using GoceryStore_DACN.Models.Respones;
 using GoceryStore_DACN.Repositories.Interface;
 using GoceryStore_DACN.Services.Interface;
 using GroceryStore_DACN.Repositories.Interface;
+using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.WebSockets;
 namespace GoceryStore_DACN.Services
 {
     public class ThucDonTuanService : IThucDonTuanService
@@ -19,8 +22,7 @@ namespace GoceryStore_DACN.Services
 
         const int SoLuongQuanThe = 100;
         const int SoLanChay= 20;
-        const int SoLuongQuanTheChon = 10;
-
+        const int SoLuongQuanTheChon = 50;
 
         public ThucDonTuanService(IMonAnRepository repository, 
             IChiTietBuoiAnRepository chiTietBuoiAnRepository, 
@@ -35,13 +37,14 @@ namespace GoceryStore_DACN.Services
             _cheDoAnRepository = cheDoAnRepository;
         }
         #region Generate Cá Thể, Gen(Phục vụ cho đột biến)
-        public async Task<ThucDonNgayResponse> GenerateThucDonNgay(int ngay, Dictionary<string, Queue<int>> history)
+        public ThucDonNgayResponse GenerateThucDonNgay(int ngay, Dictionary<int, Queue<int>> history)
         {
 
             if (history.Count == 0)
             {
-                history = new Dictionary<string, Queue<int>>();
-                foreach (var loai in new[] { "Canh", "Xào", "Mặn" })
+                //Mặn Xào Canh Cơm
+                history = new Dictionary<int, Queue<int>>();
+                foreach (var loai in new[] {3, 2, 1 })
                 {
                     history[loai] = new Queue<int>();
                 }
@@ -75,18 +78,19 @@ namespace GoceryStore_DACN.Services
                 var buaAn = new BuaAnReponse
                 {
                     Buoi = bua == 1 ? "Sáng" : bua == 2 ? "Trưa" : "Tối",
-                    MonAn = new Dictionary<string, MonAnResponse>()
+                    MonAn = new Dictionary<int, MonAnResponse>()
                 };
 
+                //Mặn Xào Canh Cơm
                 // Chọn món cho từng loại món
-                foreach (var loai in new[] { "Cơm", "Canh", "Xào", "Mặn" })
+                foreach (var loai in new[] { 4, 3, 2, 1 })
                 {
-                    var danhSachMon = await _repository.GetAllMonAnByLoaiMonAn(loai);
+                    var danhSachMon = _repository.GetAllMonAnByLoaiMonAnThreadCache(loai);
                     MonAnResponse monChon;
 
-                    if (loai == "Cơm") // Cơm không bị hạn chế
+                    if (loai == 4) // Cơm không bị hạn chế
                     {
-                        monChon = danhSachMon.OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
+                        monChon =  danhSachMon.OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
                     }
                     else // Canh, Xào, Mặn bị hạn chế
                     {
@@ -107,16 +111,16 @@ namespace GoceryStore_DACN.Services
                     }
                     if (monChon != null)
                     {
-
-
-                        var ct_BuoiAn = await _ct_BuoiAnRepository.GetAllCT_BuoiAnByIdMonAn(monChon.ID_TenMonAn);
+                        //Thay bằng cache
+                        var ct_BuoiAn = _ct_BuoiAnRepository.GetAllCT_BuoiAnByIdMonAnThreadCache(monChon.ID_TenMonAn);
                         foreach (var item in ct_BuoiAn)
                         {
-                            var tpDinhDuong = await _thanhPhanDinhDuongRepository.GetAllThanhPhanDinhDuongById(item.ID_ThucPham);
+                            //thay bằng cache
+                            var tpDinhDuong = _thanhPhanDinhDuongRepository.GetAllThanhPhanDinhDuongByIdThreadCache(item.ID_ThucPham);
                             if (tpDinhDuong != null)
                             {
                                 // Đảm bảo item.Gram không phải null, nếu có thể thì gán giá trị mặc định 0
-                                double gram = item.Gram ?? 0;
+                                double gram = item.Gram;
 
                                 thucDonNgay.TongNangLuong += ((tpDinhDuong?.Energy ?? 0) * gram) / 100;
                                 thucDonNgay.TongProtein += ((tpDinhDuong?.Protein ?? 0) * gram) / 100;
@@ -153,14 +157,15 @@ namespace GoceryStore_DACN.Services
 
 
 
-        public async Task<ThucDonTuanResponse> GenerateThucDonTuan()
+        public  ThucDonTuanResponse GenerateThucDonTuan()
         {
+            var stopWath = new Stopwatch();
+            stopWath.Start();
             var thucDonTuan = new ThucDonTuanResponse();
             
-            var history = new Dictionary<string, Queue<int>>();
-
+            var history = new Dictionary<int, Queue<int>>();
             // Khởi tạo lịch sử cho các loại món bị hạn chế
-            foreach (var loai in new[] { "Canh", "Xào", "Mặn" })
+            foreach (var loai in new[] { 3, 2, 1 })
             {
                 history[loai] = new Queue<int>();
             }
@@ -168,7 +173,7 @@ namespace GoceryStore_DACN.Services
             // Tạo thực đơn cho 7 ngày
             for (int day = 1; day <= 7; day++)
             {
-                var thucDonNgay = await GenerateThucDonNgay(day, history);
+                var thucDonNgay = GenerateThucDonNgay(day, history);
 
                 thucDonTuan.listThucDonNgay.Add(thucDonNgay);
                 thucDonTuan.TongNangLuong += thucDonNgay.TongNangLuong;
@@ -189,6 +194,8 @@ namespace GoceryStore_DACN.Services
                 thucDonTuan.TongVitaminE += thucDonNgay.TongVitaminE;
                 thucDonTuan.TongVitaminK += thucDonNgay.TongVitaminK;
             }
+            stopWath.Stop();
+            Console.WriteLine("Thời gian để tạo 1 thực đơn tuần là: {0}", stopWath.ElapsedMilliseconds / 1000);
             return thucDonTuan;
         }
 
@@ -219,21 +226,24 @@ namespace GoceryStore_DACN.Services
         #endregion
 
         #region Hàm khởi tạo quần thể (200 cá thể)
-        public async Task<List<ThucDonTuanResponse>> KhoiTaoQuanThe()
+        public List<ThucDonTuanResponse> KhoiTaoQuanThe()
         {
-            List<ThucDonTuanResponse> quanThe = new List<ThucDonTuanResponse>();
-            for(int i = 0; i < SoLuongQuanThe; i++)
+            var quanThe = new ConcurrentBag<ThucDonTuanResponse>();
+            var task = new List<Task>();
+            Parallel.For(0, SoLuongQuanThe, new ParallelOptions{ MaxDegreeOfParallelism = 16 }, i =>
             {
-                var thucDonTuan = await GenerateThucDonTuan();
+                var thucDonTuan = GenerateThucDonTuan();
                 quanThe.Add(thucDonTuan);
-            }    
-            return quanThe;
+            });
+            return quanThe.ToList();
         }
         #endregion
 
         #region Hàm Chọn Lọc
         public async Task<List<ThucDonTuanResponse>> ChonLoc(List<ThucDonTuanResponse> quanThe, int maCheDoAn)
         {
+            var stopWath = new Stopwatch();
+            stopWath.Start();
             var quanTheChon = new List<ThucDonTuanResponse>();
             Random random = new Random();
             //Chọn số lượng cho quần thể mới
@@ -249,7 +259,7 @@ namespace GoceryStore_DACN.Services
                 }    
                 double fitnessCaThe1 = await Fitness(caThe1, maCheDoAn);
                 double fitnessCaThe2 = await Fitness(caThe2, maCheDoAn);
-                if(fitnessCaThe1 > fitnessCaThe2)
+                if(fitnessCaThe1 < fitnessCaThe2)
                 {
                     quanTheChon.Add(caThe1);
                 }    
@@ -257,14 +267,20 @@ namespace GoceryStore_DACN.Services
                 {
                     quanTheChon.Add(caThe2);
                 }
-            }    
+            }
+            stopWath.Stop();
+            Console.WriteLine("Thời gian chạy của hàm chọn lọc 1 lần: {0}", stopWath.ElapsedMilliseconds / 60000.0);
             return quanTheChon;
+            
+
         }
         #endregion
 
         #region Hàm Lai Ghép
         public async Task<ThucDonTuanResponse> LaiGhep(int maCheDoAn, ThucDonTuanResponse cha,ThucDonTuanResponse me)
         {
+            var stopWath = new Stopwatch();
+            stopWath.Start();
             Random random = new Random();
             var thucDonTuanCon1 = new ThucDonTuanResponse();
             var thucDonTuanCon2 = new ThucDonTuanResponse();
@@ -340,6 +356,8 @@ namespace GoceryStore_DACN.Services
             {
                 thucDonTuanMoi = thucDonTuanCon2;
             }
+            stopWath.Stop();
+            Console.WriteLine("Thời gian chạy của hàm Lai Ghép 1 lần là: {0}", stopWath.ElapsedMilliseconds / 60000.0);
             return thucDonTuanMoi;
 
         }
@@ -349,15 +367,18 @@ namespace GoceryStore_DACN.Services
         #region Đột Biến
         public async Task<ThucDonTuanResponse> DotBien (ThucDonTuanResponse thucDonTuan)
         {
+            var stopWath = new Stopwatch();
+            stopWath.Start();
             var random = new Random();
             int ngayDotBien = random.Next(1, 8);
+            int ngayThay = random.Next(1, 8);
 
             //Lấy Thục Đơn ngày cần thay
             var thucDonNgayCanThay = thucDonTuan.listThucDonNgay.FirstOrDefault(ngay=>ngay.Ngay==ngayDotBien);
             if(thucDonNgayCanThay != null )
             {
-                var history = new Dictionary<string, Queue<int>>();
-                var thucDonNgayMoi = await GenerateThucDonNgay(ngayDotBien, history );
+                var history = new Dictionary<int, Queue<int>>();
+                var thucDonNgayMoi = GenerateThucDonNgay(ngayThay, history );
                 thucDonTuan.listThucDonNgay.Remove(thucDonNgayCanThay);
                 thucDonTuan.listThucDonNgay.Add(thucDonNgayMoi);
             }
@@ -379,7 +400,9 @@ namespace GoceryStore_DACN.Services
             thucDonTuan.TongVitaminD = thucDonTuan.listThucDonNgay.Sum(day => day.TongVitaminD);
             thucDonTuan.TongVitaminE = thucDonTuan.listThucDonNgay.Sum(day => day.TongVitaminE);
             thucDonTuan.TongVitaminK = thucDonTuan.listThucDonNgay.Sum(day => day.TongVitaminK);
-
+            
+            stopWath.Stop();
+            Console.WriteLine("Thời gian chạy 1 lần của Đột Biến là: {0}", stopWath.ElapsedMilliseconds / 1000);
             return thucDonTuan;
         }
         #endregion
@@ -387,9 +410,15 @@ namespace GoceryStore_DACN.Services
         #region Tổng Hợp
         public async Task<ThucDonTuanResponse> ThuatToanGA (int maCheDoAn)
         {
-            var thucDonTuan = new ThucDonTuanResponse();
+            var stopWath = new Stopwatch();
+            stopWath.Start();
             //Khởi tạo Quần Thể
-            var quanThe = await KhoiTaoQuanThe();
+            var quanThe = KhoiTaoQuanThe();
+            stopWath.Stop();
+            Console.WriteLine("Thời gian chạy của Khởi Tạo Quần Thể là : {0}", stopWath.ElapsedMilliseconds / 1000);
+
+            var thoigianChay = new Stopwatch();
+            thoigianChay.Start();  
             //Số lần chạy 
             for(int i = 0; i <SoLanChay; i++)
             {
@@ -415,19 +444,23 @@ namespace GoceryStore_DACN.Services
                 }  
                 quanThe = quanTheDotBien;
             }
+
+
             var caTheTotNhat = new ThucDonTuanResponse();
             
-            double fitnessMin = double.MinValue;
+            double fitnessMin = double.MaxValue;
             foreach(var caThe in quanThe)
             {
                 var fitness = await Fitness(caThe, maCheDoAn);
-                if(fitness > fitnessMin)
+                if(fitness < fitnessMin)
                 {
                     fitnessMin = fitness;
                     caTheTotNhat = caThe;
 
                 }    
             }
+            thoigianChay.Stop();
+            Console.WriteLine("Thời gian chạy của tiến trình - Khởi tạo quần thể là : {0}", thoigianChay.ElapsedMilliseconds / 1000);
             return caTheTotNhat;
 
         }

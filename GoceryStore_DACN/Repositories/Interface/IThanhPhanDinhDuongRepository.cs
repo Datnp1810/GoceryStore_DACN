@@ -10,8 +10,9 @@ namespace GroceryStore_DACN.Repositories.Interface
     {
         // Định nghĩa các phương thức của interface tại đây
         public Task<IEnumerable<ThanhPhanDinhDuong>> GetAllThanhPhanDinhDuong();
-        public Task<ThanhPhanDinhDuong> GetAllThanhPhanDinhDuongById(int id);
-        public Task<ThanhPhanDinhDuong> GetAllThanhPhanDinhDuongByIdSongSong(int id, ApplicationDbContext db);
+        public IEnumerable<ThanhPhanDinhDuong> GetAllThanhPhanDinhDuongCache();
+        public ThanhPhanDinhDuong GetAllThanhPhanDinhDuongByIdThreadCache(int id);
+        public Task<ThanhPhanDinhDuong> GetAllThanhPhanDinhDuongById(int id);           
         public Task<ThanhPhanDinhDuong> CreateThanhPhanDinhDuong(ThanhPhanDinhDuong thanhPhanDD);
         public Task<ThanhPhanDinhDuong> UpdateThanhPhanDinhDuong(ThanhPhanDinhDuong thanhPhanDD);
         public Task<bool> DeleteThanhPhanDinhDuong(int id);

@@ -29,7 +29,7 @@ namespace GoceryStore_DACN.Controllers
                 return Ok(new
                 {
                     results = thuatToan,
-                    thoiGianThucThi = stopWath.ElapsedMilliseconds / 60000.0
+                    thoiGianThucThi = stopWath.ElapsedMilliseconds / 1000
                 });
             }
             catch (Exception ex)
@@ -42,13 +42,12 @@ namespace GoceryStore_DACN.Controllers
             }
         }
 
-
         [HttpGet]
-        public async Task<IActionResult> GenerateThucDon()
+        public IActionResult GenerateThucDon()
         {
             try
             {
-                var getAll = await _thucDonTuanService.GenerateThucDonTuan();
+                var getAll =  _thucDonTuanService.GenerateThucDonTuan();
                 return Ok(new
                 {
                     results = getAll,
@@ -64,13 +63,44 @@ namespace GoceryStore_DACN.Controllers
             }
         }
 
-        [HttpGet("/generateThucDonNgay")]
-        public async Task<IActionResult> GenerateThucDonNgay()
+        [HttpGet("/khoiTaoQuanThe")]
+        public IActionResult KhoiTaoQuanThe()
         {
             try
             {
-                var history = new Dictionary<string, Queue<int>>();
-                var getAll = await _thucDonTuanService.GenerateThucDonNgay(2, history);
+                Stopwatch stopWath = new Stopwatch();
+                stopWath.Start();
+                var getAll = _thucDonTuanService.KhoiTaoQuanThe();
+                int numberOfCores = Environment.ProcessorCount;
+                //Console.WriteLine($"Số lõi CPU: {numberOfCores}");
+                stopWath.Stop();
+                return Ok(new
+                {
+                    //results = getAll,
+                    loi = numberOfCores,
+                    thoiGianThucThi = stopWath.ElapsedMilliseconds / 1000
+                }) ;
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+
+        [HttpGet("/generateThucDonNgay")]
+        public IActionResult GenerateThucDonNgay()
+        {
+            try
+            {
+                var history = new Dictionary<int, Queue<int>>();
+                Random random = new Random();
+                var ngay = random.Next(1, 8);
+                var getAll = _thucDonTuanService.GenerateThucDonNgay(ngay, history);
                 return Ok(new
                 {
                     results = getAll,
