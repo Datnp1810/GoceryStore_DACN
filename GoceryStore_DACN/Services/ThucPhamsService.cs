@@ -53,14 +53,10 @@ namespace GoceryStore_DACN.Services
             return await _repository.GetThucPhamById(id);
         }
 
-        public async Task<List<ThucPhamResponse>> GetAllThucPhamByLoaiThucPham(int id)
+        public async Task<(List<ThucPhamResponse>, int totalItems)> GetAllThucPhamByLoaiThucPham(int id, string search, int pageNumber, int pageSize, string sortColumn, string sortOrder)
         {
-            var check = await _repoLoai.GetAllLoaiThucPhamById(id);
-            if (check == null)
-            {
-                return null;
-            }
-            return await _repository.GetThucPhamByLoaiThucPham(id);
+            
+            return await _repository.GetThucPhamByLoaiThucPham(id, search, pageNumber, pageSize, sortColumn, sortOrder);
         }
 
         public async Task<(IEnumerable<ThucPhamResponse> thucPham, int totalItems)> GetAllThucPhamPhanTrang(string search, int pageNumber, int pageSize, string sortColumn, string sortOrder)

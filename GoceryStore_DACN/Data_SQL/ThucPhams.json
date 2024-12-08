@@ -1,0 +1,3452 @@
+[
+  {
+    "ID_ThucPham": 1,
+    "TenThucPham": "Gạo Nếp Cái",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 25000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731572297/azx6prae6zyczfx0mndk.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 2,
+    "TenThucPham": "Bánh Đúc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 15000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731572228/wuwrd0tg83eqgfgtw7tl.png",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 3,
+    "TenThucPham": "Gạo Nếp Máy",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 30000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731512981/gv3fztgseufjgpvjvoyl.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 4,
+    "TenThucPham": "Gạo Tẻ Máy",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 32000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731513068/havyo2vzcqx31hb6za3n.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 5,
+    "TenThucPham": "Gạo Lứt",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 45000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731513117/h91pn6n6vvvd4oh3xoth.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 6,
+    "TenThucPham": "Kê",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 40000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731572167/azpgixtaunbtwhifs8xm.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 7,
+    "TenThucPham": "Ngô Bắp Tươi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 35000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731513425/eb57c4fgaammckabmik3.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 8,
+    "TenThucPham": "Ngô Vàng Hạt Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 50000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731513638/q1l12ycebbjx1sa6qtrg.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 9,
+    "TenThucPham": "Bánh Bao Nhân Thịt",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 25000,
+    "Image": "https://res.cloudinary.com/djkewyt8f/image/upload/v1731513745/wcvcxympcaruaod97xl3.jpg",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 10,
+    "TenThucPham": "Bánh Đa Nem",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 25000,
+    "Image": "https://minhcaumart.vn//media/com_eshop/products/resized/Banh-Da-Nem-Ga-Trong-Vang-Vinasons-150-Gr-500x500.webp",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 11,
+    "TenThucPham": "Bột Mì",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20000,
+    "Image": "https://vietgo.vn/data/productpicture/upload/upload-15062023-1-1686822300.webp",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 12,
+    "TenThucPham": "Bột Ngô Vàng",
+    "DVT": "kg",
+    "SoLuong": 11,
+    "GiaBan": 20001,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 13,
+    "TenThucPham": "Bún",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20002,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 14,
+    "TenThucPham": "Cốm",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20003,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 15,
+    "TenThucPham": "Bánh Mỳ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20004,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 16,
+    "TenThucPham": "Bánh Phở",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20005,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 17,
+    "TenThucPham": "Bánh Quẩy",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20006,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 18,
+    "TenThucPham": "Bỏng Ngô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20007,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 19,
+    "TenThucPham": "Bột Gạo Nếp",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20008,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 20,
+    "TenThucPham": "Bột Gạo Tẻ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20009,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 1
+  },
+  {
+    "ID_ThucPham": 21,
+    "TenThucPham": "Củ Từ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20010,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 22,
+    "TenThucPham": "Khoai Lang",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20011,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 23,
+    "TenThucPham": "Mỳ Sợi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20012,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 24,
+    "TenThucPham": "Ngô Nếp Luộc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20013,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 25,
+    "TenThucPham": "Củ Ấu",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20014,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 26,
+    "TenThucPham": "Củ Cải",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20015,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 27,
+    "TenThucPham": "Củ Dong",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20016,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 28,
+    "TenThucPham": "Củ Sắn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20017,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 29,
+    "TenThucPham": "Củ Sắn Dây",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20018,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 30,
+    "TenThucPham": "Củ Súng Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20019,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 31,
+    "TenThucPham": "Bột Dong Lọc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20020,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 32,
+    "TenThucPham": "Bột Khoai Lang",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20021,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 33,
+    "TenThucPham": "Bột Khoai Riêng (Bột Dao)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20022,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 34,
+    "TenThucPham": "Khoai Lang",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20023,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 35,
+    "TenThucPham": "Khoai Lang Nghệ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20024,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 36,
+    "TenThucPham": "Khoai Môn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20025,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 37,
+    "TenThucPham": "Khoai Nước",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20026,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 38,
+    "TenThucPham": "Khoai Riêng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20027,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 39,
+    "TenThucPham": "Khoai Sọ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20028,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 40,
+    "TenThucPham": "Khoai Tây",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20029,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 41,
+    "TenThucPham": "Miến Dong",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20030,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 42,
+    "TenThucPham": "Bột Khoai Tây (Lọc)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20031,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 43,
+    "TenThucPham": "Bột Sắn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20032,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 44,
+    "TenThucPham": "Bột sắn dây",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20033,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 45,
+    "TenThucPham": "Khoai lang khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20034,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 46,
+    "TenThucPham": "Khoai Tây Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20035,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 47,
+    "TenThucPham": "Khoai Tây Lát Chiên",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20036,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 48,
+    "TenThucPham": "Sắn khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20037,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 49,
+    "TenThucPham": "Trân Châu Sắn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20038,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 2
+  },
+  {
+    "ID_ThucPham": 50,
+    "TenThucPham": "Cùi Dừa Già",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20039,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 51,
+    "TenThucPham": "Cùi Dừa Non",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20040,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 52,
+    "TenThucPham": "Đậu Cô Ve (Hạt)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20041,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 53,
+    "TenThucPham": "Đậu Đen (Hạt)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20042,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 54,
+    "TenThucPham": "Đậu Đũa (Hạt)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20043,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 55,
+    "TenThucPham": "Đậu Hà Lan (Hạt)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20044,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 56,
+    "TenThucPham": "Đậu Tương (Đậu Nành)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20045,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 57,
+    "TenThucPham": "Đậu Trắng Hạt (Đậu Tây)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20046,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 58,
+    "TenThucPham": "Hạt Dẻ To",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20047,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 59,
+    "TenThucPham": "Hạt Dẻ tươi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20048,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 60,
+    "TenThucPham": "Hạt Dẻ Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20049,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 61,
+    "TenThucPham": "Hạt Điều",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20050,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 62,
+    "TenThucPham": "Hạt Mít",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20051,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 63,
+    "TenThucPham": "Vừng (Đen, Trắng)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20052,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 64,
+    "TenThucPham": "Bột Đậu Tương Rang Chín",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20053,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 65,
+    "TenThucPham": "Bột Đậu Xanh",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20054,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 66,
+    "TenThucPham": "Bột Lạc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20055,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 67,
+    "TenThucPham": "Đậu Phụ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20056,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 68,
+    "TenThucPham": "Đậu Phụ Chúc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20057,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 69,
+    "TenThucPham": "Đậu Phụ Nướng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20058,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 70,
+    "TenThucPham": "Hạt Bí Đỏ Rang",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20059,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 71,
+    "TenThucPham": "Hạt Dưa Đỏ Rang (Dưa Hấu)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20060,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 72,
+    "TenThucPham": "Sữa Bột Đậu Nành",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20061,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 73,
+    "TenThucPham": "Sữa Đậu Nành (100G Đậu/Lít)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20062,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 74,
+    "TenThucPham": "Tào Phớ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20063,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 3
+  },
+  {
+    "ID_ThucPham": 75,
+    "TenThucPham": "Bầu",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20064,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 76,
+    "TenThucPham": "Bí Đao (Bí Xanh)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20065,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 77,
+    "TenThucPham": "Bí Ngô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20066,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 78,
+    "TenThucPham": "Cà Chua",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20067,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 79,
+    "TenThucPham": "Cà Pháo",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20068,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 80,
+    "TenThucPham": "Cà Rốt (Củ Đỏ, Vàng)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20069,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 81,
+    "TenThucPham": "Cà Rốt Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20070,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 82,
+    "TenThucPham": "Cà Tím",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20071,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 83,
+    "TenThucPham": "Cải Bắp",
+    "DVT": "kg",
+    "SoLuong": 14,
+    "GiaBan": 20072,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 84,
+    "TenThucPham": "Cải Bắp Đỏ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20073,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 85,
+    "TenThucPham": "Cải Bắp  Khô",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20074,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 86,
+    "TenThucPham": "Cải Cúc",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20075,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 87,
+    "TenThucPham": "Cải Soong",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20076,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 88,
+    "TenThucPham": "Cải Thìa (Cải Trắng)",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20077,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 89,
+    "TenThucPham": "Cải Xanh",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20078,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 90,
+    "TenThucPham": "Cần Ta",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20079,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 91,
+    "TenThucPham": "Cần Tây",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20080,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 92,
+    "TenThucPham": "Chuối Xanh",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20081,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 93,
+    "TenThucPham": "Củ Cải Đỏ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20082,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 94,
+    "TenThucPham": "Củ Cải Trắng",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20083,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 95,
+    "TenThucPham": "Củ Cải Trắng Khô",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20084,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 96,
+    "TenThucPham": "Củ  Đậu ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20085,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 97,
+    "TenThucPham": "Củ Niễng",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20086,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 98,
+    "TenThucPham": "Dưa Chuột",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20087,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 99,
+    "TenThucPham": "Dưa Gang",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20088,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 100,
+    "TenThucPham": "Đậu Cô Ve ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20089,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 101,
+    "TenThucPham": "Đậu Đũa  ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20090,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 102,
+    "TenThucPham": "Đậu Hà Lan  ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20091,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 103,
+    "TenThucPham": "Đậu Rồng (Quả Non)",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20092,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 104,
+    "TenThucPham": "Đu Đủ Xanh",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20093,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 105,
+    "TenThucPham": "Gấc",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20094,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 106,
+    "TenThucPham": "Giá Đậu Tương",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20095,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 107,
+    "TenThucPham": "Giá Đậu Xanh ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20096,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 108,
+    "TenThucPham": "Hành Củ Tươi",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20097,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 109,
+    "TenThucPham": "Hành Lá (Hành Hoa)",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20098,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 110,
+    "TenThucPham": "Hành Tây",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20099,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 111,
+    "TenThucPham": "Hạt Sen Tươi",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20100,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 112,
+    "TenThucPham": "Hạt Sen Khô ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20101,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 113,
+    "TenThucPham": "Hẹ Lá",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20102,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 114,
+    "TenThucPham": "Hoa Chuối",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20103,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 115,
+    "TenThucPham": "Khế",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20104,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 116,
+    "TenThucPham": "Lá Lốt",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20105,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 117,
+    "TenThucPham": "Lá Me",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20106,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 118,
+    "TenThucPham": "Măng Tây",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20107,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 119,
+    "TenThucPham": "Mướp",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20108,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 120,
+    "TenThucPham": "Mướp Đắng",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20109,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 121,
+    "TenThucPham": "Ngải Cứu",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20110,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 122,
+    "TenThucPham": "Ngó Sen",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20111,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 123,
+    "TenThucPham": "Ớt Đỏ To",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20112,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 124,
+    "TenThucPham": "Ớt Xanh To",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20113,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 125,
+    "TenThucPham": "Rau Diếp",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20114,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 126,
+    "TenThucPham": "Rau Đay",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20115,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 127,
+    "TenThucPham": "Rau Húng",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20116,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 128,
+    "TenThucPham": "Rau Khoai Lang",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20117,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 129,
+    "TenThucPham": "Rau Mùi",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20118,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 130,
+    "TenThucPham": "Rau Mồng Tơi",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20119,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 131,
+    "TenThucPham": "Rau Muống",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20120,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 132,
+    "TenThucPham": "Rau Ngót",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20121,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 133,
+    "TenThucPham": "Rau Răm",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20122,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 134,
+    "TenThucPham": "Rau Xà Lách",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20123,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 135,
+    "TenThucPham": "Rau Thơm",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20124,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 136,
+    "TenThucPham": "Su Hào",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20125,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 137,
+    "TenThucPham": "Sup Lơ Trắng",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20126,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 138,
+    "TenThucPham": "Sup Lơ Xanh",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20127,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 139,
+    "TenThucPham": "Tía Tô",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20128,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 140,
+    "TenThucPham": "Tỏi Ta",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20129,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 141,
+    "TenThucPham": "Dưa Cải Bắp",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20130,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 142,
+    "TenThucPham": "Dưa Cải Bẹ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20131,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 143,
+    "TenThucPham": "Dưa Giá (Đậu Xanh)",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20132,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 144,
+    "TenThucPham": "Mộc Nhĩ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20133,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 145,
+    "TenThucPham": "Nấm Hương Khô",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20134,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 146,
+    "TenThucPham": "Nấm Rơm",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20135,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 4
+  },
+  {
+    "ID_ThucPham": 147,
+    "TenThucPham": "Bưởi",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20136,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 148,
+    "TenThucPham": "Cam",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20137,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 149,
+    "TenThucPham": "Chanh",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20138,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 150,
+    "TenThucPham": "Chôm Chôm",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20139,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 151,
+    "TenThucPham": "Chuối Tây",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20140,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 152,
+    "TenThucPham": "Chuối Khô",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20141,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 153,
+    "TenThucPham": "Chuối Tiêu",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20142,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 154,
+    "TenThucPham": "Dâu Tây",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20143,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 155,
+    "TenThucPham": "Dưa Bở",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20144,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 156,
+    "TenThucPham": "Dưa Hấu",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20145,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 157,
+    "TenThucPham": "Đu Đủ Chín",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20146,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 158,
+    "TenThucPham": "Đào",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20147,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 159,
+    "TenThucPham": "Hồng Xiêm",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20148,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 160,
+    "TenThucPham": "Lê",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20149,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 161,
+    "TenThucPham": "Lựu",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20150,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 162,
+    "TenThucPham": "Mãng Cầu Xiêm",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20151,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 163,
+    "TenThucPham": "Mận",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20152,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 164,
+    "TenThucPham": "Mơ",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20153,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 165,
+    "TenThucPham": "Na",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20154,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 166,
+    "TenThucPham": "Nhót",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20155,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 167,
+    "TenThucPham": "Ổi",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20156,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 168,
+    "TenThucPham": "Cóc",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20157,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 169,
+    "TenThucPham": "Thanh Long",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20158,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 170,
+    "TenThucPham": "Quít",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20159,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 171,
+    "TenThucPham": "Sầu Riêng",
+    "DVT": "kg",
+    "SoLuong": 10,
+    "GiaBan": 20160,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 172,
+    "TenThucPham": "Táo Ta",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20161,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 173,
+    "TenThucPham": "Nhãn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20162,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 174,
+    "TenThucPham": "Vải",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20163,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 175,
+    "TenThucPham": "Vú Sữa",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20164,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 176,
+    "TenThucPham": "Xoài Chín",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20165,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 177,
+    "TenThucPham": "Quả Kiwi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20166,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 5
+  },
+  {
+    "ID_ThucPham": 178,
+    "TenThucPham": "Quả Bơ Vỏ Xanh",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20167,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 179,
+    "TenThucPham": "Quả Bơ Vỏ Tím",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20168,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 180,
+    "TenThucPham": "Mỡ Lợn Muối",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20169,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 181,
+    "TenThucPham": "Mỡ Lợn Nước",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20170,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 182,
+    "TenThucPham": "Bơ Thực Vật",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20171,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 183,
+    "TenThucPham": "Dầu Bông",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20172,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 184,
+    "TenThucPham": " Dầu Cám Gạo",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20173,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 185,
+    "TenThucPham": " Dầu Cọ",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20174,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 186,
+    "TenThucPham": " Dầu Dừa",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20175,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 187,
+    "TenThucPham": " Dầu  Đậu Tương",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20176,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 188,
+    "TenThucPham": " Dầu Lạc",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20177,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 189,
+    "TenThucPham": " Dầu Mè",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20178,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 190,
+    "TenThucPham": " Dầu Ngô",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20179,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 191,
+    "TenThucPham": " Dầu Oliu",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20180,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 6
+  },
+  {
+    "ID_ThucPham": 192,
+    "TenThucPham": "Thịt Bê Mỡ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20181,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 193,
+    "TenThucPham": "Thịt Bê Nạc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20182,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 194,
+    "TenThucPham": "Thịt Bò, Lưng, Nạc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20183,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 195,
+    "TenThucPham": "Thịt Bò, Lưng, Nạc và Mỡ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20184,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 196,
+    "TenThucPham": "Thịt Cừu, Nạc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20185,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 197,
+    "TenThucPham": "Thịt Dê, Nạc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20186,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 198,
+    "TenThucPham": "Thịt Gà Rừng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20187,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 199,
+    "TenThucPham": "Thịt Gà Ta",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20188,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 200,
+    "TenThucPham": "Thịt Gà Tây",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20189,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 201,
+    "TenThucPham": "Thịt Hưu",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20190,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 202,
+    "TenThucPham": "Thịt Lợn Mỡ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20191,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 203,
+    "TenThucPham": "Thịt Lợn Nạc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20192,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 204,
+    "TenThucPham": "Thịt Lợn Nữa Nạc, Nữa Mỡ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20193,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 205,
+    "TenThucPham": "Thịt Ngỗng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20194,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 206,
+    "TenThucPham": "Thịt Ngựa",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20195,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 207,
+    "TenThucPham": "Thịt Thỏ Nhà ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20196,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 208,
+    "TenThucPham": "Thịt Thỏ Rừng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20197,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 209,
+    "TenThucPham": "Thịt Trâu",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20198,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 210,
+    "TenThucPham": "Thịt Trâu, Cổ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20199,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 211,
+    "TenThucPham": "Thịt Trâu Thăn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20200,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 212,
+    "TenThucPham": "Thịt Vịt",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20201,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 213,
+    "TenThucPham": "Bì Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20202,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 214,
+    "TenThucPham": " Chân Giờ Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20203,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 215,
+    "TenThucPham": "Dạ Dày Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20204,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 216,
+    "TenThucPham": "Dạ Dày Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20205,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 217,
+    "TenThucPham": "Đầu Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20206,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 218,
+    "TenThucPham": "Đuôi Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20207,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 219,
+    "TenThucPham": "Đuôi Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20208,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 220,
+    "TenThucPham": "Gan Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20209,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 221,
+    "TenThucPham": "Gan Gà",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20210,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 222,
+    "TenThucPham": "Gan Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20211,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 223,
+    "TenThucPham": "Gan Vịt",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20212,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 224,
+    "TenThucPham": "Lưỡi Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20213,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 225,
+    "TenThucPham": "Lưỡi Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20214,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 226,
+    "TenThucPham": "Lòng Lợn (Ruột Già)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20215,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 227,
+    "TenThucPham": "Lòng Lợn (Ruột Non)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20216,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 228,
+    "TenThucPham": "Mề Gà",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20217,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 229,
+    "TenThucPham": "Óc Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20218,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 230,
+    "TenThucPham": "Óc Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20219,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 231,
+    "TenThucPham": "Sườn Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20220,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 232,
+    "TenThucPham": "Tai Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20221,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 233,
+    "TenThucPham": "Tim Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20222,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 234,
+    "TenThucPham": "Tim Gà",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20223,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 235,
+    "TenThucPham": "Tim Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20224,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 236,
+    "TenThucPham": "Pate",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20225,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 237,
+    "TenThucPham": "Chả Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20226,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 238,
+    "TenThucPham": "Dồi Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20227,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 239,
+    "TenThucPham": "Giò Bò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20228,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 240,
+    "TenThucPham": "Giò Lụa",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20229,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 241,
+    "TenThucPham": "Lạp Xưởng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20230,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 242,
+    "TenThucPham": "Nem Chạo",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20231,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 243,
+    "TenThucPham": "Ruốc Lợn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20232,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 244,
+    "TenThucPham": "Thịt Bò Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20233,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 245,
+    "TenThucPham": "Thịt Trâu Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20234,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 246,
+    "TenThucPham": "Xúc Xích",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20235,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 247,
+    "TenThucPham": "Ếch (Đùi)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20236,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 248,
+    "TenThucPham": "Nhộng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20237,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 7
+  },
+  {
+    "ID_ThucPham": 249,
+    "TenThucPham": "Cá Bống",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20238,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 250,
+    "TenThucPham": "Cá Chép",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20239,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 251,
+    "TenThucPham": "Cá Dưa",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20240,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 252,
+    "TenThucPham": "Cá Diếc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20241,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 253,
+    "TenThucPham": "Cá Hồi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20242,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 254,
+    "TenThucPham": "Cá Mè",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20243,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 255,
+    "TenThucPham": "Cá Mòi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20244,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 256,
+    "TenThucPham": "Cá Mỡ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20245,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 257,
+    "TenThucPham": "Cá Mối",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20246,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 258,
+    "TenThucPham": "Cá Nạc",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20247,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 259,
+    "TenThucPham": "Cá Ngừ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20248,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 260,
+    "TenThucPham": "Cá Nục",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20249,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 261,
+    "TenThucPham": "Cá Quả",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20250,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 262,
+    "TenThucPham": "Cá Rô Đồng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20251,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 263,
+    "TenThucPham": "Cá Rô Phi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20252,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 264,
+    "TenThucPham": "Cá Thu",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20253,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 265,
+    "TenThucPham": "Cá Thu Đao",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20254,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 266,
+    "TenThucPham": "Cá Trạch ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20255,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 267,
+    "TenThucPham": "Cá Trắm Cỏ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20256,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 268,
+    "TenThucPham": "Cá Trê",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20257,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 269,
+    "TenThucPham": "Cá Trích",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20258,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 270,
+    "TenThucPham": "Cua Bể",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20259,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 271,
+    "TenThucPham": "Cua Đồng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20260,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 272,
+    "TenThucPham": "Ghẹ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20261,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 273,
+    "TenThucPham": "Hải Sâm",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20262,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 274,
+    "TenThucPham": "Hến",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20263,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 275,
+    "TenThucPham": "Lươn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20264,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 276,
+    "TenThucPham": "Mực Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20265,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 277,
+    "TenThucPham": "Mực Tươi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20266,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 278,
+    "TenThucPham": "Ốc Bưu",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20267,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 279,
+    "TenThucPham": "Ốc Nhồi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20268,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 280,
+    "TenThucPham": "Sò",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20269,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 281,
+    "TenThucPham": "Tép Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20270,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 282,
+    "TenThucPham": "Tôm Biển",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20271,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 283,
+    "TenThucPham": "Tôm Đồng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20272,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 284,
+    "TenThucPham": "Tôm Khô",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20273,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 8
+  },
+  {
+    "ID_ThucPham": 285,
+    "TenThucPham": "Trứng Gà",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20274,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 286,
+    "TenThucPham": "Lòng Đỏ Trứng Gà",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20275,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 287,
+    "TenThucPham": "Lòng Trắng Trứng Gà",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20276,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 288,
+    "TenThucPham": "Trứng Vịt",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20277,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 289,
+    "TenThucPham": "Lòng Đỏ Trứng Vịt",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20278,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 290,
+    "TenThucPham": "Lòng Trắng Trứng Vịt",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20279,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 291,
+    "TenThucPham": "Trứng Cút",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20280,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 292,
+    "TenThucPham": "Trứng Vịt Lộn",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20281,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 9
+  },
+  {
+    "ID_ThucPham": 293,
+    "TenThucPham": "Sữa Bò Tươi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20282,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 10
+  },
+  {
+    "ID_ThucPham": 294,
+    "TenThucPham": "Sữa Dê Tươi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20283,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 10
+  },
+  {
+    "ID_ThucPham": 295,
+    "TenThucPham": "Sữa Chua (Từ Sữa Bò)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20284,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 10
+  },
+  {
+    "ID_ThucPham": 296,
+    "TenThucPham": "Sữa ChuaTách Béo",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20285,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 10
+  },
+  {
+    "ID_ThucPham": 297,
+    "TenThucPham": "Sữa Bột Toàn Phần",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20286,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 10
+  },
+  {
+    "ID_ThucPham": 298,
+    "TenThucPham": "Sữa Bột Tách Béo",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20287,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 10
+  },
+  {
+    "ID_ThucPham": 299,
+    "TenThucPham": "Phô Mát",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20288,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 10
+  },
+  {
+    "ID_ThucPham": 300,
+    "TenThucPham": "Mứt Bí",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20289,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 301,
+    "TenThucPham": "Mứt Chuối",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20290,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 302,
+    "TenThucPham": "Mứt Đu Đủ",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20291,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 303,
+    "TenThucPham": "Mứt Dứa",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20292,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 304,
+    "TenThucPham": "Cá Thu Hộp",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20293,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 305,
+    "TenThucPham": "Cá Trích Hộp",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20294,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 306,
+    "TenThucPham": "Thịt Bò Hợp",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20295,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 307,
+    "TenThucPham": "Thịt Gà Hộp",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20296,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 308,
+    "TenThucPham": "Thịt Lợn Hộp",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20297,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 11
+  },
+  {
+    "ID_ThucPham": 309,
+    "TenThucPham": "Bánh Bích Quy",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20298,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 310,
+    "TenThucPham": "Bánh Con Cá",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20299,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 311,
+    "TenThucPham": "Bánh Đậu Xanh",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20300,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 312,
+    "TenThucPham": "Bánh Kem Xốp",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20301,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 313,
+    "TenThucPham": "Bánh Quế",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20302,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 314,
+    "TenThucPham": "Bột Cacao",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20303,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 315,
+    "TenThucPham": "Đường Cát",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20304,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 316,
+    "TenThucPham": "Đường Kính",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20305,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 317,
+    "TenThucPham": "Kẹo Bơ Cứng",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20306,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 318,
+    "TenThucPham": "Kẹo Cà Phê",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20307,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 319,
+    "TenThucPham": "Kẹo Dừa Mềm",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20308,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 320,
+    "TenThucPham": "Kẹo Lạc",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20309,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 321,
+    "TenThucPham": "Mạch Nha",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20310,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 322,
+    "TenThucPham": "Mật Ong",
+    "DVT": "Hộp",
+    "SoLuong": 12,
+    "GiaBan": 20311,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 12
+  },
+  {
+    "ID_ThucPham": 323,
+    "TenThucPham": "Cary Bột",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20312,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 324,
+    "TenThucPham": "Gừng Khô (Bột)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20313,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 325,
+    "TenThucPham": "Gừng Tươi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20314,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 326,
+    "TenThucPham": "Hạt Tiêu",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20315,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 327,
+    "TenThucPham": "Muối",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20316,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 328,
+    "TenThucPham": "Nghệ Khô (Bột)",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20317,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 329,
+    "TenThucPham": "Nghệ Tươi",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20318,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 330,
+    "TenThucPham": "Ớt Khô Bột",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20319,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 331,
+    "TenThucPham": "Riềng",
+    "DVT": "kg",
+    "SoLuong": 12,
+    "GiaBan": 20320,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 332,
+    "TenThucPham": "Nước Mắm Cá",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20321,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 333,
+    "TenThucPham": "Tương Ớt",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20322,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 334,
+    "TenThucPham": "Xì Dầu",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20323,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 335,
+    "TenThucPham": "Sốt Mayonnaise",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20324,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 13
+  },
+  {
+    "ID_ThucPham": 336,
+    "TenThucPham": "Bia (4,5 G)",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20325,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 337,
+    "TenThucPham": "Cocktail (13 G)",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20326,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 338,
+    "TenThucPham": "Coca Cola",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20327,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 339,
+    "TenThucPham": "Nước Cam Tươi",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20328,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 340,
+    "TenThucPham": "Nước Dưa Non (Tươi)",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20329,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 341,
+    "TenThucPham": "Nước Ép Cà Chua",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20330,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 342,
+    "TenThucPham": "Nước Khoáng",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20331,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 343,
+    "TenThucPham": "Nước Quít Tươi",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20332,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 344,
+    "TenThucPham": "Rượu Vang Trắng (9,5 G)",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20333,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  },
+  {
+    "ID_ThucPham": 345,
+    "TenThucPham": "Rượu WISHKY (35,2 G)",
+    "DVT": "Chai",
+    "SoLuong": 12,
+    "GiaBan": 20334,
+    "Image": "",
+    "TrangThai": "Còn Hàng",
+    "ID_LoaiThucPham": 14
+  }
+]

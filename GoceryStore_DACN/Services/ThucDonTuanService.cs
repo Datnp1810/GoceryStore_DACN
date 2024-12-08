@@ -230,7 +230,7 @@ namespace GoceryStore_DACN.Services
         {
             var quanThe = new ConcurrentBag<ThucDonTuanResponse>();
             var task = new List<Task>();
-            Parallel.For(0, SoLuongQuanThe, new ParallelOptions{ MaxDegreeOfParallelism = 16 }, i =>
+            Parallel.For(0, SoLuongQuanThe, i =>
             {
                 var thucDonTuan = GenerateThucDonTuan();
                 quanThe.Add(thucDonTuan);
@@ -271,8 +271,7 @@ namespace GoceryStore_DACN.Services
             stopWath.Stop();
             Console.WriteLine("Thời gian chạy của hàm chọn lọc 1 lần: {0}", stopWath.ElapsedMilliseconds / 60000.0);
             return quanTheChon;
-            
-
+           
         }
         #endregion
 

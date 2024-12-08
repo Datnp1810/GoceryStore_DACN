@@ -1,0 +1,18 @@
+[
+  {
+    "ID_LoaiMonAn": 1,
+    "TenLoaiMonAn": "Mặn"
+  },
+  {
+    "ID_LoaiMonAn": 2,
+    "TenLoaiMonAn": "Xào"
+  },
+  {
+    "ID_LoaiMonAn": 3,
+    "TenLoaiMonAn": "Canh"
+  },
+  {
+    "ID_LoaiMonAn": 4,
+    "TenLoaiMonAn": "Cơm"
+  }
+]

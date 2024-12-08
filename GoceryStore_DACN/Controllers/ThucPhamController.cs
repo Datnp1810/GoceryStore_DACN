@@ -109,24 +109,33 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpGet("findltp/{id}")]
-        public async Task<IActionResult> GetThucPhamByLoaiThucPham(int id)
+        public async Task<IActionResult> GetThucPhamByLoaiThucPham([FromRoute] int id, [FromQuery] string search = "", [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 5, [FromQuery] string sortColumn = "Id", [FromQuery] string sortOrder = "asc")
         {
             try
             {
-                var cda = await _thucPhamService.GetAllThucPhamByLoaiThucPham(id);
+                var (cda, totalItems) = await _thucPhamService.GetAllThucPhamByLoaiThucPham(id,search, pageNumber, pageSize, sortColumn, sortOrder);
+                var totalPages = (int)Math.Ceiling((double)totalItems / pageSize);
                 if (cda == null)
                 {
                     return NotFound(new
                     {
                         status = true,
                         message = "Không tìm thấy Loại Sản Phẩm"
+                        
                     });
                 }
                 return Ok(new
                 {
                     status = true,
                     message = "Lấy Thực Phẩm thành công",
-                    result = cda
+                    result = cda,
+                    pagination = new
+                    {
+                        currentPage = pageNumber,
+                        pageSize,
+                        totalItems,
+                        totalPages
+                    }
                 });
             }
             catch (Exception ex)

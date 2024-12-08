@@ -56,6 +56,43 @@ namespace GoceryStore_DACN.Repositories
             }).ToList();
             return (thucPhamResponse, totalItems);
         }
+        public async Task<(List<ThucPhamResponse>, int totalItems)> GetThucPhamByLoaiThucPham(int id, string search, int pageNumber, int pageSize, string sortColumn, string sortOrder)
+        {
+            var query = _context.ThucPhams.Include(p => p.LoaiThucPham).Where(tp => tp.LoaiThucPham.ID_LoaiThucPham == id).AsQueryable();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                query = query.Where(p => p.TenThucPham.ToLower().Contains(search.ToLower()));
+            }
+
+
+            switch (sortColumn.ToLower())
+            {
+                case "TenSanPham":
+                    query = sortOrder == "desc" ? query.OrderByDescending(p => p.TenThucPham) : query.OrderBy(p => p.TenThucPham);
+                    break;
+                default:
+                    query = sortOrder == "desc" ? query.OrderByDescending(p => p.ID_ThucPham) : query.OrderBy(p => p.ID_ThucPham);
+                    break;
+            }
+
+            var totalItems = await query.CountAsync();
+            var pagedQuery = query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            var sanPhamEntities = await pagedQuery.ToListAsync();
+            var thucPhams = sanPhamEntities.Select(s => new ThucPhamResponse
+            {
+                ID_ThucPham = s.ID_ThucPham,
+                TenThucPham = s.TenThucPham,
+                GiaBan = s.GiaBan,
+                SoLuong = s.SoLuong,
+                Image = s.Image,
+                ID_LoaiThucPham = s.LoaiThucPham.ID_LoaiThucPham,
+                TenLoaiThucPham = s.LoaiThucPham.TenLoaiThucPham
+            }).ToList();
+            return (thucPhams, totalItems);
+        }
+
+
         public async Task<ThucPham> CreateThucPham(ThucPham thucPham)
         {
             await _context.ThucPhams.AddAsync(thucPham);
@@ -103,20 +140,6 @@ namespace GoceryStore_DACN.Repositories
             return await _context.ThucPhams.Include(x => x.LoaiThucPham).FirstOrDefaultAsync(x => x.ID_ThucPham == id);
         }
 
-        public async Task<List<ThucPhamResponse>> GetThucPhamByLoaiThucPham(int id)
-        {
-            var thucPhams = await _context.ThucPhams.Include(tp => tp.LoaiThucPham).Where(tp => tp.LoaiThucPham.ID_LoaiThucPham == id).Select(s => new ThucPhamResponse
-            {
-                ID_ThucPham = s.ID_ThucPham,
-                TenThucPham = s.TenThucPham,
-                GiaBan = s.GiaBan,
-                SoLuong = s.SoLuong,
-                Image = s.Image,
-                ID_LoaiThucPham = s.LoaiThucPham.ID_LoaiThucPham,
-                TenLoaiThucPham = s.LoaiThucPham.TenLoaiThucPham
-            }).ToListAsync();
-            return thucPhams;
-        }
 
         public async Task<ThucPham> UpdateThucPham(ThucPham thucPham)
         {

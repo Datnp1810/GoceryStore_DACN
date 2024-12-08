@@ -1,0 +1,58 @@
+[
+  {
+    "ID_LoaiThucPham": 1,
+    "TenLoaiThucPham": "NGŨ CỐC"
+  },
+  {
+    "ID_LoaiThucPham": 2,
+    "TenLoaiThucPham": "KHOAI CỦ"
+  },
+  {
+    "ID_LoaiThucPham": 3,
+    "TenLoaiThucPham": "HẠT, QUẢ GIÀU ĐẠM, BÉO"
+  },
+  {
+    "ID_LoaiThucPham": 4,
+    "TenLoaiThucPham": "RAU, QUẢ, CỦ DÙNG LÀM RAU"
+  },
+  {
+    "ID_LoaiThucPham": 5,
+    "TenLoaiThucPham": "QUẢ CHÍN"
+  },
+  {
+    "ID_LoaiThucPham": 6,
+    "TenLoaiThucPham": "DẦU, MỠ, BƠ"
+  },
+  {
+    "ID_LoaiThucPham": 7,
+    "TenLoaiThucPham": "THỊT"
+  },
+  {
+    "ID_LoaiThucPham": 8,
+    "TenLoaiThucPham": "THỦY SẢN"
+  },
+  {
+    "ID_LoaiThucPham": 9,
+    "TenLoaiThucPham": "TRỨNG"
+  },
+  {
+    "ID_LoaiThucPham": 10,
+    "TenLoaiThucPham": "SỮA"
+  },
+  {
+    "ID_LoaiThucPham": 11,
+    "TenLoaiThucPham": "ĐỒ HỘP"
+  },
+  {
+    "ID_LoaiThucPham": 12,
+    "TenLoaiThucPham": "ĐỒ NGỌT"
+  },
+  {
+    "ID_LoaiThucPham": 13,
+    "TenLoaiThucPham": "GIA VỊ, NƯỚC CHẤM"
+  },
+  {
+    "ID_LoaiThucPham": 14,
+    "TenLoaiThucPham": "NƯỚC GIẢI KHÁT, BIA, RƯỢU"
+  }
+]

@@ -101,7 +101,6 @@ namespace GoceryStore_DACN.Repositories
             return locTheoLoai;
 
         }
-
         public async Task<MonAn> GetAllMonAnById(int id)
         {
             
