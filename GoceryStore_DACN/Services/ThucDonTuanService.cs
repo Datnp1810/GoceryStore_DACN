@@ -20,7 +20,7 @@ namespace GoceryStore_DACN.Services
 
 
 
-        const int SoLuongQuanThe = 100;
+        const int SoLuongQuanThe = 200;
         const int SoLanChay= 20;
         const int SoLuongQuanTheChon = 50;
 
@@ -39,16 +39,16 @@ namespace GoceryStore_DACN.Services
         #region Generate Cá Thể, Gen(Phục vụ cho đột biến)
         public ThucDonNgayResponse GenerateThucDonNgay(int ngay, Dictionary<int, Queue<int>> history)
         {
-
+            // Khởi tạo lịch sử món ăn nếu chưa có
             if (history.Count == 0)
             {
-                //Mặn Xào Canh Cơm
                 history = new Dictionary<int, Queue<int>>();
-                foreach (var loai in new[] {3, 2, 1 })
+                foreach (var loai in new[] {5, 4, 3, 2, 1 }) // 4: Cơm, 3: Mặn, 2: Xào, 1: Canh
                 {
                     history[loai] = new Queue<int>();
                 }
             }
+
             var thucDonNgay = new ThucDonNgayResponse
             {
                 Ngay = ngay,
@@ -77,87 +77,127 @@ namespace GoceryStore_DACN.Services
             {
                 var buaAn = new BuaAnReponse
                 {
-                    Buoi = bua == 1 ? "Sáng" : bua == 2 ? "Trưa" : "Tối",
+                    Buoi = bua == 1 ? "Morning" : bua == 2 ? "Lunch" : "Dinner",
                     MonAn = new Dictionary<int, MonAnResponse>()
                 };
 
-                //Mặn Xào Canh Cơm
-                // Chọn món cho từng loại món
-                foreach (var loai in new[] { 4, 3, 2, 1 })
+                // Buổi sáng chọn ngẫu nhiên giữa bữa ăn và món nước
+                if (bua == 1)
                 {
-                    var danhSachMon = _repository.GetAllMonAnByLoaiMonAnThreadCache(loai);
-                    MonAnResponse monChon;
-
-                    if (loai == 4) // Cơm không bị hạn chế
+                    bool isMonNuoc = new Random().Next(0, 2) == 0; // 50% cơ hội chọn món nước
+                    if (isMonNuoc)
                     {
-                        monChon =  danhSachMon.OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
-                    }
-                    else // Canh, Xào, Mặn bị hạn chế
-                    {
-                        monChon = danhSachMon
-                            .Where(ma => !history[loai].Contains(ma.ID_TenMonAn)) // Lọc món chưa xuất hiện
-                            .OrderBy(_ => Guid.NewGuid()) // Dựa vào Guild để sắp xếp rồi lấy phần tử đầu tiền
-                            .FirstOrDefault();
+                        // Chọn ngẫu nhiên 1 món nước
+                        var danhSachMonNuoc = _repository.GetAllMonAnByLoaiMonAnThreadCache(5); // Loại món nước là 5
+                        var monNuoc = danhSachMonNuoc
+                         .Where(ma => !history[5].Contains(ma.ID_TenMonAn)) // Lọc món chưa xuất hiện trong lịch sử
+                         .OrderBy(_ => Guid.NewGuid())
+                         .FirstOrDefault();
 
-                        // Cập nhật lịch sử khi chọn được món
-                        if (monChon != null)
+                        if (monNuoc != null)
                         {
-                            history[loai].Enqueue(monChon.ID_TenMonAn);
-                            if (history[loai].Count > 9) // Kiểm tra hàng đợi ==9 vì 3 bữa mỗi ngày, mỗi bữa 1 món
+                            buaAn.MonAn[5] = monNuoc;
+
+                            // Cập nhật lịch sử món nước
+                            history[5].Enqueue(monNuoc.ID_TenMonAn);
+                            if (history[5].Count > 9) // 3 ngày mới xuất hiện lại
                             {
-                                history[loai].Dequeue();//Xóa phần tử VÀO đầu tiên để đảm bảo quy luật 3 ngày
+                                history[5].Dequeue();
                             }
                         }
                     }
-                    if (monChon != null)
+                    else
                     {
-                        //Thay bằng cache
-                        var ct_BuoiAn = _ct_BuoiAnRepository.GetAllCT_BuoiAnByIdMonAnThreadCache(monChon.ID_TenMonAn);
-                        foreach (var item in ct_BuoiAn)
-                        {
-                            //thay bằng cache
-                            var tpDinhDuong = _thanhPhanDinhDuongRepository.GetAllThanhPhanDinhDuongByIdThreadCache(item.ID_ThucPham);
-                            if (tpDinhDuong != null)
-                            {
-                                // Đảm bảo item.Gram không phải null, nếu có thể thì gán giá trị mặc định 0
-                                double gram = item.Gram;
-
-                                thucDonNgay.TongNangLuong += ((tpDinhDuong?.Energy ?? 0) * gram) / 100;
-                                thucDonNgay.TongProtein += ((tpDinhDuong?.Protein ?? 0) * gram) / 100;
-                                thucDonNgay.TongChatBeo += ((tpDinhDuong?.Fat ?? 0) * gram) / 100;
-                                thucDonNgay.TongCarbohydrate += ((tpDinhDuong?.Carbohydrate ?? 0) * gram) / 100;
-                                thucDonNgay.TongChatXo += ((tpDinhDuong?.ChatXo ?? 0) * gram) / 100;
-                                thucDonNgay.TongCanxi += ((tpDinhDuong?.Canxi ?? 0) * gram) / 100;
-                                thucDonNgay.TongSat += ((tpDinhDuong?.Fe ?? 0) * gram) / 100;
-                                thucDonNgay.TongMagie += ((tpDinhDuong?.Magie ?? 0) * gram) / 100;
-                                thucDonNgay.TongPhotpho += ((tpDinhDuong?.Photpho ?? 0) * gram) / 100;
-                                thucDonNgay.TongKali += ((tpDinhDuong?.Kali ?? 0) * gram) / 100;
-                                thucDonNgay.TongVitaminC += ((tpDinhDuong?.VitaminC ?? 0) * gram) / 100;
-                                thucDonNgay.TongVitaminB1 += ((tpDinhDuong?.VitaminB1 ?? 0) * gram) / 100;
-                                thucDonNgay.TongVitaminB2 += ((tpDinhDuong?.VitaminB2 ?? 0) * gram) / 100;
-                                thucDonNgay.TongVitaminA += ((tpDinhDuong?.VitaminA ?? 0) * gram) / 100;
-                                thucDonNgay.TongVitaminD += ((tpDinhDuong?.VitaminD ?? 0) * gram) / 100;
-                                thucDonNgay.TongVitaminE += ((tpDinhDuong?.VitaminE ?? 0) * gram) / 100;
-                                thucDonNgay.TongVitaminK += ((tpDinhDuong?.VitaminK ?? 0) * gram) / 100;
-                            }
-                            else
-                            {
-                                // Nếu tpDinhDuong là null, có thể log lỗi hoặc bỏ qua phần tử này
-                                // Log or handle the case where tpDinhDuong is null
-                                Console.WriteLine($"No nutrition data found for ThucPham ID: {item.ID_ThucPham}");
-                            }
-                        }
-                        buaAn.MonAn[loai] = monChon;
+                        // Nếu không chọn món nước, thực hiện chọn món 
+                        int soMon = new Random().Next(2, 5); // 2, 3 hoặc 4 món
+                        var loaiMons = new[] { 4, 3, 2, 1 }.Take(soMon).ToArray();
+                        AddMonAnToBua(history, buaAn, thucDonNgay, new[] {4, 3, 2, 1 });
                     }
                 }
+                else
+                {
+                    // Các buổi còn lại cũng thực hiện chọn món
+                    int soMon = new Random().Next(2, 5); // 2, 3 hoặc 4 món
+                    var loaiMons = new[] { 4, 3, 2, 1 }.Take(soMon).ToArray(); // Lấy số món tương ứng
+                    AddMonAnToBua(history, buaAn, thucDonNgay, loaiMons);
+                }
+
                 thucDonNgay.Buas.Add(buaAn);
             }
+
             return thucDonNgay;
+        }
+
+        private void AddMonAnToBua(
+            Dictionary<int, Queue<int>> history,
+            BuaAnReponse buaAn,
+            ThucDonNgayResponse thucDonNgay,
+            int[] loaiMons)
+        {
+            foreach (var loai in loaiMons)
+            {
+                var danhSachMon = _repository.GetAllMonAnByLoaiMonAnThreadCache(loai);
+                MonAnResponse monChon = null;
+
+                if (loai == 4) // Loại cơm không hạn chế
+                {
+                    monChon = danhSachMon.OrderBy(_ => Guid.NewGuid()).FirstOrDefault();
+                }
+                else // Các loại khác bị hạn chế theo lịch sử
+                {
+                    monChon = danhSachMon
+                        .Where(ma => !history[loai].Contains(ma.ID_TenMonAn)) // Lọc món chưa xuất hiện
+                        .OrderBy(_ => Guid.NewGuid())
+                        .FirstOrDefault();
+
+                    if (monChon != null)
+                    {
+                        history[loai].Enqueue(monChon.ID_TenMonAn);
+                        if (history[loai].Count > 9) // Giữ tối đa 9 món gần nhất
+                        {
+                            history[loai].Dequeue();
+                        }
+                    }
+                }
+
+                if (monChon != null)
+                {
+                    buaAn.MonAn[loai] = monChon;
+                    var ct_BuoiAn = _ct_BuoiAnRepository.GetAllCT_BuoiAnByIdMonAnThreadCache(monChon.ID_TenMonAn);
+                    foreach (var item in ct_BuoiAn)
+                    {
+                        var tpDinhDuong = _thanhPhanDinhDuongRepository.GetAllThanhPhanDinhDuongByIdThreadCache(item.ID_ThucPham);
+                        if (tpDinhDuong != null)
+                        {
+                            double gram = item.Gram;
+
+                            thucDonNgay.TongNangLuong += ((tpDinhDuong?.Energy ?? 0) * gram) / 100;
+                            thucDonNgay.TongProtein += ((tpDinhDuong?.Protein ?? 0) * gram) / 100;
+                            thucDonNgay.TongChatBeo += ((tpDinhDuong?.Fat ?? 0) * gram) / 100;
+                            thucDonNgay.TongCarbohydrate += ((tpDinhDuong?.Carbohydrate ?? 0) * gram) / 100;
+                            thucDonNgay.TongChatXo += ((tpDinhDuong?.ChatXo ?? 0) * gram) / 100;
+                            thucDonNgay.TongCanxi += ((tpDinhDuong?.Canxi ?? 0) * gram) / 100;
+                            thucDonNgay.TongSat += ((tpDinhDuong?.Fe ?? 0) * gram) / 100;
+                            thucDonNgay.TongMagie += ((tpDinhDuong?.Magie ?? 0) * gram) / 100;
+                            thucDonNgay.TongPhotpho += ((tpDinhDuong?.Photpho ?? 0) * gram) / 100;
+                            thucDonNgay.TongKali += ((tpDinhDuong?.Kali ?? 0) * gram) / 100;
+                            thucDonNgay.TongVitaminC += ((tpDinhDuong?.VitaminC ?? 0) * gram) / 100;
+                            thucDonNgay.TongVitaminB1 += ((tpDinhDuong?.VitaminB1 ?? 0) * gram) / 100;
+                            thucDonNgay.TongVitaminB2 += ((tpDinhDuong?.VitaminB2 ?? 0) * gram) / 100;
+                            thucDonNgay.TongVitaminA += ((tpDinhDuong?.VitaminA ?? 0) * gram) / 100;
+                            thucDonNgay.TongVitaminD += ((tpDinhDuong?.VitaminD ?? 0) * gram) / 100;
+                            thucDonNgay.TongVitaminE += ((tpDinhDuong?.VitaminE ?? 0) * gram) / 100;
+                            thucDonNgay.TongVitaminK += ((tpDinhDuong?.VitaminK ?? 0) * gram) / 100;
+                        }
+                    }
+                }
+            }
         }
 
 
 
-        public  ThucDonTuanResponse GenerateThucDonTuan()
+
+        public ThucDonTuanResponse GenerateThucDonTuan()
         {
             var stopWath = new Stopwatch();
             stopWath.Start();
@@ -165,7 +205,7 @@ namespace GoceryStore_DACN.Services
             
             var history = new Dictionary<int, Queue<int>>();
             // Khởi tạo lịch sử cho các loại món bị hạn chế
-            foreach (var loai in new[] { 3, 2, 1 })
+            foreach (var loai in new[] {5, 3, 2, 1 })
             {
                 history[loai] = new Queue<int>();
             }
@@ -210,16 +250,18 @@ namespace GoceryStore_DACN.Services
             fitness += Math.Abs(thucDonTuan.TongProtein - cheDoAn.TongProtein);
             fitness += Math.Abs(thucDonTuan.TongChatBeo- cheDoAn.TongChatBeo);
             fitness += Math.Abs(thucDonTuan.TongNangLuong - cheDoAn.TongCarbohydrate);
-            fitness += Math.Abs(thucDonTuan.TongNangLuong - cheDoAn.TongChatXo);
+            //fitness += Math.Abs(thucDonTuan.TongNangLuong - cheDoAn.TongChatXo);
             fitness += Math.Abs(thucDonTuan .TongCanxi- cheDoAn.TongCanxi);
-            fitness += Math.Abs(thucDonTuan .TongSat- cheDoAn.TongSat);
+            //fitness += Math.Abs(thucDonTuan .TongSat- cheDoAn.TongSat);
             fitness += Math.Abs(thucDonTuan .TongMagie- cheDoAn.TongMagie);
-            fitness += Math.Abs(thucDonTuan.TongPhotpho - cheDoAn.TongPhotpho);
+            //fitness += Math.Abs(thucDonTuan.TongPhotpho - cheDoAn.TongPhotpho);
             fitness += Math.Abs(thucDonTuan.TongKali - cheDoAn.TongKali);
-            fitness += Math.Abs(thucDonTuan .TongVitaminC- cheDoAn.TongVitaminC);
+            //fitness += Math.Abs(thucDonTuan .TongVitaminC- cheDoAn.TongVitaminC);
+            fitness += Math.Abs(thucDonTuan.TongVitaminB1 - cheDoAn.TongVitaminB1);
+            fitness += Math.Abs(thucDonTuan.TongVitaminB2 - cheDoAn.TongVitaminB2);
             fitness += Math.Abs(thucDonTuan.TongVitaminA- cheDoAn.TongVitaminA);
-            fitness += Math.Abs(thucDonTuan.TongVitaminD - cheDoAn.TongVitaminD);
-            fitness += Math.Abs(thucDonTuan.TongVitaminE - cheDoAn.TongVitaminE);
+            //fitness += Math.Abs(thucDonTuan.TongVitaminD - cheDoAn.TongVitaminD);
+            //fitness += Math.Abs(thucDonTuan.TongVitaminE - cheDoAn.TongVitaminE);
             fitness += Math.Abs(thucDonTuan.TongVitaminK-cheDoAn.TongVitaminK);
             return fitness;
         }
@@ -464,6 +506,11 @@ namespace GoceryStore_DACN.Services
 
         }
         #endregion
+
+
+
+
+
 
     }
 }

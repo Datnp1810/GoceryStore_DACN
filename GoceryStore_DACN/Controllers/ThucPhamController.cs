@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.DTOs;
+using GoceryStore_DACN.Models.Respones;
 using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -53,15 +54,11 @@ namespace GoceryStore_DACN.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllThucPham()
+        public IActionResult GetAllThucPham()
         {
             try
             {
-                var getAll = await _thucPhamService.GetAllThucPham();
-                getAll.ForEach(e =>
-                {
-                    Console.WriteLine(e);
-                });
+                var getAll = _thucPhamService.GetAllThucPhamCache();
                 return Ok(new
                 {
                     results = getAll,
@@ -75,6 +72,71 @@ namespace GoceryStore_DACN.Controllers
                     error = ex.Message
                 });
             }
+        }
+
+        [HttpGet("cache/getByID/{id}")]
+        public IActionResult GetAllThucPhamID(int id)
+        {
+            try
+            {
+                var getAll = _thucPhamService.GetAllThucPhamByIDCache(id);
+                return Ok(new
+                {
+                    results = getAll,
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+
+        [HttpPost("listBuy")]
+        public IActionResult DanhSachCanMuaNgay([FromBody] List<BuaAnReponse> buas)
+        {
+            if (buas == null || !buas.Any())
+            {
+                return BadRequest("Danh sách bữa ăn không hợp lệ");
+            }
+
+            // Chuyển Buas thành ThucDonNgayResponse nếu cần (ví dụ để tái sử dụng logic)
+            var thucDonNgay = new ThucDonNgayResponse
+            {
+                Buas = buas
+            };
+
+            // Gọi hàm để lấy danh sách thực phẩm cần mua
+            var danhSachCanMua = _thucPhamService.GetDanhSachMuaNgay(thucDonNgay);
+            return Ok(danhSachCanMua);
+        }
+
+
+        [HttpPost("listBuyTuan")]
+        public IActionResult DanhSachCanMuaTuan([FromBody] List<ThucDonNgayResponse> listThucDonNgayDTO)
+        {
+            if (listThucDonNgayDTO == null || !listThucDonNgayDTO.Any())
+            {
+                return BadRequest("Danh sách bữa ăn không hợp lệ");
+            }
+
+            // Chuyển Buas thành ThucDonNgayResponse nếu cần (ví dụ để tái sử dụng logic)
+            var thucDonTuan = new ThucDonTuanResponse
+            {
+                listThucDonNgay = listThucDonNgayDTO.Select(dto => new ThucDonNgayResponse
+                {
+                    Ngay = dto.Ngay,
+                    Buas = dto.Buas
+                }).ToList()
+            };
+
+            // Gọi hàm để lấy danh sách thực phẩm cần mua
+            var danhSachCanMua = _thucPhamService.GetDanhSachMuaTuan(thucDonTuan);
+            return Ok(danhSachCanMua);
         }
 
         [HttpGet("{id}")]

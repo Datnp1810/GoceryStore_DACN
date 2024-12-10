@@ -25,11 +25,13 @@ namespace GoceryStore_DACN.Controllers
             {
                 stopWath.Start();
                 var thuatToan = await _thucDonTuanService.ThuatToanGA(id);
+                var fitness = await _thucDonTuanService.Fitness(thuatToan, id);
                 stopWath.Stop();   
                 return Ok(new
                 {
                     results = thuatToan,
-                    thoiGianThucThi = stopWath.ElapsedMilliseconds / 1000
+                    thoiGianThucThi = stopWath.ElapsedMilliseconds / 1000,
+                    soFitness = fitness
                 });
             }
             catch (Exception ex)

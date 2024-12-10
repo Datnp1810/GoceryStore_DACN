@@ -38,9 +38,7 @@ namespace GoceryStore_DACN.Repositories
             }
             return false;
                   
-        }
-
-      
+        }    
         public async Task<IEnumerable<CT_BuoiAnDTO>> GetAllCT_BuoiAn()
         {
             var ct_buoian = await _context.CTBuoiAns!.Include(p => p.MonAn)

@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.Data;
+using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
 using GoceryStore_DACN.Models.Respones;
 using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System.Collections.Immutable;
 using System.Net.WebSockets;
 
@@ -13,11 +15,13 @@ namespace GoceryStore_DACN.Repositories
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IMemoryCache _cache;
 
-        public ThucPhamRepository(ApplicationDbContext context, IMapper mapper)
+        public ThucPhamRepository(ApplicationDbContext context, IMapper mapper, IMemoryCache cache)
         {
             _context = context;
             _mapper = mapper;
+            _cache = cache;
         }
 
 
@@ -118,22 +122,54 @@ namespace GoceryStore_DACN.Repositories
             return await _context.ThucPhams?.AnyAsync(tp => tp.ID_ThucPham == id);
         }
 
-        public async Task<List<ThucPhamResponse>> GetAllThucPham()
+        public IEnumerable<ThucPhamResponse> GetAllThucPhamCache()
         {
-            var thucPhams = await _context.ThucPhams.Include(tp => tp.LoaiThucPham).Select(s => new ThucPhamResponse
+            if (_cache.TryGetValue("ThucPhamTable", out IEnumerable<ThucPhamResponse> thucPhamList))
             {
-                ID_ThucPham = s.ID_ThucPham,
-                TenThucPham = s.TenThucPham,
-                GiaBan = s.GiaBan,
-                SoLuong = s.SoLuong,
-                Image = s.Image,
-                ID_LoaiThucPham = s.LoaiThucPham.ID_LoaiThucPham,
-                TenLoaiThucPham = s.LoaiThucPham.TenLoaiThucPham
-            })
-                .ToListAsync();
+                // Nếu có, trả về dữ liệu từ cache
 
-            return thucPhams;
+                return thucPhamList;
+            }
+            // Nếu không có trong cache, lấy dữ liệu từ database
+            thucPhamList = _context.ThucPhams!.Include(p => p.LoaiThucPham).
+                Select(s => new ThucPhamResponse
+                {
+                    ID_ThucPham = s.ID_ThucPham,
+                    TenThucPham = s.TenThucPham,
+                    GiaBan = s.GiaBan,
+                    SoLuong = s.SoLuong,
+                    Image = s.Image,
+                    ID_LoaiThucPham = s.LoaiThucPham.ID_LoaiThucPham,
+                    TenLoaiThucPham = s.LoaiThucPham.TenLoaiThucPham
+                }).ToList();
+            AddToCache("ThucPhamTable", thucPhamList);
+            return thucPhamList;
         }
+
+        public void AddToCache(string cachKey, IEnumerable<ThucPhamResponse> thucPhamList)
+        {
+            // Lưu vào cache cho các lần truy vấn tiếp theo
+            var cacheEntryOptions = new MemoryCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(30)) // Đặt thời gian hết hạn trượt
+                .SetAbsoluteExpiration(TimeSpan.FromHours(1))   // Đặt thời gian hết hạn tuyệt đối
+                .SetPriority(CacheItemPriority.Normal);         // Cài đặt mức độ ưu tiên
+            _cache.Set("CT_BuoiAnTable", thucPhamList, cacheEntryOptions);
+        }
+
+        public ThucPhamResponse ThucPhamByIdCache(int id)
+        {
+            //Nếu không có ThucPhaam trong cacche
+            if (!_cache.TryGetValue("ThucPhamTable", out IEnumerable<ThucPhamResponse> thucPhamList))
+            {
+                thucPhamList = GetAllThucPhamCache();
+            }
+
+            // Lọc danh sách MonAn theo ID_LoaiMonAn
+            var locTheoID = thucPhamList.FirstOrDefault(m => m.ID_ThucPham == id);
+            return locTheoID;
+        }
+
+
 
         public async Task<ThucPham> GetThucPhamById(int id)
         {
@@ -147,5 +183,7 @@ namespace GoceryStore_DACN.Repositories
             await _context.SaveChangesAsync();
             return thucPham;
         }
+
+
     }
 }
