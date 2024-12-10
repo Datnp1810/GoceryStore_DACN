@@ -14,5 +14,17 @@
   {
     "ID_LoaiMonAn": 4,
     "TenLoaiMonAn": "Cơm"
+  },
+  {
+    "ID_LoaiMonAn": 5,
+    "TenLoaiMonAn": "Ăn Sáng"
+  },
+  {
+    "ID_LoaiMonAn": 6,
+    "TenLoaiMonAn": "Xào Chay"
+  },
+  {
+    "ID_LoaiMonAn": 7,
+    "TenLoaiMonAn": "Canh Chay"
   }
 ]

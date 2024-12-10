@@ -1903,5 +1903,785 @@
     "ID_ThucPham": 4,
     "ID_MonAn": 146,
     "Gram": 30
+  },
+  {
+    "ID_ThucPham": 15,
+    "ID_MonAn": 147,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 98,
+    "ID_MonAn": 147,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 285,
+    "ID_MonAn": 147,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 1,
+    "ID_MonAn": 148,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 186,
+    "ID_MonAn": 148,
+    "Gram": 5
+  },
+  {
+    "ID_ThucPham": 16,
+    "ID_MonAn": 149,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 194,
+    "ID_MonAn": 149,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 20,
+    "ID_MonAn": 150,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 237,
+    "ID_MonAn": 150,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 4,
+    "ID_MonAn": 151,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 203,
+    "ID_MonAn": 151,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 283,
+    "ID_MonAn": 151,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 15,
+    "ID_MonAn": 152,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 98,
+    "ID_MonAn": 152,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 203,
+    "ID_MonAn": 152,
+    "Gram": 35
+  },
+  {
+    "ID_ThucPham": 236,
+    "ID_MonAn": 152,
+    "Gram": 5
+  },
+  {
+    "ID_ThucPham": 237,
+    "ID_MonAn": 152,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 240,
+    "ID_MonAn": 152,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 78,
+    "ID_MonAn": 153,
+    "Gram": 25
+  },
+  {
+    "ID_ThucPham": 98,
+    "ID_MonAn": 153,
+    "Gram": 35
+  },
+  {
+    "ID_ThucPham": 123,
+    "ID_MonAn": 153,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 124,
+    "ID_MonAn": 153,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 134,
+    "ID_MonAn": 153,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 335,
+    "ID_MonAn": 153,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 31,
+    "ID_MonAn": 154,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 202,
+    "ID_MonAn": 154,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 283,
+    "ID_MonAn": 154,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 4,
+    "ID_MonAn": 155,
+    "Gram": 60
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 155,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 100,
+    "ID_MonAn": 155,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 241,
+    "ID_MonAn": 155,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 283,
+    "ID_MonAn": 155,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 285,
+    "ID_MonAn": 155,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 1,
+    "ID_MonAn": 156,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 109,
+    "ID_MonAn": 156,
+    "Gram": 5
+  },
+  {
+    "ID_ThucPham": 241,
+    "ID_MonAn": 156,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 243,
+    "ID_MonAn": 156,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 291,
+    "ID_MonAn": 156,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 24,
+    "ID_MonAn": 157,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 293,
+    "ID_MonAn": 157,
+    "Gram": 150
+  },
+  {
+    "ID_ThucPham": 151,
+    "ID_MonAn": 158,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 154,
+    "ID_MonAn": 158,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 169,
+    "ID_MonAn": 158,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 173,
+    "ID_MonAn": 158,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 176,
+    "ID_MonAn": 158,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 293,
+    "ID_MonAn": 158,
+    "Gram": 150
+  },
+  {
+    "ID_ThucPham": 1,
+    "ID_MonAn": 159,
+    "Gram": 60
+  },
+  {
+    "ID_ThucPham": 78,
+    "ID_MonAn": 159,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 98,
+    "ID_MonAn": 159,
+    "Gram": 15
+  },
+  {
+    "ID_ThucPham": 199,
+    "ID_MonAn": 159,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 13,
+    "ID_MonAn": 160,
+    "Gram": 60
+  },
+  {
+    "ID_ThucPham": 78,
+    "ID_MonAn": 160,
+    "Gram": 25
+  },
+  {
+    "ID_ThucPham": 107,
+    "ID_MonAn": 160,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 109,
+    "ID_MonAn": 160,
+    "Gram": 5
+  },
+  {
+    "ID_ThucPham": 204,
+    "ID_MonAn": 160,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 15,
+    "ID_MonAn": 161,
+    "Gram": 5
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 161,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 194,
+    "ID_MonAn": 161,
+    "Gram": 100
+  },
+  {
+    "ID_ThucPham": 94,
+    "ID_MonAn": 162,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 231,
+    "ID_MonAn": 162,
+    "Gram": 100
+  },
+  {
+    "ID_ThucPham": 16,
+    "ID_MonAn": 163,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 199,
+    "ID_MonAn": 163,
+    "Gram": 100
+  },
+  {
+    "ID_ThucPham": 231,
+    "ID_MonAn": 164,
+    "Gram": 100
+  },
+  {
+    "ID_ThucPham": 31,
+    "ID_MonAn": 165,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 261,
+    "ID_MonAn": 165,
+    "Gram": 100
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 166,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 109,
+    "ID_MonAn": 166,
+    "Gram": 5
+  },
+  {
+    "ID_ThucPham": 189,
+    "ID_MonAn": 166,
+    "Gram": 2.5
+  },
+  {
+    "ID_ThucPham": 78,
+    "ID_MonAn": 167,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 83,
+    "ID_MonAn": 167,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 191,
+    "ID_MonAn": 167,
+    "Gram": 2.5
+  },
+  {
+    "ID_ThucPham": 91,
+    "ID_MonAn": 168,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 122,
+    "ID_MonAn": 168,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 188,
+    "ID_MonAn": 168,
+    "Gram": 2.5
+  },
+  {
+    "ID_ThucPham": 61,
+    "ID_MonAn": 169,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 100,
+    "ID_MonAn": 169,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 189,
+    "ID_MonAn": 169,
+    "Gram": 2.5
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 170,
+    "Gram": 120
+  },
+  {
+    "ID_ThucPham": 136,
+    "ID_MonAn": 170,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 171,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 100,
+    "ID_MonAn": 171,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 146,
+    "ID_MonAn": 172,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 285,
+    "ID_MonAn": 172,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 11,
+    "ID_MonAn": 173,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 77,
+    "ID_MonAn": 173,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 174,
+    "Gram": 90
+  },
+  {
+    "ID_ThucPham": 78,
+    "ID_MonAn": 174,
+    "Gram": 20
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 175,
+    "Gram": 90
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 175,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 89,
+    "ID_MonAn": 175,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 136,
+    "ID_MonAn": 175,
+    "Gram": 90
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 176,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 118,
+    "ID_MonAn": 176,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 177,
+    "Gram": 90
+  },
+  {
+    "ID_ThucPham": 120,
+    "ID_MonAn": 177,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 41,
+    "ID_MonAn": 178,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 178,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 179,
+    "Gram": 90
+  },
+  {
+    "ID_ThucPham": 107,
+    "ID_MonAn": 179,
+    "Gram": 14
+  },
+  {
+    "ID_ThucPham": 113,
+    "ID_MonAn": 179,
+    "Gram": 5
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 180,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 181,
+    "Gram": 100
+  },
+  {
+    "ID_ThucPham": 116,
+    "ID_MonAn": 181,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 140,
+    "ID_MonAn": 182,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 146,
+    "ID_MonAn": 182,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 183,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 98,
+    "ID_MonAn": 183,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 122,
+    "ID_MonAn": 183,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 78,
+    "ID_MonAn": 184,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 98,
+    "ID_MonAn": 184,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 134,
+    "ID_MonAn": 184,
+    "Gram": 30
+  },
+  {
+    "ID_ThucPham": 98,
+    "ID_MonAn": 185,
+    "Gram": 60
+  },
+  {
+    "ID_ThucPham": 124,
+    "ID_MonAn": 185,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 303,
+    "ID_MonAn": 185,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 82,
+    "ID_MonAn": 186,
+    "Gram": 100
+  },
+  {
+    "ID_ThucPham": 140,
+    "ID_MonAn": 186,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 187,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 77,
+    "ID_MonAn": 187,
+    "Gram": 300
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 188,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 146,
+    "ID_MonAn": 188,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 83,
+    "ID_MonAn": 189,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 89,
+    "ID_MonAn": 189,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 190,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 83,
+    "ID_MonAn": 190,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 120,
+    "ID_MonAn": 191,
+    "Gram": 60
+  },
+  {
+    "ID_ThucPham": 146,
+    "ID_MonAn": 191,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 192,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 132,
+    "ID_MonAn": 192,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 76,
+    "ID_MonAn": 193,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 145,
+    "ID_MonAn": 193,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 194,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 136,
+    "ID_MonAn": 194,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 195,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 89,
+    "ID_MonAn": 195,
+    "Gram": 90
+  },
+  {
+    "ID_ThucPham": 75,
+    "ID_MonAn": 196,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 113,
+    "ID_MonAn": 196,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 83,
+    "ID_MonAn": 197,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 111,
+    "ID_MonAn": 197,
+    "Gram": 50
+  },
+  {
+    "ID_ThucPham": 40,
+    "ID_MonAn": 198,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 198,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 86,
+    "ID_MonAn": 199,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 144,
+    "ID_MonAn": 199,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 88,
+    "ID_MonAn": 200,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 145,
+    "ID_MonAn": 200,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 67,
+    "ID_MonAn": 201,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 114,
+    "ID_MonAn": 201,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 89,
+    "ID_MonAn": 202,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 118,
+    "ID_MonAn": 202,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 94,
+    "ID_MonAn": 203,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 101,
+    "ID_MonAn": 203,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 76,
+    "ID_MonAn": 204,
+    "Gram": 200
+  },
+  {
+    "ID_ThucPham": 130,
+    "ID_MonAn": 204,
+    "Gram": 40
+  },
+  {
+    "ID_ThucPham": 36,
+    "ID_MonAn": 205,
+    "Gram": 80
+  },
+  {
+    "ID_ThucPham": 80,
+    "ID_MonAn": 205,
+    "Gram": 70
+  },
+  {
+    "ID_ThucPham": 107,
+    "ID_MonAn": 206,
+    "Gram": 10
+  },
+  {
+    "ID_ThucPham": 146,
+    "ID_MonAn": 206,
+    "Gram": 40
   }
 ]

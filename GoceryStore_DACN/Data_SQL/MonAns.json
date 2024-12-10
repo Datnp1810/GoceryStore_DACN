@@ -728,5 +728,305 @@
     "ID_MonAn": 146,
     "TenMonAn": "Cơm",
     "ID_LoaiMonAn": 4
+  },
+  {
+    "ID_MonAn": 147,
+    "TenMonAn": "Bánh mì ốp la",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 148,
+    "TenMonAn": "Xôi gấc",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 149,
+    "TenMonAn": "Phở bò",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 150,
+    "TenMonAn": "Bánh cuốn chả lụa",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 151,
+    "TenMonAn": "Hủ tíu xào",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 152,
+    "TenMonAn": "Bánh mì kẹp thịt",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 153,
+    "TenMonAn": "Salad rau củ",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 154,
+    "TenMonAn": "Bánh bột lọc",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 155,
+    "TenMonAn": "Cơm chiên Dương Châu",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 156,
+    "TenMonAn": "Xôi mặn",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 157,
+    "TenMonAn": "Ngũ cốc nguyên hạt",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 158,
+    "TenMonAn": "Hoa quả tươi và sữa",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 159,
+    "TenMonAn": "Xôi gà",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 160,
+    "TenMonAn": "Bún mọc",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 161,
+    "TenMonAn": "Bò Kho",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 162,
+    "TenMonAn": "Hủ Tiếu Sườn",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 163,
+    "TenMonAn": "Phở Gà",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 164,
+    "TenMonAn": "Nui Xương Heo",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 165,
+    "TenMonAn": "Bánh Canh Cá",
+    "ID_LoaiMonAn": 5
+  },
+  {
+    "ID_MonAn": 166,
+    "TenMonAn": "Su hào xào cà rốt",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 167,
+    "TenMonAn": "Cải bắp xào cà chua",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 168,
+    "TenMonAn": "Ngô sen xào cần tây",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 169,
+    "TenMonAn": "Đậu cô ve hạt điều",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 170,
+    "TenMonAn": "Đậu phụ kho su hào",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 171,
+    "TenMonAn": "Đậu phụ kho đậu cô ve",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 172,
+    "TenMonAn": "Nấm rơm chiên giòn",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 173,
+    "TenMonAn": "Bí đỏ chiên giòn",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 174,
+    "TenMonAn": "Đậu phụ sốt cà chua",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 175,
+    "TenMonAn": "Đậu phụ xào rau củ",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 176,
+    "TenMonAn": "Đậu phụ kho măng",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 177,
+    "TenMonAn": "Đậu phụ nhồi mướp đắng kho",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 178,
+    "TenMonAn": "Đậu phụ xào miến",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 179,
+    "TenMonAn": "Đậu phụ xào giá, hẹ",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 180,
+    "TenMonAn": "Đậu phụ chiên giòn",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 181,
+    "TenMonAn": "Đậu phụ cuộn lá lốt",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 182,
+    "TenMonAn": "Nấm rơm xào tỏi",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 183,
+    "TenMonAn": "Gỏi ngó sen chay",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 184,
+    "TenMonAn": "Salad chay",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 185,
+    "TenMonAn": "Dưa chuột xào ớt chuông",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 186,
+    "TenMonAn": "Cà tím xào chay",
+    "ID_LoaiMonAn": 6
+  },
+  {
+    "ID_MonAn": 187,
+    "TenMonAn": "Canh bí đỏ đậu phụ",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 188,
+    "TenMonAn": "Canh nấm đậu phụ",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 189,
+    "TenMonAn": "Canh bông cải chay",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 190,
+    "TenMonAn": "Canh kim chi chay",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 191,
+    "TenMonAn": "Canh mướp nấu nấm",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 192,
+    "TenMonAn": "Canh rau ngót đậu phụ",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 193,
+    "TenMonAn": "Canh bí đao nấm hương",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 194,
+    "TenMonAn": "Canh su hào nấu cà rốt",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 195,
+    "TenMonAn": "Canh rau cải nấu đậu phụ",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 196,
+    "TenMonAn": "Canh bầu nấu hẹ",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 197,
+    "TenMonAn": "Canh cải bắp hạt sen",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 198,
+    "TenMonAn": "Canh cà rốt nấu khoai tây",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 199,
+    "TenMonAn": "Canh cải cúc nấu mộc nhĩ",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 200,
+    "TenMonAn": "Canh cải thìa nấm hương",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 201,
+    "TenMonAn": "Canh hoa chuối đậu phụ",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 202,
+    "TenMonAn": "Canh cải xanh nấu măng tây",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 203,
+    "TenMonAn": "Canh đậu đũa nấu củ cải trắng",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 204,
+    "TenMonAn": "Canh mồng tới nấu bí đao",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 205,
+    "TenMonAn": "Canh củ dền nấu khoai môn",
+    "ID_LoaiMonAn": 7
+  },
+  {
+    "ID_MonAn": 206,
+    "TenMonAn": "Canh nấm rơm giá đỗ",
+    "ID_LoaiMonAn": 7
   }
 ]
