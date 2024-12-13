@@ -57,11 +57,11 @@ namespace GoceryStore_DACN.Repositories
             var cacheEntryOptions = new MemoryCacheEntryOptions()
                 .SetSlidingExpiration(TimeSpan.FromMinutes(30)) // Đặt thời gian hết hạn trượt
                 .SetAbsoluteExpiration(TimeSpan.FromHours(1))   // Đặt thời gian hết hạn tuyệt đối
-                .SetPriority(CacheItemPriority.Normal);         // Cài đặt mức độ ưu tiên
+                .SetPriority(CacheItemPriority.NeverRemove);         // Cài đặt mức độ ưu tiên
             _cache.Set("CT_BuoiAnTable", ct_BuoiAnList, cacheEntryOptions);
         }
 
-        public IEnumerable<CT_BuoiAnDTO> GetAllCT_BuoiAnCache()
+        public  IEnumerable<CT_BuoiAnDTO> GetAllCT_BuoiAnCache()
         {
             if (_cache.TryGetValue("CT_BuoiAnTable", out IEnumerable<CT_BuoiAnDTO> ct_BuoiAnList))
             {
@@ -70,7 +70,7 @@ namespace GoceryStore_DACN.Repositories
                 return ct_BuoiAnList;
             }
             // Nếu không có trong cache, lấy dữ liệu từ database
-            ct_BuoiAnList = _context.CTBuoiAns!.Include(p => p.MonAn)
+            ct_BuoiAnList =  _context.CTBuoiAns!.Include(p => p.MonAn)
                 .Include(q => q.ThucPham).Select(s => new CT_BuoiAnDTO
                 {
                     ID_MonAn = s.ID_MonAn,
@@ -80,7 +80,7 @@ namespace GoceryStore_DACN.Repositories
             AddToCache("CT_BuoiAnTable", ct_BuoiAnList);
             return ct_BuoiAnList;
         }
-        public IEnumerable<CT_BuoiAnDTO> GetAllCT_BuoiAnByIdMonAnThreadCache(int id)
+        public  IEnumerable<CT_BuoiAnDTO> GetAllCT_BuoiAnByIdMonAnThreadCache(int id)
         {
       
             //Nếu không có MonAn trong cacche

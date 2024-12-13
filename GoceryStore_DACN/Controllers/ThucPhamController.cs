@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.DTOs;
+using GoceryStore_DACN.Models.Requests;
 using GoceryStore_DACN.Models.Respones;
 using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.WebSockets;
 
 namespace GoceryStore_DACN.Controllers
 {
@@ -97,18 +99,18 @@ namespace GoceryStore_DACN.Controllers
 
 
         [HttpPost("listBuy")]
-        public IActionResult DanhSachCanMuaNgay([FromBody] List<BuaAnReponse> buas)
+        public IActionResult DanhSachCanMuaNgay([FromBody] ThucDonNgayResponse thucDonNgay)
         {
-            if (buas == null || !buas.Any())
-            {
-                return BadRequest("Danh sách bữa ăn không hợp lệ");
-            }
+            //if (buas == null || !buas.Any())
+            //{
+            //    return BadRequest("Danh sách bữa ăn không hợp lệ");
+            //}
 
-            // Chuyển Buas thành ThucDonNgayResponse nếu cần (ví dụ để tái sử dụng logic)
-            var thucDonNgay = new ThucDonNgayResponse
-            {
-                Buas = buas
-            };
+            //// Chuyển Buas thành ThucDonNgayResponse nếu cần (ví dụ để tái sử dụng logic)
+            //var thucDonNgay = new ThucDonNgayResponse
+            //{
+            //    Buas = buas
+            //};
 
             // Gọi hàm để lấy danh sách thực phẩm cần mua
             var danhSachCanMua = _thucPhamService.GetDanhSachMuaNgay(thucDonNgay);
@@ -117,25 +119,15 @@ namespace GoceryStore_DACN.Controllers
 
 
         [HttpPost("listBuyTuan")]
-        public IActionResult DanhSachCanMuaTuan([FromBody] List<ThucDonNgayResponse> listThucDonNgayDTO)
+        public IActionResult DanhSachCanMuaTuan([FromBody] ThucDonTuanResponse ThucDonTuan)
         {
-            if (listThucDonNgayDTO == null || !listThucDonNgayDTO.Any())
+            if (ThucDonTuan == null)
             {
-                return BadRequest("Danh sách bữa ăn không hợp lệ");
+                return BadRequest(ModelState);
             }
-
-            // Chuyển Buas thành ThucDonNgayResponse nếu cần (ví dụ để tái sử dụng logic)
-            var thucDonTuan = new ThucDonTuanResponse
-            {
-                listThucDonNgay = listThucDonNgayDTO.Select(dto => new ThucDonNgayResponse
-                {
-                    Ngay = dto.Ngay,
-                    Buas = dto.Buas
-                }).ToList()
-            };
-
+            
             // Gọi hàm để lấy danh sách thực phẩm cần mua
-            var danhSachCanMua = _thucPhamService.GetDanhSachMuaTuan(thucDonTuan);
+            var danhSachCanMua = _thucPhamService.GetDanhSachMuaTuan(ThucDonTuan);
             return Ok(danhSachCanMua);
         }
 

@@ -30,8 +30,7 @@ namespace GoceryStore_DACN.Controllers
                 return Ok(new
                 {
                     results = thuatToan,
-                    thoiGianThucThi = stopWath.ElapsedMilliseconds / 1000,
-                    soFitness = fitness
+                    
                 });
             }
             catch (Exception ex)

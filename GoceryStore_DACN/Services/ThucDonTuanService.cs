@@ -84,8 +84,8 @@ namespace GoceryStore_DACN.Services
                 // Buổi sáng chọn ngẫu nhiên giữa bữa ăn và món nước
                 if (bua == 1)
                 {
-                    bool isMonNuoc = new Random().Next(0, 2) == 0; // 50% cơ hội chọn món nước
-                    if (isMonNuoc)
+                    int isMonNuoc = new Random().Next(0, 3); // 50% cơ hội chọn món nước
+                    if (isMonNuoc ==1 || isMonNuoc ==2)
                     {
                         // Chọn ngẫu nhiên 1 món nước
                         var danhSachMonNuoc = _repository.GetAllMonAnByLoaiMonAnThreadCache(5); // Loại món nước là 5
@@ -195,8 +195,6 @@ namespace GoceryStore_DACN.Services
         }
 
 
-
-
         public ThucDonTuanResponse GenerateThucDonTuan()
         {
             var stopWath = new Stopwatch();
@@ -272,7 +270,7 @@ namespace GoceryStore_DACN.Services
         {
             var quanThe = new ConcurrentBag<ThucDonTuanResponse>();
             var task = new List<Task>();
-            Parallel.For(0, SoLuongQuanThe, i =>
+            Parallel.For(0, SoLuongQuanThe, async i =>
             {
                 var thucDonTuan = GenerateThucDonTuan();
                 quanThe.Add(thucDonTuan);

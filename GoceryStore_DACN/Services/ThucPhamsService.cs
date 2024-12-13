@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
+using GoceryStore_DACN.Models.Requests;
 using GoceryStore_DACN.Models.Respones;
 using GoceryStore_DACN.Repositories.Interface;
 using GoceryStore_DACN.Services.Interface;
@@ -123,7 +124,7 @@ namespace GoceryStore_DACN.Services
 
                     }    
                 }    
-            }
+            }   
             return danhSachCanMua.Values.ToList();
         }
 
