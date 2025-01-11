@@ -6,11 +6,17 @@ using GoceryStore_DACN.Services;
 using GoceryStore_DACN.Services.Interface;
 using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
 using CloudinaryDotNet;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using GoceryStore_DACN.Middlewares.Authentication;
+using GoceryStore_DACN.Middlewares.Authorization;
+using GoceryStore_DACN.Repositories.Interface;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,16 +24,56 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; // Loại bỏ các vòng lặp tham chiếu
-        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull; // Bỏ qua các giá trị null
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; 
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
+
+
+//Cấu hình Identtiy cho dự án 
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+    {
+        options.Password.RequireDigit = false; // Không yêu cầu chứa số 
+        options.Password.RequireLowercase = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequiredLength = 6;
+        options.SignIn.RequireConfirmedAccount = true;
+    })
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
+//Config Authentication
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.SaveToken = true;
+        options.RequireHttpsMetadata = true;
+        options.TokenValidationParameters = new TokenValidationParameters()
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings.Issuer,
+            ValidAudience = jwtSettings.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey ?? "dE15Vb9DmPP6gYlmr5FanlB/PBz3l2tuahjOLuSn+HI="))
+        };
+    });
+builder.Services.AddAuthorization();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddMemoryCache();
+//Config Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//Config Swagger
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
@@ -38,8 +84,8 @@ builder.Services.AddSwaggerGen(options =>
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
         {
-            Name = "Support",
-            Email = "support@example.com",
+            Name = "Nguyễn Phúc Đạt",
+            Email = "nguyenphucdat@gmail.com",
             Url = new Uri("https://example.com/contact")
         },
         License = new OpenApiLicense
@@ -72,7 +118,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 });
-
+//Config CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
@@ -83,20 +129,10 @@ builder.Services.AddCors(options =>
     });
 });
 
+//Config Auto Mapper
 builder.Services.AddAutoMapper(typeof(Program));
 
-// Register Identity
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-{
-    options.Password.RequireDigit = false;
-    options.Password.RequireLowercase = false;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
-    options.Password.RequiredLength = 6;
-    options.SignIn.RequireConfirmedAccount = true;
-})
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
+
 
 // Register configuration settings
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
@@ -105,20 +141,34 @@ builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection(
 
 // Register Repositories
 builder.Services.AddScoped<ICheDoAnRepository, CheDoAnRepository>();
-builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IHinhThucThanhToanRepository, HinhThucThanhToanRepository>();
+builder.Services.AddScoped<ICT_HoaDonRepository, ChiTietHoaDonRepository>();
+builder.Services.AddScoped<IChiTietBuoiAnRepository, ChiTietBuoiAnRepository>();
+builder.Services.AddScoped<IHoaDonRepository, HoaDonRepository>();
 builder.Services.AddScoped<IThucPhamRepository, ThucPhamRepository>();
+builder.Services.AddScoped<IMonAnRepository, MonAnRepository>();
 builder.Services.AddScoped<ILoaiThucPhamRepository, LoaiThucPhamRepository>();
+builder.Services.AddScoped<ILoaiMonAnRepository, LoaiMonAnRepository>();
+builder.Services.AddScoped<IThanhPhanDinhDuongRepository, ThanhPhanDinhDuongRepository>();
 
 // Register Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IThucPhamServices, ThucPhamsService>();
+builder.Services.AddScoped<ICT_BuoiAnServices,CT_BuoiAnService>();
+builder.Services.AddScoped<ICT_HoaDonServices,CT_HoaDonService>();
+builder.Services.AddScoped<IMonAnServices, MonAnService>();
+builder.Services.AddScoped<ILoaiThucPhamServices, LoaiThucPhamService>();
+builder.Services.AddScoped<ILoaiMonAnServices, LoaiMonAnService>();
+builder.Services.AddScoped<IHinhThucThanhToanServices, HinhThucThanhToanService>();
+builder.Services.AddScoped<IThucDonTuanService, ThucDonTuanService>();
 builder.Services.AddScoped<ICheDoAnServices, CheDoAnService>();
+builder.Services.AddScoped<IThanhPhanDinhDuongServices, ThanhPhanDinhDuongService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IEmailTemplateService, EmailTemplateService>();
 builder.Services.AddScoped<IUploadService, UploadService>();
-builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+builder.Services.AddScoped<IHoaDonService, HoaDonService>();
 builder.Services.AddScoped<IUserContextService, UserContextService>();
 
 // Configure Cloudinary
@@ -137,11 +187,43 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//Seeder Data
+//HinhThucThanhToanSeeder.SeedData(app);
 
-app.UseHttpsRedirection();
 app.UseCors("AllowAll");
+app.UseHttpsRedirection();
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"Request Path: {context.Request.Path}");
+    Console.WriteLine($"Request Method: {context.Request.Method}");
+    Console.WriteLine($"Authorization Header: {context.Request.Headers["Authorization"]}");
+
+    await next();
+
+    Console.WriteLine($"Response Status Code: {context.Response.StatusCode}");
+});
+/*app.UseMiddleware<CustomAuthenticationMiddleware>(); 
+app.UseMiddleware<CustomAuthorizationMiddleware>();*/
+app.UseAuthentication();
 app.UseAuthorization();
+app.Use(async (context, next) =>
+{
+    await next();
+
+    // Kiểm tra trạng thái lỗi nếu người dùng không được xác thực (401)
+    if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
+    {
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsync("{\"error\": \"Unauthorized - You must be logged in to access this resource\"}");
+    }
+
+    // Kiểm tra trạng thái lỗi nếu người dùng không có quyền truy cập (403)
+    if (context.Response.StatusCode == StatusCodes.Status403Forbidden)
+    {
+        context.Response.ContentType = "application/json";
+        await context.Response.WriteAsync("{\"error\": \"Forbidden - You do not have permission to access this resource\"}");
+    }
+});
 
 app.MapControllers();
-
 app.Run();

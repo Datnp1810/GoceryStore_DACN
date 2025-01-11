@@ -10,10 +10,58 @@ namespace GoceryStore_DACN.Controllers
     public class MonAnController : ControllerBase
     {
         private readonly IMonAnServices _monAnService;
+        private readonly IMonAnRepository _repo;
 
-        public MonAnController(IMonAnServices services)
+        public MonAnController(IMonAnServices services, IMonAnRepository repo)
         {
             _monAnService = services;
+            _repo = repo;
+        }
+
+        [HttpGet("/byLoaiMonAn/{tenLoai}")]
+        public async Task<IActionResult> GetAllMonAnByTenLoai(string tenLoai)
+        {
+            try
+            {
+                var getAll = await _monAnService.GetAllMonAnByLoaiMonAn(tenLoai);
+                return Ok(new
+                {
+                    status = true,
+                    message = "Lấy Món Ăn thành công",
+                    results = getAll
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpGet("/idLoaiMonAn/{idLoai}")]
+        public IActionResult GetAllMonAnById(int idLoai)
+        {
+            try
+            {
+                var getAll = _repo.GetAllMonAnByLoaiMonAnThreadCache(idLoai);
+                return Ok(new
+                {
+                    status = true,
+                    message = "Lấy Món Ăn thành công",
+                    results = getAll
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
         }
 
         [HttpGet]
@@ -22,6 +70,29 @@ namespace GoceryStore_DACN.Controllers
             try
             {
                 var getAll = await _monAnService.GetAllMonAn();
+                return Ok(new
+                {
+                    status = true,
+                    message = "Lấy Món Ăn thành công",
+                    results = getAll
+                });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
+        [HttpGet("cache")]
+        public IActionResult GetAllMonAnCache()
+        {
+            try
+            {
+                var getAll = _repo.GetAllMonAnCache();
                 return Ok(new
                 {
                     status = true,

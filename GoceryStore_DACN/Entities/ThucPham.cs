@@ -14,7 +14,7 @@ namespace GoceryStore_DACN.Entities
         public string TenThucPham { get; set; }
 
         public string DVT { get; set; }
-        public int? SoLuong { get; set; }
+        public double? SoLuong { get; set; }
         public double GiaBan { get; set; }
         public string Image { get; set; }
         public string TrangThai { get; set; } = "Còn Hàng";

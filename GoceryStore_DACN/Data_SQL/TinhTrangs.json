@@ -1,0 +1,18 @@
+[
+  {
+    "ID_TT": 1,
+    "TenTinhTrang": "Chờ xác nhận"
+  },
+  {
+    "ID_TT": 2,
+    "TenTinhTrang": "Đang giao"
+  },
+  {
+    "ID_TT": 3,
+    "TenTinhTrang": "Đã giao"
+  },
+  {
+    "ID_TT": 4,
+    "TenTinhTrang": "Đã hủy"
+  }
+]

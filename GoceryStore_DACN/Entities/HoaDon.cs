@@ -9,9 +9,13 @@ namespace GoceryStore_DACN.Entities
         public int MAHD { get; set; }
 
         public DateTime NgayLap { get; set; }
-        public double TongTien { get; set; }
+        
+        public string HoTen { get; set; }
+        public string SoDienThoai { get; set; } 
         public string NoiNhan { get; set; }
-        public string GhiChu { get; set; }
+        public string? GhiChu { get; set; }
+        public double TongTien { get; set; }
+
 
 
         [ForeignKey("ApplicationUser")]
@@ -26,12 +30,9 @@ namespace GoceryStore_DACN.Entities
         public virtual HinhThucThanhToan? HinhThucThanhToan { get; set; }
 
         // Quan hệ một-nhiều với CT_HoaDon
-        public ICollection<CT_HoaDon>? CTHoaDons { get; set; }
+        public ICollection<CT_HoaDon>? CTHoaDons { get; set; } = new List<CT_HoaDon>(); 
         public virtual ApplicationUser ApplicationUser { get; set; }
 
-        public HoaDon()
-        {
-            CTHoaDons = new List<CT_HoaDon>();
-        }
+       
     }
 }

@@ -8,7 +8,7 @@ namespace GroceryStore_DACN.Repositories.Interface
 {
     public interface IHinhThucThanhToanServices
     {
-        public Task<IEnumerable<HinhThucThanhToan>> GetAllHinhThucThanhToan();
+        public Task<IEnumerable<HinhThucThanhToanDTO>> GetAllHinhThucThanhToan();
         public Task<HinhThucThanhToan> GetAllHinhThucThanhToanById(int id);
         public Task<HinhThucThanhToan> CreateHinhThucThanhToan(HinhThucThanhToanDTO hinhThucTT);
         public Task<HinhThucThanhToan> UpdateHinhThucThanhToan(int id, HinhThucThanhToanDTO hinhThucTT);

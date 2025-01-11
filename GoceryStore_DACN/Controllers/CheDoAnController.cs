@@ -25,7 +25,7 @@ namespace GoceryStore_DACN.Controllers
                 return Ok(new
                 {
                     status = true,
-                    message = "Lấy Chế Độ Ăn thành công",
+                    message = "Lấy chế độ ăn thành công",
                     results = getAll
                 });
             }

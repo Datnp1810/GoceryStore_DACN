@@ -9,8 +9,11 @@ namespace GroceryStore_DACN.Repositories.Interface
     public interface IThucPhamRepository
     {
         // Định nghĩa các phương thức của interface tại đây
-        public Task<List<ThucPhamResponse>> GetAllThucPham();
+        public IEnumerable<ThucPhamResponse> GetAllThucPhamCache();
+        public Task<(IEnumerable<ThucPhamResponse> thucPham, int totalItems)> GetAllThucPhamPhanTrang(string search, int pageNumber, int pageSize, string sortColumn, string sortOrder);
+        public ThucPhamResponse ThucPhamByIdCache(int id);
         public Task<ThucPham> GetThucPhamById(int id);
+        public Task<(List<ThucPhamResponse>, int totalItems)> GetThucPhamByLoaiThucPham(int id, string search, int pageNumber, int pageSize, string sortColumn, string sortOrder);
         public Task<ThucPham> CreateThucPham(ThucPham thucPham);
         public Task<ThucPham> UpdateThucPham(ThucPham thucPham);
         public Task<bool> DeleteThucPham(int id);
