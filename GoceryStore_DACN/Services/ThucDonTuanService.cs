@@ -247,8 +247,8 @@ namespace GoceryStore_DACN.Services
             fitness += Math.Abs(thucDonTuan.TongNangLuong - cheDoAn.TongNangLuong);
             fitness += Math.Abs(thucDonTuan.TongProtein - cheDoAn.TongProtein);
             fitness += Math.Abs(thucDonTuan.TongChatBeo- cheDoAn.TongChatBeo);
-            fitness += Math.Abs(thucDonTuan.TongNangLuong - cheDoAn.TongCarbohydrate);
-            //fitness += Math.Abs(thucDonTuan.TongNangLuong - cheDoAn.TongChatXo);
+            fitness += Math.Abs(thucDonTuan.TongCarbohydrate - cheDoAn.TongCarbohydrate);
+            fitness += Math.Abs(thucDonTuan.TongChatXo - cheDoAn.TongChatXo);
             fitness += Math.Abs(thucDonTuan .TongCanxi- cheDoAn.TongCanxi);
             //fitness += Math.Abs(thucDonTuan .TongSat- cheDoAn.TongSat);
             fitness += Math.Abs(thucDonTuan .TongMagie- cheDoAn.TongMagie);
@@ -313,7 +313,7 @@ namespace GoceryStore_DACN.Services
             return quanTheChon;
            
         }
-        #endregion
+        #endregion 
 
         #region Hàm Lai Ghép
         public async Task<ThucDonTuanResponse> LaiGhep(int maCheDoAn, ThucDonTuanResponse cha,ThucDonTuanResponse me)

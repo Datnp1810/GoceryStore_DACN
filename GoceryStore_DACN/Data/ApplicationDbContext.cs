@@ -40,7 +40,7 @@ namespace GoceryStore_DACN.Data
             modelBuilder.Entity<CT_HoaDon>(e =>
             {
                 e.ToTable("CT_HoaDon");
-                e.HasKey(ct => ct.IDCT_HoaDon);
+                e.HasKey(c => c.ID_CTHoaDon);
 
                 e.HasOne(s => s.HoaDon)
                     .WithMany(s => s.CTHoaDons)

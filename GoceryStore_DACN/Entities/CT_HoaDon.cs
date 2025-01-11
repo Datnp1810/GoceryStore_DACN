@@ -7,13 +7,12 @@ namespace GoceryStore_DACN.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int IDCT_HoaDon { get; set; }
+        public int ID_CTHoaDon { get; set; }
         [ForeignKey("HoaDon")]
         public int ID_HoaDon { get; set; }
         [ForeignKey("ThucPham")]
         public int ID_ThucPham { get; set; }
-
-        public int SoLuong { get; set; }
+        public double SoLuong { get; set; }
         public double DonGia { get; set; }
         public double ThanhTien { get; set; }
         public ThucPham ThucPham { get; set; }

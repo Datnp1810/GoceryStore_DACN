@@ -4,7 +4,7 @@ namespace GoceryStore_DACN.DTOs
 {
     public class HinhThucThanhToanDTO
     {
-        [Required]
+        public int ID_HinhThuc { get; set; }
         public string HTThanhToan { get; set; }
     }
 }

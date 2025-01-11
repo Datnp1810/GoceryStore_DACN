@@ -1,4 +1,6 @@
-﻿using GoceryStore_DACN.Data;
+﻿using AutoMapper;
+using GoceryStore_DACN.Data;
+using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
 using GoceryStore_DACN.Services.Interface;
 using GroceryStore_DACN.Repositories.Interface;
@@ -7,12 +9,14 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace GoceryStore_DACN.Repositories
 {
-    public class InvoiceRepository : IInvoiceRepository
+    public class HoaDonRepository : IHoaDonRepository
     {
        private readonly ApplicationDbContext _context;
-        public InvoiceRepository(ApplicationDbContext context)
+        private readonly IMapper _mapper;
+        public HoaDonRepository(ApplicationDbContext context, IMapper mapper)
         {
           _context = context;
+            _mapper = mapper;
         }
         public async Task<HoaDon> GetByIdAsync(int id)
         {
@@ -24,9 +28,14 @@ namespace GoceryStore_DACN.Repositories
             return invoice;
         }
 
-        public Task<HoaDon> GetByNumberAsync(string number)
+        public async Task<HoaDon> GetByUserID(string userID)
         {
-            throw new NotImplementedException();
+            var hoaDonUserID = await _context.HoaDons.Include(ct=>ct.CTHoaDons).FirstOrDefaultAsync(x => x.UserId == userID && x.ID_TT == 1);
+            if (hoaDonUserID == null)
+            {
+                return null;
+            }
+            return hoaDonUserID;
         }
 
         public Task<List<HoaDon>> GetAllAsync()
@@ -37,28 +46,32 @@ namespace GoceryStore_DACN.Repositories
         }
         public async Task<HoaDon> TaoHoaDonAsync(HoaDon hoaDon)
         {
+            // Bắt đầu giao dịch
             await using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
-                // Kiểm tra hóa đơn đã tồn tại
+                // Kiểm tra xem hóa đơn với MaHoaDon và ID_TT = 1 đã tồn tại hay chưa
                 var existingInvoice = await _context.HoaDons
                     .Include(x => x.CTHoaDons)
                     .FirstOrDefaultAsync(x => x.MAHD == hoaDon.MAHD && x.ID_TT == 1);
 
                 if (existingInvoice != null)
                 {
+                    // Hóa đơn tồn tại - cập nhật chi tiết hóa đơn và tổng tiền
                     foreach (var item in hoaDon.CTHoaDons)
                     {
                         var existingDetail = existingInvoice.CTHoaDons?.FirstOrDefault(x => x.ID_ThucPham == item.ID_ThucPham);
+
                         if (existingDetail != null)
                         {
+                            // Nếu chi tiết hóa đơn tồn tại, cập nhật số lượng và thành tiền
                             existingDetail.SoLuong += item.SoLuong;
                             existingDetail.ThanhTien += item.SoLuong * item.DonGia;
                             _context.CTHoaDons.Update(existingDetail);
                         }
                         else
                         {
-                            // Kiểm tra tồn kho
+                            // Nếu chi tiết hóa đơn chưa tồn tại, kiểm tra tồn kho và thêm mới
                             var thucPham = await _context.ThucPhams.FindAsync(item.ID_ThucPham);
                             if (thucPham == null)
                             {
@@ -71,20 +84,26 @@ namespace GoceryStore_DACN.Repositories
 
                             thucPham.SoLuong -= item.SoLuong;
                             _context.ThucPhams.Update(thucPham);
-
                             item.ThanhTien = item.SoLuong * item.DonGia;
                             await _context.CTHoaDons.AddAsync(item);
                         }
                     }
 
-                    await _context.SaveChangesAsync();
+                    // Cập nhật tổng tiền của hóa đơn
+                    existingInvoice.TongTien = existingInvoice.CTHoaDons.Sum(x => x.ThanhTien);
+                    _context.HoaDons.Update(existingInvoice);
                 }
                 else
                 {
-                    // Tạo hóa đơn mới
+                    // Hóa đơn chưa tồn tại - tạo mới hóa đơn
+                    hoaDon.NgayLap = DateTime.Now;
+                    hoaDon.ID_TT = 1; // trạng thái 1 là giỏ hàng
+                    hoaDon.TongTien = hoaDon.CTHoaDons.Sum(x => x.SoLuong * x.DonGia);
+
                     await _context.HoaDons.AddAsync(hoaDon);
                     await _context.SaveChangesAsync();
 
+                    // Duyệt qua các chi tiết hóa đơn và xử lý từng chi tiết
                     foreach (var item in hoaDon.CTHoaDons)
                     {
                         // Kiểm tra tồn kho
@@ -102,13 +121,20 @@ namespace GoceryStore_DACN.Repositories
                         _context.ThucPhams.Update(thucPham);
 
                         item.ThanhTien = item.SoLuong * item.DonGia;
+                        item.ID_HoaDon = hoaDon.MAHD; // Gán mã hóa đơn cho chi tiết hóa đơn
+
                         await _context.CTHoaDons.AddAsync(item);
                     }
 
-                    await _context.SaveChangesAsync();
+                    // Cập nhật lại tổng tiền sau khi thêm chi tiết hóa đơn
+                    hoaDon.TongTien = hoaDon.CTHoaDons.Sum(x => x.ThanhTien);
+                    _context.HoaDons.Update(hoaDon);
                 }
 
+                // Lưu các thay đổi và commit giao dịch
+                await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
+
                 return hoaDon;
             }
             catch (Exception ex)
@@ -183,9 +209,27 @@ namespace GoceryStore_DACN.Repositories
             return false; 
         }
 
-        public Task<List<HoaDon>> GetOverdueInvoiceAsync()
+        public async Task<List<HoaDon>> GetOverdueInvoiceAsync()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<HoaDon> CreateHoaDon(HoaDonDTO hoaDon)
+        {
+            var HoaDon = new HoaDon
+            {
+                UserId = hoaDon.UserId,
+                NgayLap = hoaDon.NgayLap,
+                NoiNhan = hoaDon.NoiNhan,
+                GhiChu = hoaDon.GhiChu,
+                ID_TT = hoaDon.IdTinhTrang,
+                ID_HinhThuc = hoaDon.IdHinhThucThanhToan,
+                TongTien = hoaDon.TongTien,
+            };
+            await _context.HoaDons.AddAsync(HoaDon);
+            //Save changes to database 
+            await _context.SaveChangesAsync();        
+            return HoaDon;
         }
     }
 }

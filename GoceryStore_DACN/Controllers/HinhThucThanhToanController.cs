@@ -16,7 +16,7 @@ namespace GoceryStore_DACN.Controllers
             _hinhThucTTService = services;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAllCDA()
         {
             try

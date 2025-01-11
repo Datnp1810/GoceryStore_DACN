@@ -52,18 +52,19 @@ builder.Services.AddAuthentication(options =>
     .AddJwtBearer(options =>
     {
         options.SaveToken = true;
-        options.RequireHttpsMetadata = false;
+        options.RequireHttpsMetadata = true;
         options.TokenValidationParameters = new TokenValidationParameters()
         {
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtSettings.Issuer ?? "https://localhost:5000",
+            ValidIssuer = jwtSettings.Issuer,
             ValidAudience = jwtSettings.Audience,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecretKey ?? "dE15Vb9DmPP6gYlmr5FanlB/PBz3l2tuahjOLuSn+HI="))
         };
     });
+builder.Services.AddAuthorization();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -140,8 +141,10 @@ builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection(
 
 // Register Repositories
 builder.Services.AddScoped<ICheDoAnRepository, CheDoAnRepository>();
+builder.Services.AddScoped<IHinhThucThanhToanRepository, HinhThucThanhToanRepository>();
+builder.Services.AddScoped<ICT_HoaDonRepository, ChiTietHoaDonRepository>();
 builder.Services.AddScoped<IChiTietBuoiAnRepository, ChiTietBuoiAnRepository>();
-builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IHoaDonRepository, HoaDonRepository>();
 builder.Services.AddScoped<IThucPhamRepository, ThucPhamRepository>();
 builder.Services.AddScoped<IMonAnRepository, MonAnRepository>();
 builder.Services.AddScoped<ILoaiThucPhamRepository, LoaiThucPhamRepository>();
@@ -153,9 +156,11 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IThucPhamServices, ThucPhamsService>();
 builder.Services.AddScoped<ICT_BuoiAnServices,CT_BuoiAnService>();
+builder.Services.AddScoped<ICT_HoaDonServices,CT_HoaDonService>();
 builder.Services.AddScoped<IMonAnServices, MonAnService>();
 builder.Services.AddScoped<ILoaiThucPhamServices, LoaiThucPhamService>();
 builder.Services.AddScoped<ILoaiMonAnServices, LoaiMonAnService>();
+builder.Services.AddScoped<IHinhThucThanhToanServices, HinhThucThanhToanService>();
 builder.Services.AddScoped<IThucDonTuanService, ThucDonTuanService>();
 builder.Services.AddScoped<ICheDoAnServices, CheDoAnService>();
 builder.Services.AddScoped<IThanhPhanDinhDuongServices, ThanhPhanDinhDuongService>();
@@ -200,6 +205,7 @@ app.Use(async (context, next) =>
 /*app.UseMiddleware<CustomAuthenticationMiddleware>(); 
 app.UseMiddleware<CustomAuthorizationMiddleware>();*/
 app.UseAuthentication();
+app.UseAuthorization();
 app.Use(async (context, next) =>
 {
     await next();
@@ -218,6 +224,6 @@ app.Use(async (context, next) =>
         await context.Response.WriteAsync("{\"error\": \"Forbidden - You do not have permission to access this resource\"}");
     }
 });
-app.UseAuthorization();
+
 app.MapControllers();
 app.Run();

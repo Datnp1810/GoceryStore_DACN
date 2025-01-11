@@ -33,7 +33,7 @@ namespace GoceryStore_DACN.Services
             return true;
         }
 
-        public async Task<IEnumerable<HinhThucThanhToan>> GetAllHinhThucThanhToan()
+        public async Task<IEnumerable<HinhThucThanhToanDTO>> GetAllHinhThucThanhToan()
         {
             var hinhThucTTs = await _repository.GetAllHinhThucThanhToan();
             return hinhThucTTs.ToList();

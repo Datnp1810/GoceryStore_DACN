@@ -9,9 +9,13 @@ namespace GoceryStore_DACN.Entities
         public int MAHD { get; set; }
 
         public DateTime NgayLap { get; set; }
-        public double TongTien { get; set; }
+        
+        public string HoTen { get; set; }
+        public string SoDienThoai { get; set; } 
         public string NoiNhan { get; set; }
-        public string GhiChu { get; set; }
+        public string? GhiChu { get; set; }
+        public double TongTien { get; set; }
+
 
 
         [ForeignKey("ApplicationUser")]

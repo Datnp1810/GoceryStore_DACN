@@ -1,4 +1,5 @@
 ﻿using GoceryStore_DACN.Data;
+using GoceryStore_DACN.DTOs;
 using GoceryStore_DACN.Entities;
 using GroceryStore_DACN.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -34,9 +35,15 @@ namespace GoceryStore_DACN.Repositories
             return false;
         }
 
-        public async Task<IEnumerable<HinhThucThanhToan>> GetAllHinhThucThanhToan()
+        public async Task<IEnumerable<HinhThucThanhToanDTO>> GetAllHinhThucThanhToan()
         {
-            return await _context.HinhThucThanhToans!.ToListAsync();
+            var getAll =  await _context.HinhThucThanhToans!.Select(x=> new HinhThucThanhToanDTO
+            {
+                ID_HinhThuc = x.ID_HinhThuc,
+                HTThanhToan = x.HTThanhToan
+            }).ToListAsync();
+            return getAll;
+            
         }
 
         public async Task<HinhThucThanhToan> GetAllHinhThucThanhToanById(int id)
