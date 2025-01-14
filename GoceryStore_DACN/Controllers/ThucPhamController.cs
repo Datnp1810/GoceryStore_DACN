@@ -23,7 +23,6 @@ namespace GoceryStore_DACN.Controllers
         }
 
 
-
         [HttpGet("phantrang")]
         public async Task<IActionResult> GetAllThucPhamPhanTrang([FromQuery] string search = "", [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 5, [FromQuery] string sortColumn = "Id", [FromQuery] string sortOrder = "asc")
         {
@@ -67,6 +66,27 @@ namespace GoceryStore_DACN.Controllers
                 });
             }
             catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    error = ex.Message
+                });
+            }
+        }
+
+        [HttpGet("group")]
+        public IActionResult GroupThucPham()
+        {
+            try
+            {
+                var getAll = _thucPhamService.GroupThucPhamByLTP();
+                return Ok(new
+                {
+                    results = getAll,
+                });
+            }
+            catch ( Exception ex )
             {
                 return BadRequest(new
                 {
@@ -201,6 +221,41 @@ namespace GoceryStore_DACN.Controllers
                 });
             }
         }
+
+        [HttpGet("idltp/{id}")]
+        public async Task<IActionResult> LocTheoLoaiThucPham([FromRoute] int id)
+        {
+            try
+            {
+                var cda = await _thucPhamService.FillterByIDLoaiThucPham(id);
+             
+                if ( cda == null )
+                {
+                    return NotFound(new
+                    {
+                        status = true,
+                        message = "Không tìm thấy Loại Sản Phẩm"
+
+                    });
+                }
+                return Ok(new
+                {
+                    status = true,
+                    message = "Lấy Thực Phẩm thành công",
+                    result = cda
+
+                });
+            }
+            catch ( Exception ex )
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = ex.Message
+                });
+            }
+        }
+
 
         [HttpPost()]
         public async Task<ActionResult<ThucPhamDTO>> CreateThucPham([FromForm] ThucPhamDTO thucPhamDTO)

@@ -16,6 +16,9 @@ namespace GroceryStore_DACN.Repositories.Interface
         public ThucPhamResponse GetAllThucPhamByIDCache(int id);
         public Task<(IEnumerable<ThucPhamResponse> thucPham, int totalItems)> GetAllThucPhamPhanTrang(string search, int pageNumber, int pageSize, string sortColumn, string sortOrder);
 
+        public Task<List<ThucPhamResponse>> FillterByIDLoaiThucPham(int id);
+        public Task<List<ThucPhamGroupDTO>> GroupThucPhamByLTP();
+
         public Task<ThucPham> GetAllThucPhamById(int id);
         public Task<(List<ThucPhamResponse>, int totalItems)> GetAllThucPhamByLoaiThucPham(int id, string search, int pageNumber, int pageSize, string sortColumn, string sortOrder);
         public Task<ThucPham> CreateThucPham(ThucPhamDTO thucPhamDTO);

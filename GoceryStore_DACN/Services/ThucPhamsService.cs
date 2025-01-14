@@ -68,6 +68,14 @@ namespace GoceryStore_DACN.Services
             return thucPhamRespo;
         }
 
+        public async Task<List<ThucPhamResponse>> FillterByIDLoaiThucPham(int id)
+        {
+            return await _repository.FillterByIDLoaiThucPham(id);
+        }
+        public async Task<List<ThucPhamGroupDTO>> GroupThucPhamByLTP()
+        {
+            return await _repository.GroupThucPhamByLTP();
+        }
         public async Task<ThucPham> UpdateThucPham(int id, ThucPhamDTO thucPhamDTO)
         {
             var timThucPham = await _repository.GetThucPhamById(id);
