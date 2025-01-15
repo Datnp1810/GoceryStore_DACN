@@ -14,7 +14,7 @@ namespace GoceryStore_DACN.Services
         }
         public Task SendConfirmationEmailAsync(string email, string userName, string confirmationLink)
         {
-          
+
             var replacements = new Dictionary<string, string>
             {
                 { "Username", userName },

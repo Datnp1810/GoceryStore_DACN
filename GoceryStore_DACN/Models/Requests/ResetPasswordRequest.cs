@@ -6,10 +6,10 @@ namespace GoceryStore_DACN.Models.Requests
     {
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string Email { get; set; } = string.Empty;
 
         [Required]
-        public string Token { get; set; }
+        public string Token { get; set; } = string.Empty;
 
         [Required]
         [StringLength(100, MinimumLength = 6)]

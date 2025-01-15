@@ -1,21 +1,15 @@
-﻿using System;
+﻿
 using System.Security.Claims;
-using System.Text;
-using Azure.Core;
 using GoceryStore_DACN.Entities;
 using GoceryStore_DACN.Helpers;
-using GoceryStore_DACN.Models;
 using GoceryStore_DACN.Models.Requests;
 using GoceryStore_DACN.Models.Respones;
 using GoceryStore_DACN.Services.Interface;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.IdentityModel.JsonWebTokens;
 using Models.Requests;
 using Models.Respones;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace GoceryStore_DACN.Services
 {
@@ -53,7 +47,7 @@ namespace GoceryStore_DACN.Services
                 };
             }
 
-            var passwordVerificationResult = _passwordHasher.VerifyPassword(loginRequest.Password, user.PasswordHash);
+            var passwordVerificationResult = _passwordHasher.VerifyPassword(loginRequest.Password, user.PasswordHash ?? string.Empty);
             if (!passwordVerificationResult)
             {
                 return new LoginResult
@@ -74,7 +68,7 @@ namespace GoceryStore_DACN.Services
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName ?? string.Empty),
                 new Claim(JwtRegisteredClaimNames.PhoneNumber, user.PhoneNumber ?? string.Empty),
-                // Add other claims as needed
+
             };
             //add role claims
             foreach (var role in userRoles)
@@ -225,15 +219,6 @@ namespace GoceryStore_DACN.Services
             return $"{baseUrl}/reset-password?email={Uri.EscapeDataString(email)}&token={Uri.EscapeDataString(token)}";
         }
 
-        public Task<ServiceResult> ResetPasswordAsync(ResetPasswordRequest request)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ServiceResult> ValidateResetTokenAsync(string email, string token)
-        {
-            throw new NotImplementedException();
-        }
 
         private string BuildConfirmationLink(string userId, string token)
         {
@@ -269,5 +254,107 @@ namespace GoceryStore_DACN.Services
             };
         }
 
+        public async Task<ServiceResult> ResetPasswordAsync(ResetPasswordRequest request)
+        {
+            try
+            {
+                // Validate input parameters
+                if (string.IsNullOrEmpty(request.Email) || string.IsNullOrEmpty(request.Token) ||
+                    string.IsNullOrEmpty(request.NewPassword))
+                {
+                    return ServiceResult.Error("Invalid request parameters");
+                }
+
+                // Find user by email
+                var user = await _userManager.FindByEmailAsync(request.Email);
+                if (user == null)
+                {
+                    return ServiceResult.Error("User not found");
+                }
+
+                // Decode token
+                var decodedToken = Uri.UnescapeDataString(request.Token);
+
+                // Verify token is valid
+                var purpose = UserManager<ApplicationUser>.ResetPasswordTokenPurpose;
+                var isValidToken = await _userManager.VerifyUserTokenAsync(user,
+                    _userManager.Options.Tokens.PasswordResetTokenProvider,
+                    purpose, decodedToken);
+
+                if (!isValidToken)
+                {
+                    return ServiceResult.Error("Invalid or expired reset token");
+                }
+
+                // Reset the password using decoded token
+                var result = await _userManager.ResetPasswordAsync(user, decodedToken, request.NewPassword);
+                if (result.Succeeded)
+                {
+                    return ServiceResult.Success("Password reset successfully");
+                }
+
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                return ServiceResult.Error($"Failed to reset password: {errors}");
+            }
+            catch (Exception ex)
+            {
+                return ServiceResult.Error($"An error occurred while processing your request: {ex.Message}");
+            }
+        }
+        public async Task<ServiceResult> ValidateResetTokenAsync(string email, string token)
+        {
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                {
+                    return ServiceResult.Error("Invalid request");
+                }
+
+                var purpose = UserManager<ApplicationUser>.ResetPasswordTokenPurpose;
+                var isValid = await _userManager.VerifyUserTokenAsync(user,
+                    _userManager.Options.Tokens.PasswordResetTokenProvider,
+                    purpose, token);
+
+                return isValid
+                    ? ServiceResult.Success("Token is valid")
+                    : ServiceResult.Error("Invalid or expired token");
+            }
+            catch (Exception)
+            {
+                return ServiceResult.Error("An error occurred while validating the token");
+            }
+        }
+        public async Task<ServiceResult> ChangePasswordAsync([FromBody] RequestChangePassword request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user == null)
+            {
+                return ServiceResult.Error("User not found");
+            }
+            var result = await _userManager.ChangePasswordAsync(user, request.NewPassword, request.ConfirmPassword);
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                return ServiceResult.Error($"Failed to change password: {errors}");
+            }
+            return ServiceResult.Success("Password changed successfully");
+        }
+        // Delete account
+        public async Task<ServiceResult> DeleteAccountAsync(RequestDeleteAccount request)
+        {
+            var user = await _userManager.FindByIdAsync(request.UserId);
+            if (user == null)
+            {
+                return ServiceResult.Error("User not found");
+            }
+            var result = await _userManager.DeleteAsync(user);
+            if (!result.Succeeded)
+            {
+                var errors = string.Join(", ", result.Errors.Select(e => e.Description));
+                return ServiceResult.Error($"Failed to delete account: {errors}");
+            }
+            return ServiceResult.Success("Account deleted successfully");
+        }
     }
 }
