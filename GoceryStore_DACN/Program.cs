@@ -16,6 +16,7 @@ using System.Text;
 using GoceryStore_DACN.Middlewares.Authentication;
 using GoceryStore_DACN.Middlewares.Authorization;
 using GoceryStore_DACN.Repositories.Interface;
+using GoceryStore_DACN.Data.Seeders;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -150,6 +151,7 @@ builder.Services.AddScoped<IMonAnRepository, MonAnRepository>();
 builder.Services.AddScoped<ILoaiThucPhamRepository, LoaiThucPhamRepository>();
 builder.Services.AddScoped<ILoaiMonAnRepository, LoaiMonAnRepository>();
 builder.Services.AddScoped<IThanhPhanDinhDuongRepository, ThanhPhanDinhDuongRepository>();
+builder.Services.AddScoped<IAdminService, AdminService>();
 
 // Register Services
 builder.Services.AddScoped<IUserService, UserService>();
@@ -186,11 +188,14 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    //await AdminAccountSeeder.SeedAdminAccount(app.Services);
 }
 //Seeder Data
 //HinhThucThanhToanSeeder.SeedData(app);
 
 app.UseCors("AllowAll");
+// add policy for authorization
+
 app.UseHttpsRedirection();
 app.Use(async (context, next) =>
 {
@@ -202,28 +207,8 @@ app.Use(async (context, next) =>
 
     Console.WriteLine($"Response Status Code: {context.Response.StatusCode}");
 });
-/*app.UseMiddleware<CustomAuthenticationMiddleware>(); 
-app.UseMiddleware<CustomAuthorizationMiddleware>();*/
+
 app.UseAuthentication();
 app.UseAuthorization();
-app.Use(async (context, next) =>
-{
-    await next();
-
-    // Kiểm tra trạng thái lỗi nếu người dùng không được xác thực (401)
-    if (context.Response.StatusCode == StatusCodes.Status401Unauthorized)
-    {
-        context.Response.ContentType = "application/json";
-        await context.Response.WriteAsync("{\"error\": \"Unauthorized - You must be logged in to access this resource\"}");
-    }
-
-    // Kiểm tra trạng thái lỗi nếu người dùng không có quyền truy cập (403)
-    if (context.Response.StatusCode == StatusCodes.Status403Forbidden)
-    {
-        context.Response.ContentType = "application/json";
-        await context.Response.WriteAsync("{\"error\": \"Forbidden - You do not have permission to access this resource\"}");
-    }
-});
-
 app.MapControllers();
 app.Run();
