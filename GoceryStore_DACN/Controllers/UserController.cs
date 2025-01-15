@@ -99,6 +99,8 @@ namespace GoceryStore_DACN.Controllers
         {
             try
             {
+                //get base url from appsettings.json\
+                Console.WriteLine(userId, token);
                 if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
                 {
                     return BadRequest(new
@@ -167,11 +169,11 @@ namespace GoceryStore_DACN.Controllers
             }
             return Ok(new { message = "Password changed successfully" });
         }
-        [HttpPost("/refresh-token")]
-        public async Task<IActionResult> RefreshTokenTask()
-        {
-            return Ok();
-        }
+        // [HttpPost("/refresh-token")]
+        // public async Task<IActionResult> RefreshTokenTask()
+        // {
+        //     return Ok();
+        // }
         [HttpDelete("/delete-acccount")]
         [Authorize]
         public async Task<IActionResult> DeleteAccountTask()
@@ -181,12 +183,51 @@ namespace GoceryStore_DACN.Controllers
             {
                 return BadRequest(new { message = "User not found" });
             }
-            var result = await _userService.DeleteAccountAsync(new RequestDeleteAccount { UserId = userId });
+            var result = await _userService.DeleteAccountAsync(userId);
             if (!result.Succeeded)
             {
                 return BadRequest(new { message = result.Message });
             }
             return Ok(new { message = "Account deleted successfully" });
+        }
+        [HttpPost("/resend-confirmation-email")]
+        public async Task<IActionResult> ResendConfirmationEmailTask([FromBody] ResendConfirmationEmailRequest request)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new
+                    {
+                        status = false,
+                        message = "Invalid request"
+                    });
+                }
+
+                var result = await _userService.ResendConfirmationEmailAsync(request.Email);
+                if (result.Succeeded)
+                {
+                    return Ok(new
+                    {
+                        status = true,
+                        message = result.Message
+                    });
+                }
+
+                return BadRequest(new
+                {
+                    status = false,
+                    message = result.Message
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = e.Message
+                });
+            }
         }
     }
 }

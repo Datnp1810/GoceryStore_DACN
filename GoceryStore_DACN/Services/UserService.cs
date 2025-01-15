@@ -41,21 +41,30 @@ namespace GoceryStore_DACN.Services
                 return new LoginResult
                 {
                     Status = "Error",
-                    Message = "User not found",
+                    Message = "Email hoặc mật khẩu không đúng",
                     Token = "",
                     RefreshToken = ""
                 };
             }
-
-            var passwordVerificationResult = _passwordHasher.VerifyPassword(loginRequest.Password, user.PasswordHash ?? string.Empty);
-            if (!passwordVerificationResult)
+            //Kiểm tra xác nhận email đã được activate chưa 
+            if (!user.EmailConfirmed)
             {
                 return new LoginResult
                 {
                     Status = "Error",
-                    Message = "Invalid password",
-                    Token = "",
-                    RefreshToken = ""
+                    Message = "Vui lòng xác nhận email trước khi đăng nhập vào hệ thống!!",
+                };
+            }
+
+
+            var result = await _userManager.CheckPasswordAsync(user, loginRequest.Password);
+            if (!result)
+            {
+                Console.WriteLine($"Login failed: Invalid password for user {loginRequest.Email}");
+                return new LoginResult
+                {
+                    Status = "Error",
+                    Message = "Email hoặc mật khẩu không đúng"
                 };
             }
             //get user roles 
@@ -341,9 +350,9 @@ namespace GoceryStore_DACN.Services
             return ServiceResult.Success("Password changed successfully");
         }
         // Delete account
-        public async Task<ServiceResult> DeleteAccountAsync(RequestDeleteAccount request)
+        public async Task<ServiceResult> DeleteAccountAsync(string userId)
         {
-            var user = await _userManager.FindByIdAsync(request.UserId);
+            var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
                 return ServiceResult.Error("User not found");
@@ -355,6 +364,29 @@ namespace GoceryStore_DACN.Services
                 return ServiceResult.Error($"Failed to delete account: {errors}");
             }
             return ServiceResult.Success("Account deleted successfully");
+        }
+        public async Task<ServiceResult> ResendConfirmationEmailAsync(string email)
+        {
+            try
+            {
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                {
+                    return ServiceResult.Error("Email không tồn tại");
+                }
+                if (user.EmailConfirmed)
+                {
+                    return ServiceResult.Error("Email đã được xác nhận rồi");
+                }
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var confirmationLink = BuildConfirmationLink(user.Id, token);
+                await _emailTemplateService.SendConfirmationEmailAsync(user.Email, user.UserName, confirmationLink);
+                return ServiceResult.Success("Email xác nhận đã được gửi đi");
+            }
+            catch (Exception ex)
+            {
+                return ServiceResult.Error($"Có lỗi xảy ra khi gửi email xác nhận: {ex.Message}");
+            }
         }
     }
 }

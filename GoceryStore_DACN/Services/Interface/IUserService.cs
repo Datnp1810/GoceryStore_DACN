@@ -18,7 +18,8 @@ namespace GoceryStore_DACN.Services.Interface
         public Task<UserInfo> GetUserInfoAsync(string userId);
         public Task<UpdateUserInfo> UpdateUserInfoAsync(string userId, UpdateUserInfo updateUserInfo);
         public Task<ServiceResult> ChangePasswordAsync(RequestChangePassword request);
-        public Task<ServiceResult> DeleteAccountAsync(RequestDeleteAccount request);
+        public Task<ServiceResult> DeleteAccountAsync(string userId);
+        public Task<ServiceResult> ResendConfirmationEmailAsync(string email);
 
     }
 }
