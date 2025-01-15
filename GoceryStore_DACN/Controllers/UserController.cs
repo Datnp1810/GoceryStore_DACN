@@ -2,6 +2,7 @@
 using GoceryStore_DACN.Models;
 using GoceryStore_DACN.Models.Requests;
 using GoceryStore_DACN.Services.Interface;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -90,13 +91,16 @@ namespace GoceryStore_DACN.Controllers
         [HttpPost("/logout")]
         public async Task<IActionResult> LogoutTask()
         {
-            throw new NotImplementedException();
+            await HttpContext.SignOutAsync();
+            return Ok(new { message = "Logout successful" });
         }
         [HttpGet("/confirm-email")]
         public async Task<IActionResult> ConfirmEmailTask([FromQuery] string userId, [FromQuery] string token)
         {
             try
             {
+                //get base url from appsettings.json\
+                Console.WriteLine(userId, token);
                 if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(token))
                 {
                     return BadRequest(new
@@ -149,7 +153,82 @@ namespace GoceryStore_DACN.Controllers
             var result = await _userService.UpdateUserInfoAsync(userId, updateUserInfo);
             return Ok(result);
         }
+        [HttpPost("/change-password")]
+        [Authorize]
+        public async Task<IActionResult> ChangePasswordTask([FromBody] RequestChangePassword request)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest(new { message = "User not found" });
+            }
+            var result = await _userService.ChangePasswordAsync(request);
+            if (!result.Succeeded)
+            {
+                return BadRequest(new { message = result.Message });
+            }
+            return Ok(new { message = "Password changed successfully" });
+        }
+        // [HttpPost("/refresh-token")]
+        // public async Task<IActionResult> RefreshTokenTask()
+        // {
+        //     return Ok();
+        // }
+        [HttpDelete("/delete-acccount")]
+        [Authorize]
+        public async Task<IActionResult> DeleteAccountTask()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest(new { message = "User not found" });
+            }
+            var result = await _userService.DeleteAccountAsync(userId);
+            if (!result.Succeeded)
+            {
+                return BadRequest(new { message = result.Message });
+            }
+            return Ok(new { message = "Account deleted successfully" });
+        }
+        [HttpPost("/resend-confirmation-email")]
+        public async Task<IActionResult> ResendConfirmationEmailTask([FromBody] ResendConfirmationEmailRequest request)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(new
+                    {
+                        status = false,
+                        message = "Invalid request"
+                    });
+                }
 
+                var result = await _userService.ResendConfirmationEmailAsync(request.Email);
+                if (result.Succeeded)
+                {
+                    return Ok(new
+                    {
+                        status = true,
+                        message = result.Message
+                    });
+                }
 
+                return BadRequest(new
+                {
+                    status = false,
+                    message = result.Message
+                });
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new
+                {
+                    status = false,
+                    message = e.Message
+                });
+            }
+        }
     }
 }
+

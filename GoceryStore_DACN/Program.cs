@@ -24,7 +24,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; 
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
         options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
     });
 
@@ -155,8 +155,8 @@ builder.Services.AddScoped<IThanhPhanDinhDuongRepository, ThanhPhanDinhDuongRepo
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IThucPhamServices, ThucPhamsService>();
-builder.Services.AddScoped<ICT_BuoiAnServices,CT_BuoiAnService>();
-builder.Services.AddScoped<ICT_HoaDonServices,CT_HoaDonService>();
+builder.Services.AddScoped<ICT_BuoiAnServices, CT_BuoiAnService>();
+builder.Services.AddScoped<ICT_HoaDonServices, CT_HoaDonService>();
 builder.Services.AddScoped<IMonAnServices, MonAnService>();
 builder.Services.AddScoped<ILoaiThucPhamServices, LoaiThucPhamService>();
 builder.Services.AddScoped<ILoaiMonAnServices, LoaiMonAnService>();

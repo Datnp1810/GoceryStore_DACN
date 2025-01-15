@@ -1,6 +1,7 @@
 ﻿using GoceryStore_DACN.Entities;
 using GoceryStore_DACN.Models.Requests;
 using GoceryStore_DACN.Models.Respones;
+using Microsoft.AspNetCore.Mvc;
 using Models.Requests;
 using Models.Respones;
 
@@ -16,6 +17,9 @@ namespace GoceryStore_DACN.Services.Interface
         public Task<ServiceResult> ValidateResetTokenAsync(string email, string token);
         public Task<UserInfo> GetUserInfoAsync(string userId);
         public Task<UpdateUserInfo> UpdateUserInfoAsync(string userId, UpdateUserInfo updateUserInfo);
+        public Task<ServiceResult> ChangePasswordAsync(RequestChangePassword request);
+        public Task<ServiceResult> DeleteAccountAsync(string userId);
+        public Task<ServiceResult> ResendConfirmationEmailAsync(string email);
 
     }
 }
