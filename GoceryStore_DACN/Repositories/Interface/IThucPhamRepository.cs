@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GoceryStore_DACN.Models.Respones;
+using GoceryStore_DACN.DTOs;
 
 namespace GroceryStore_DACN.Repositories.Interface
 {
@@ -14,6 +15,10 @@ namespace GroceryStore_DACN.Repositories.Interface
         public ThucPhamResponse ThucPhamByIdCache(int id);
         public Task<ThucPham> GetThucPhamById(int id);
         public Task<(List<ThucPhamResponse>, int totalItems)> GetThucPhamByLoaiThucPham(int id, string search, int pageNumber, int pageSize, string sortColumn, string sortOrder);
+        
+        public Task<List<ThucPhamResponse>> FillterByIDLoaiThucPham(int id);
+        public Task<List<ThucPhamGroupDTO>> GroupThucPhamByLTP();
+
         public Task<ThucPham> CreateThucPham(ThucPham thucPham);
         public Task<ThucPham> UpdateThucPham(ThucPham thucPham);
         public Task<bool> DeleteThucPham(int id);

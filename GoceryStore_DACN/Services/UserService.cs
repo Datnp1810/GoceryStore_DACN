@@ -10,9 +10,12 @@ using GoceryStore_DACN.Models.Respones;
 using GoceryStore_DACN.Services.Interface;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.IdentityModel.JsonWebTokens;
+using Models.Requests;
+using Models.Respones;
 
 namespace GoceryStore_DACN.Services
 {
@@ -21,12 +24,12 @@ namespace GoceryStore_DACN.Services
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IPasswordHasher _passwordHasher;
         private readonly ITokenService _tokenService;
-        private readonly IEmailTemplateService _emailTemplateService; 
+        private readonly IEmailTemplateService _emailTemplateService;
         private readonly IConfiguration _configuration;
         private readonly RoleManager<IdentityRole> _roleManager;
-        public UserService(UserManager<ApplicationUser> userManager, 
-            IPasswordHasher passwordHasher, 
-            ITokenService tokenService, 
+        public UserService(UserManager<ApplicationUser> userManager,
+            IPasswordHasher passwordHasher,
+            ITokenService tokenService,
             IEmailTemplateService emailTemplateService, IConfiguration configuration, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
@@ -140,7 +143,7 @@ namespace GoceryStore_DACN.Services
                 };
 
                 var result = await _userManager.CreateAsync(user, registerRequest.Password);
-               
+
                 if (result.Succeeded)
                 {
                     //Add user to default role 
@@ -150,7 +153,7 @@ namespace GoceryStore_DACN.Services
                     Console.WriteLine(confirmationLink);
                     var emailTemplate =
                         _emailTemplateService.SendConfirmationEmailAsync(user.Email, user.UserName, confirmationLink);
-                    
+
                 }
                 return new RegistrationResult
                 {
@@ -166,7 +169,7 @@ namespace GoceryStore_DACN.Services
                     Error = e.Message
                 };
             }
-    
+
         }
 
         public async Task<EmailConfirmationResult> ConfirmEmailAsync(string userId, string token)
@@ -238,6 +241,33 @@ namespace GoceryStore_DACN.Services
             Console.WriteLine(baseUrl);
             return $"{baseUrl}/confirm-email?userId={Uri.EscapeDataString(userId)}&token={Uri.EscapeDataString(token)}";
         }
-        
+
+        //APi get info 
+        public async Task<UserInfo> GetUserInfoAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            return new UserInfo
+            {
+                Id = user.Id,
+                Email = user.Email,
+                FullName = user.FullName,
+                PhoneNumber = user.PhoneNumber,
+                Address = user.Address
+            };
+        }
+        //update user info 
+        public async Task<UpdateUserInfo> UpdateUserInfoAsync(string userId, [FromBody] UpdateUserInfo updateUserInfo)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            user.FullName = updateUserInfo.FullName;
+            user.PhoneNumber = updateUserInfo.PhoneNumber;
+            await _userManager.UpdateAsync(user);
+            return new UpdateUserInfo
+            {
+                FullName = user.FullName,
+                PhoneNumber = user.PhoneNumber
+            };
+        }
+
     }
 }

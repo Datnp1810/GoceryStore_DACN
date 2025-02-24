@@ -67,26 +67,37 @@ namespace GoceryStore_DACN.Repositories
             Console.WriteLine("Dữ liệu đã được lưu vào cache.");
         }
 
+        private static readonly object _cacheLock = new object();
+
         public IEnumerable<MonAnResponse> GetAllMonAnCache()
         {
-            if (_cache.TryGetValue("MonAnTable", out IEnumerable<MonAnResponse> monAnList))
+            if ( _cache.TryGetValue("MonAnTable", out IEnumerable<MonAnResponse> monAnList) )
             {
-                // Nếu có, trả về dữ liệu từ cache
                 Console.WriteLine("Dữ liệu lấy từ cache.");
                 return monAnList;
             }
-            // Nếu không có trong cache, lấy dữ liệu từ database
-            Console.WriteLine("Dữ liệu không có trong cache, tải từ database...");
-            monAnList = _context.MonAns.Include(tp => tp.LoaiMonAn).Select(s => new MonAnResponse
+
+            lock ( _cacheLock ) // Đảm bảo chỉ có 1 thread tải dữ liệu từ DB
             {
-                ID_TenMonAn = s.ID_MonAn,
-                TenMonAn = s.TenMonAn,
-                ID_LoaiMonAn = s.LoaiMonAn.ID_LoaiMonAn,
-                TenLoaiMonAn = s.LoaiMonAn.TenLoaiMonAn
-            }).ToList();
-            AddToCache("MonAnTable", monAnList);
+                if ( !_cache.TryGetValue("MonAnTable", out monAnList) )
+                {
+                    
+                        monAnList = _context.MonAns.Include(tp => tp.LoaiMonAn).Select(s => new MonAnResponse
+                        {
+                            ID_TenMonAn = s.ID_MonAn,
+                            TenMonAn = s.TenMonAn,
+                            ID_LoaiMonAn = s.LoaiMonAn.ID_LoaiMonAn,
+                            TenLoaiMonAn = s.LoaiMonAn.TenLoaiMonAn
+                        }).ToList();
+                    
+
+                    AddToCache("MonAnTable", monAnList);
+                }
+            }
+
             return monAnList;
         }
+
         public IEnumerable<MonAnResponse> GetAllMonAnByLoaiMonAnThreadCache(int idLoaiMon)
         {
             IEnumerable<MonAnResponse> locTheoLoai = new List<MonAnResponse>();

@@ -1,9 +1,12 @@
-﻿using GoceryStore_DACN.Models;
+﻿using System.Security.Claims;
+using GoceryStore_DACN.Models;
 using GoceryStore_DACN.Models.Requests;
 using GoceryStore_DACN.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Models.Requests;
 
 namespace GoceryStore_DACN.Controllers
 {
@@ -11,17 +14,17 @@ namespace GoceryStore_DACN.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly JwtSettings _jwtSettings; 
+        private readonly JwtSettings _jwtSettings;
         private readonly IUserService _userService;
-        private readonly IEmailTemplateService _emailTemplateService;   
+        private readonly IEmailTemplateService _emailTemplateService;
         public UserController(IOptions<JwtSettings> jwtSettings, IUserService userService, IEmailTemplateService emailTemplateService)
         {
             _jwtSettings = jwtSettings.Value;
             _userService = userService;
             _emailTemplateService = emailTemplateService;
-        }   
+        }
         [HttpPost("/login")]
-        public  async Task<IActionResult> LoginTask([FromBody] LoginRequest loginRequest)
+        public async Task<IActionResult> LoginTask([FromBody] LoginRequest loginRequest)
         {
             try
             {
@@ -36,13 +39,25 @@ namespace GoceryStore_DACN.Controllers
                 var result = await _userService.LoginAsync(loginRequest);
                 if (result == null)
                 {
-                    return BadRequest(result); 
+                    return BadRequest(result);
                 }
-                return Ok(new
+                else if(result.Status =="Error")
                 {
-                    message = "Login successfully",
-                    result
-                });
+                    return Ok(new
+                    {
+                        message = "Login Failed",
+                        result
+                    });
+                }   
+                else
+                {
+                    return Ok(new
+                    {
+                        message = "Login successfully",
+                        result
+                    });
+                }
+                
             }
             catch (Exception e)
             {
@@ -79,7 +94,7 @@ namespace GoceryStore_DACN.Controllers
                 Console.WriteLine(e);
                 return BadRequest(new
                 {
-                    status = false, 
+                    status = false,
                     message = e.Message
                 });
             }
@@ -121,6 +136,32 @@ namespace GoceryStore_DACN.Controllers
                 });
             }
         }
-     
+
+        [HttpGet("/get-user-info")]
+        [Authorize]
+        public async Task<IActionResult> GetUserInfoTask()
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest(new { message = "User not found" });
+            }
+            var result = await _userService.GetUserInfoAsync(userId);
+            return Ok(result);
+        }
+        [HttpPut("/update-user-info")]
+        [Authorize]
+        public async Task<IActionResult> UpdateUserInfoTask([FromBody] UpdateUserInfo updateUserInfo)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest(new { message = "User not found" });
+            }
+            var result = await _userService.UpdateUserInfoAsync(userId, updateUserInfo);
+            return Ok(result);
+        }
+
+
     }
 }

@@ -96,6 +96,45 @@ namespace GoceryStore_DACN.Repositories
             return (thucPhams, totalItems);
         }
 
+        public async Task<List<ThucPhamResponse>> FillterByIDLoaiThucPham(int id)
+        {
+            var query = _context.ThucPhams.Include(p => p.LoaiThucPham).Where(tp => tp.LoaiThucPham.ID_LoaiThucPham == id);
+            var thucPhams = await query.Select(s => new ThucPhamResponse
+            {
+                ID_ThucPham = s.ID_ThucPham,
+                TenThucPham = s.TenThucPham,
+                GiaBan = s.GiaBan,
+                SoLuong = s.SoLuong,
+                Image = s.Image,
+                ID_LoaiThucPham = s.LoaiThucPham.ID_LoaiThucPham,
+                TenLoaiThucPham = s.LoaiThucPham.TenLoaiThucPham
+            }).ToListAsync();
+
+            return thucPhams;
+        }
+
+        public async Task<List<ThucPhamGroupDTO>> GroupThucPhamByLTP()
+        {
+            //Truy ván đên loại thực phẩm
+            var query =  _context.ThucPhams.Include(p => p.LoaiThucPham);
+
+            //Lọc và nhóm theo loại thực phẩm
+            var group = await query.GroupBy(tp => tp.LoaiThucPham).Select(g => new ThucPhamGroupDTO
+            {
+                ID_LoaiThucPham = g.Key.ID_LoaiThucPham,
+                TenLoaiThucPham = g.Key.TenLoaiThucPham,
+                Products = g.Take(6).Select(s => new ThucPhamGroupResponse
+                {
+                    ID_ThucPham = s.ID_ThucPham,
+                    TenThucPham = s.TenThucPham,
+                    GiaBan = s.GiaBan,
+                    SoLuong = s.SoLuong,
+                    Image = s.Image
+                }).ToList()
+
+            }).ToListAsync();
+            return group;
+        }
 
         public async Task<ThucPham> CreateThucPham(ThucPham thucPham)
         {

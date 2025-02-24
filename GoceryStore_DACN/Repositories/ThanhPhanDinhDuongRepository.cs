@@ -59,14 +59,23 @@ namespace GoceryStore_DACN.Repositories
             Console.WriteLine("Dữ liệu đã được lưu vào cache.");
 
         }
+        
+        private static readonly object _cacheLock = new object();
         public IEnumerable<ThanhPhanDinhDuong> GetAllThanhPhanDinhDuongCache()
         {
             if (_cache.TryGetValue("ThanhPhanDinhDuongTable", out IEnumerable<ThanhPhanDinhDuong> thanhPhanDinhDuonngList))
             {
                 return thanhPhanDinhDuonngList;
             }
-            thanhPhanDinhDuonngList = _context.ThanhPhanDinhDuongs!.Include(l => l.ThucPham).ToList();
-            AddToCache("ThanhPhanDinhDuongTable", thanhPhanDinhDuonngList);
+            lock (_cacheLock)
+            {
+                if (!_cache.TryGetValue("ThanhPhanDinhDuongTable", out thanhPhanDinhDuonngList) )
+                {
+                    thanhPhanDinhDuonngList = _context.ThanhPhanDinhDuongs!.Include(l => l.ThucPham).ToList();
+                    AddToCache("ThanhPhanDinhDuongTable", thanhPhanDinhDuonngList);
+                }
+            }
+           
             return thanhPhanDinhDuonngList;
 
         }

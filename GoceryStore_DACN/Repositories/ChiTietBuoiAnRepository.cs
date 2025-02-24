@@ -61,6 +61,7 @@ namespace GoceryStore_DACN.Repositories
             _cache.Set("CT_BuoiAnTable", ct_BuoiAnList, cacheEntryOptions);
         }
 
+        private static readonly object _cacheLock = new object();
         public  IEnumerable<CT_BuoiAnDTO> GetAllCT_BuoiAnCache()
         {
             if (_cache.TryGetValue("CT_BuoiAnTable", out IEnumerable<CT_BuoiAnDTO> ct_BuoiAnList))
@@ -69,15 +70,22 @@ namespace GoceryStore_DACN.Repositories
               
                 return ct_BuoiAnList;
             }
-            // Nếu không có trong cache, lấy dữ liệu từ database
-            ct_BuoiAnList =  _context.CTBuoiAns!.Include(p => p.MonAn)
-                .Include(q => q.ThucPham).Select(s => new CT_BuoiAnDTO
+            lock (_cacheLock)
+            {
+                if(!_cache.TryGetValue("CT_BuoiAnTable", out ct_BuoiAnList) )
                 {
-                    ID_MonAn = s.ID_MonAn,
-                    ID_ThucPham = s.ID_ThucPham,
-                    Gram = s.Gram
-                }).ToList();
-            AddToCache("CT_BuoiAnTable", ct_BuoiAnList);
+                   
+                        ct_BuoiAnList = _context.CTBuoiAns!.Include(p => p.MonAn)
+                        .Include(q => q.ThucPham).Select(s => new CT_BuoiAnDTO
+                        {
+                            ID_MonAn = s.ID_MonAn,
+                            ID_ThucPham = s.ID_ThucPham,
+                            Gram = s.Gram
+                        }).ToList();
+                   
+                    AddToCache("CT_BuoiAnTable", ct_BuoiAnList);
+                }    
+            }
             return ct_BuoiAnList;
         }
         public  IEnumerable<CT_BuoiAnDTO> GetAllCT_BuoiAnByIdMonAnThreadCache(int id)
