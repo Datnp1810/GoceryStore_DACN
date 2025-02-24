@@ -41,11 +41,23 @@ namespace GoceryStore_DACN.Controllers
                 {
                     return BadRequest(result);
                 }
-                return Ok(new
+                else if(result.Status =="Error")
                 {
-                    message = "Login successfully",
-                    result
-                });
+                    return Ok(new
+                    {
+                        message = "Login Failed",
+                        result
+                    });
+                }   
+                else
+                {
+                    return Ok(new
+                    {
+                        message = "Login successfully",
+                        result
+                    });
+                }
+                
             }
             catch (Exception e)
             {
