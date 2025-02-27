@@ -50,6 +50,8 @@ Sau khi hoàn tất cài đặt Font-End và Back-End bạn hãy chạy song son
 - **Swagger**: Dùng để tạo và kiểm tra các API dễ dàng
 - **Thuật toán GA**: Sử dụng để xây dựng chức năng gợi ý thực đơn theo Chế Độ Ăn của người dùng
 - **Phân luồng, Memory Cache**: Tối ưu hóa thuật toán
+## Link trang web sau khi deploy
+[https://gocery-store.vercel.app/index.html](https://gocery-store.vercel.app/index.html)
 
 ## Cách Đóng Góp
 
